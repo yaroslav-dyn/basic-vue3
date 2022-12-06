@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/main.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1670331660709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1670331668813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n import App from \"./App.vue\";\n import router from \"./router\";\n import store from \"./store\";\n \n-import ''\n+import './assets/'\n \n createApp(App).use(store).use(router).mount(\"#app\");\n"
+                },
+                {
+                    "date": 1670331674579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n import App from \"./App.vue\";\n import router from \"./router\";\n import store from \"./store\";\n \n-import './assets/'\n+import './assets/sass/mai'\n \n createApp(App).use(store).use(router).mount(\"#app\");\n"
+                },
+                {
+                    "date": 1670331683652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n import App from \"./App.vue\";\n import router from \"./router\";\n import store from \"./store\";\n \n-import './assets/sass/mai'\n+import './assets/sass/main.scss'\n \n createApp(App).use(store).use(router).mount(\"#app\");\n"
+                }
+            ],
+            "date": 1670331660709,
+            "name": "Commit-0",
+            "content": "import { createApp } from \"vue\";\nimport App from \"./App.vue\";\nimport router from \"./router\";\nimport store from \"./store\";\n\nimport ''\n\ncreateApp(App).use(store).use(router).mount(\"#app\");\n"
+        }
+    ]
+}

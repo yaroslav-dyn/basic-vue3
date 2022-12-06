@@ -1,0 +1,98 @@
+{
+    "sourceFile": "src/assets/sass/main.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1670331694848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1670331851947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,8 @@\n \n \n+\n+\n+\n body {\n-  back\n+  background-color: aquamarine;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670331859845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \n+:\n \n \n \n-\n body {\n   background-color: aquamarine;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670331871884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n \n-:\n+\":\"root {\n \n+}\n \n \n+\n body {\n   background-color: aquamarine;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670331897384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n \n-\":\"root {\n-\n+:root {\n+  \n }\n \n \n \n"
+                },
+                {
+                    "date": 1670331926165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n \n :root {\n-  \n+  --editor-bg: #c8c8c8;\n+  --editor-text: #444\n }\n \n \n \n"
+                },
+                {
+                    "date": 1670331951479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n \n :root {\n   --editor-bg: #c8c8c8;\n   --editor-text: #444\n+\n+    --editor-bg: #c8c8c8;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1670331959933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n :root {\n   --editor-bg: #c8c8c8;\n   --editor-text: #444\n \n-    --editor-bg: #c8c8c8;\n+    --editor-bg--dark: #ddd;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1670331973282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n :root {\n   --editor-bg: #c8c8c8;\n   --editor-text: #444\n \n-    --editor-bg--dark: #ddd;\n+    --editor-bg--dark: #444;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1670331979805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n   --editor-bg: #c8c8c8;\n   --editor-text: #444\n \n     --editor-bg--dark: #444;\n+    --editor-text--dark: #444;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1670331993497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   --editor-bg: #c8c8c8;\n   --editor-text: #444\n \n     --editor-bg--dark: #444;\n-    --editor-text--dark: #444;\n+    --editor-text--dark: #fff;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1670332002177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n \n :root {\n   --editor-bg: #c8c8c8;\n-  --editor-text: #444\n+  --editor-text: #444444\n \n-    --editor-bg--dark: #444;\n+    --editor-bg--dark: #4444444;\n     --editor-text--dark: #fff;\n }\n \n \n"
+                },
+                {
+                    "date": 1670332007578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n :root {\n   --editor-bg: #c8c8c8;\n   --editor-text: #444444\n \n-    --editor-bg--dark: #4444444;\n+    --editor-bg--dark: #444444;\n     --editor-text--dark: #fff;\n }\n \n \n"
+                },
+                {
+                    "date": 1670332019933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,6 +9,6 @@\n \n \n \n body {\n-  background-color: aquamarine;\n+  background-color:   --editor-bg\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670332028721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,6 +9,7 @@\n \n \n \n body {\n-  background-color:   --editor-bg\n+  background-color: --editor-bg;\n+  color: \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670332034373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,6 +10,6 @@\n \n \n body {\n   background-color: --editor-bg;\n-  color: \n+  color:            --editor-text\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670332041444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,6 +10,7 @@\n \n \n body {\n   background-color: --editor-bg;\n-  color:            --editor-text\n+  color:            --editor-text;\n+  &\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670332047138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,6 +11,6 @@\n \n body {\n   background-color: --editor-bg;\n   color:            --editor-text;\n-  &\n+  &.light\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670332063075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,6 +11,8 @@\n \n body {\n   background-color: --editor-bg;\n   color:            --editor-text;\n-  &.light\n-}\n\\ No newline at end of file\n+}\n+\n+\n+.--light\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670332068923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,5 @@\n   color:            --editor-text;\n }\n \n \n-.--light-theme\n\\ No newline at end of file\n+.--light-theme \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1670332163333,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   --editor-text: #444444\n \n     --editor-bg--light: #444444;\n     --editor-text--light: #fff;\n-    --editor-bg--dark: rgb(177, 215, 242);\n+    --editor-bg--dark: #b1d7f2;\n     --editor-text--dark: #fff;\n }\n \n \n"
+                }
+            ],
+            "date": 1670331694848,
+            "name": "Commit-0",
+            "content": "\n\nbody {\n  back\n}"
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/router/index.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1660734332399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1660734341836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     },\n   },\n   {\n     path: \"/about\",\n-    name: \"About\",\n+    name: \"AboutView\",\n     // route level code-splitting\n     // this generates a separate chunk (about.[hash].js) for this route\n     // which is lazy-loaded when the route is visited.\n     component: () =>\n"
+                },
+                {
+                    "date": 1670268094031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n       default: Home\n     },\n   },\n   {\n-    path: \"/about\",\n+    path: \"/editor\",\n     name: \"AboutView\",\n     // route level code-splitting\n     // this generates a separate chunk (about.[hash].js) for this route\n     // which is lazy-loaded when the route is visited.\n"
+                },
+                {
+                    "date": 1670268106511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n \n import { createRouter, createWebHistory, RouteRecordRaw } from \"vue-router\";\n import Home from \"../views/Home.vue\";\n+import Editor from \"../views/Home.vue\";\n \n const routes: Array<RouteRecordRaw> = [\n   {\n     path: \"/\",\n"
+                },
+                {
+                    "date": 1670268116708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \n import { createRouter, createWebHistory, RouteRecordRaw } from \"vue-router\";\n import Home from \"../views/Home.vue\";\n-import Editor from \"../views/Home.vue\";\n+import Editor from \"../components/\";\n \n const routes: Array<RouteRecordRaw> = [\n   {\n     path: \"/\",\n"
+                },
+                {
+                    "date": 1670268122174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \n import { createRouter, createWebHistory, RouteRecordRaw } from \"vue-router\";\n import Home from \"../views/Home.vue\";\n-import Editor from \"../components/\";\n+import Editor from \"../components/Memo/E\";\n \n const routes: Array<RouteRecordRaw> = [\n   {\n     path: \"/\",\n"
+                },
+                {
+                    "date": 1670268137328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \n import { createRouter, createWebHistory, RouteRecordRaw } from \"vue-router\";\n import Home from \"../views/Home.vue\";\n-import Editor from \"../components/Memo/E\";\n+import Editor from \"../components/Memo/MemoIndex.vue\";\n \n const routes: Array<RouteRecordRaw> = [\n   {\n     path: \"/\",\n@@ -12,9 +12,9 @@\n     },\n   },\n   {\n     path: \"/editor\",\n-    name: \"AboutView\",\n+    name: \"Editor\",\n     // route level code-splitting\n     // this generates a separate chunk (about.[hash].js) for this route\n     // which is lazy-loaded when the route is visited.\n     component: () =>\n"
+                },
+                {
+                    "date": 1670268146422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     // route level code-splitting\n     // this generates a separate chunk (about.[hash].js) for this route\n     // which is lazy-loaded when the route is visited.\n     component: () =>\n-      import(/* webpackChunkName: \"about\" */ \"../views/AboutView.vue\"),\n+      import(/* webpackChunkName: \"about\" */ \"../components/Memo/MemoIndex.vue\"),\n   },\n ];\n \n const router = createRouter({\n"
+                },
+                {
+                    "date": 1670268152723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \n import { createRouter, createWebHistory, RouteRecordRaw } from \"vue-router\";\n import Home from \"../views/Home.vue\";\n-import Editor from \"../components/Memo/MemoIndex.vue\";\n \n+\n const routes: Array<RouteRecordRaw> = [\n   {\n     path: \"/\",\n     name: \"Home\",\n"
+                }
+            ],
+            "date": 1660734332399,
+            "name": "Commit-0",
+            "content": "\nimport { createRouter, createWebHistory, RouteRecordRaw } from \"vue-router\";\nimport Home from \"../views/Home.vue\";\n\nconst routes: Array<RouteRecordRaw> = [\n  {\n    path: \"/\",\n    name: \"Home\",\n    components: {\n      default: Home\n    },\n  },\n  {\n    path: \"/about\",\n    name: \"About\",\n    // route level code-splitting\n    // this generates a separate chunk (about.[hash].js) for this route\n    // which is lazy-loaded when the route is visited.\n    component: () =>\n      import(/* webpackChunkName: \"about\" */ \"../views/AboutView.vue\"),\n  },\n];\n\nconst router = createRouter({\n  history: createWebHistory(process.env.BASE_URL),\n  routes,\n});\n\nexport default router;\n"
+        }
+    ]
+}

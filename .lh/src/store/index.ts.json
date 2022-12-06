@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/store/index.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1670332321142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1670332330340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n-    current\n+    currentTheme\n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670332337194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n-    currentTheme\n+    colorTheme: \n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670332362755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n-    colorTheme: \n+    colorTheme: '--light-theme'\n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                }
+            ],
+            "date": 1670332321142,
+            "name": "Commit-0",
+            "content": "import { createStore } from \"vuex\";\n\nexport default createStore({\n  state: {\n    current\n  },\n  mutations: {},\n  actions: {},\n  modules: {},\n});\n"
+        }
+    ]
+}

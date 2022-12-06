@@ -1,5 +1,8 @@
 <template>
-  <div>is legal {{ legalAge }}</div>
+  <button @click="changeEditorState">Edit</button>
+  <div class="editor--area" ref="mainEditor" :contenteditable="isEditable" @input="updateValue($event)">
+      {{ currentDoc }}
+  </div>
 </template>
 
 <script lang="ts">
@@ -10,15 +13,32 @@ import General from "@/mixins/General";
   components: {},
 })
 export default class Home extends mixins(General) {
-  age = 18;
 
-  get legalAge(): boolean {
-    return this.age >= 18;
+   #refs!: {
+     mainEditor: HTMLElement
+  }
+  
+  public isEditable  = false;
+  currentDoc = "Hello!"
+
+
+  changeEditorState() {
+    this.isEditable = !this.isEditable;
+    let areaElement = this.$refs.mainEditor as HTMLAreaElement;
+    this.$nextTick(()=> {
+      this.isEditable && areaElement.focus();
+      document.execCommand('selectAll', false, undefined);
+      document?.getSelection()?.collapseToEnd();
+    })
   }
 
+  updateValue(contentEvent: any): void {
+    this.logger(this, contentEvent.srcElement!.innerText);
+  }
+
+
   mounted(): void {
-    console.log("on mounted", this.$route.name);
-    this.logger(this, "data");
+    //!SECTION
   }
 }
 </script>

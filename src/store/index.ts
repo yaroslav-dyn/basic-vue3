@@ -1,7 +1,9 @@
 import { createStore } from "vuex";
 
 export default createStore({
-  state: {},
+  state: {
+    colorTheme: '--light-theme'
+  },
   mutations: {},
   actions: {},
   modules: {},

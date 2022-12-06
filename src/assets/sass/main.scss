@@ -1,0 +1,49 @@
+:root {
+  --editor-bg: #fff --editor-text: #444 --editor-bg--light: #444444;
+  --editor-text--light: #fff;
+
+  --editor-bg--dark: rgb(177, 215, 242);
+  --editor-text--dark: #444;
+
+
+  --light--outline_color: blue;
+  --dark--outline_color: #444;
+}
+
+
+body {
+  background-color: var(--editor-bg);
+  color: var(--editor-text);
+}
+
+.main--element {
+  min-height: 100vh;
+}
+
+.editor--area {
+  min-height: 100vh;
+
+  .--light-theme & {
+    &:focus {
+      outline-color: var(--light--outline_color);
+    }
+  }
+
+  .--dark-theme & {
+    &:focus {
+      outline-color: var(--dark--outline_color);
+    }
+  }
+
+}
+
+
+.--light-theme {
+  background-color: var(--editor-bg);
+  color: var(--editor-text);
+}
+
+.--dark-theme {
+  background-color: var(--editor-bg--dark);
+  color: var(--editor-text--dark);
+}
