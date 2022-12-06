@@ -7,8 +7,10 @@
       <router-link to="/about">About</router-link>
 
 
-      <input type="radio" name="colorTheme" :value="false" v-model="isDarkTheme">
-      <input type="radio" name="colorTheme" :value="true" v-model="isDarkTheme">
+      <input type="radio" id="lightTheme" name="colorTheme" :value="false" v-model="isDarkTheme">
+      <label for="lightTheme">Light</label>
+      <input type="radio" id="darkTheme" name="colorTheme" :value="true" v-model="isDarkTheme">
+      <label for="darkTheme">Dark</label>
     </div>
     <router-view />
   </main>
@@ -17,25 +19,26 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { mapState } from "vuex";
+
 
 @Options({
-  computed: {
-    ...mapState({
-      colorTheme: state => state.colorTheme
-    })
+  watch: {
+    isDarkTheme(val) {
+      localStorage.setItem('isDarkTheme', val);
+    }
   }
 })
 export default class AppComponent extends Vue {
 
-  
-
-
 public isDarkTheme = false;
 
+  mounted() {
+    const isDarkThemeStatus = localStorage.getItem('isDarkTheme');
+    if (isDarkThemeStatus)
+      this.isDarkTheme = JSON.parse(isDarkThemeStatus);
+  }
 
-
-}
+}//
 </script>
 
 

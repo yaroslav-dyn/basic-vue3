@@ -1,35 +1,52 @@
+@import'_helpers';
+
 :root {
-  --editor-bg: #fff --editor-text: #444 --editor-bg--light: #444444;
-  --editor-text--light: #fff;
+  --editor-bg: #fff; 
+  --editor-text: #444; 
 
-  --editor-bg--dark: rgb(177, 215, 242);
-  --editor-text--dark: #444;
+  --editor-bg--light: #fff;
+  --editor-text--light: #444;
 
+  --editor-bg--dark: #0b1821;
+  --editor-text--dark: #fff;
 
   --light--outline_color: blue;
   --dark--outline_color: #444;
 }
 
+html {
+  font-size: 10px;
+}
 
 body {
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
   background-color: var(--editor-bg);
   color: var(--editor-text);
 }
 
 .main--element {
   min-height: 100vh;
+  padding: 0 2rem 2rem;
 }
 
 .editor--area {
   min-height: 100vh;
 
   .--light-theme & {
+    background-color: var(--editor-bg--light);
+    color: var(--editor-text--light);
+
     &:focus {
       outline-color: var(--light--outline_color);
     }
   }
 
   .--dark-theme & {
+    background-color: var(--editor-bg--dark);
+    color: var(--editor-text--dark);
+
     &:focus {
       outline-color: var(--dark--outline_color);
     }

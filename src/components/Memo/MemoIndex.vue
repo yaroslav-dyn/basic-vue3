@@ -1,6 +1,16 @@
 <template>
-  <button @click="changeEditorState">Edit</button>
-  <div class="editor--area" ref="mainEditor" :contenteditable="isEditable" @input="updateValue($event)">
+  <div class="d-flex" align="--center" justify="--space-between">
+    <div>
+      <label for="readMode">{{isEditable ? 'Write' : 'Read'}}</label>
+      <input type="checkbox" id="readMode" :value="isEditable" @change="changeEditorState" />
+    </div>
+    <div>
+      <input type="text" v-model="currentDocName" disabled />
+    </div>
+  </div>
+ 
+  <br />
+  <div class="editor--area" ref="mainEditor" :contenteditable="isEditable" @blur="updateValue($event)">
       {{ currentDoc }}
   </div>
 </template>
@@ -17,6 +27,8 @@ export default class Home extends mixins(General) {
    #refs!: {
      mainEditor: HTMLElement
   }
+
+  public currentDocName = 'File_1';
   
   public isEditable  = false;
   currentDoc = "Hello!"
@@ -33,12 +45,13 @@ export default class Home extends mixins(General) {
   }
 
   updateValue(contentEvent: any): void {
-    this.logger(this, contentEvent.srcElement!.innerText);
+    localStorage.setItem(this.currentDocName, contentEvent.srcElement!.innerText);
   }
 
 
   mounted(): void {
-    //!SECTION
+    const currentDoc = localStorage.getItem(this.currentDocName);
+    currentDoc && (this.currentDoc = currentDoc);
   }
 }
 </script>

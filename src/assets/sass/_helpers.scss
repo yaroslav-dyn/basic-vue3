@@ -1,0 +1,30 @@
+.d-flex {
+  display: flex;
+
+  [col='6'] {
+    flex-basis: 50%;
+  }
+
+  &[align='--center'] {
+    align-items: center;
+  }
+
+  &[justify='--space-between'] {
+    justify-content: space-between;
+  }
+}
+
+
+.text {
+  &--left {
+    text-align: left;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--right {
+    text-align: right;
+  }
+}
