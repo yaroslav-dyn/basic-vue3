@@ -1,16 +1,7 @@
-
-
 <template>
   <main class="main--element" :class="!isDarkTheme ? '--light-theme' : '--dark-theme '">
-    <div id="nav" >
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-
-
-      <input type="radio" id="lightTheme" name="colorTheme" :value="false" v-model="isDarkTheme">
-      <label for="lightTheme">Light</label>
-      <input type="radio" id="darkTheme" name="colorTheme" :value="true" v-model="isDarkTheme">
-      <label for="darkTheme">Dark</label>
+    <div id="nav">
+      <AppNavigation @onChangeTheme="(theme) => { isDarkTheme = theme }" />
     </div>
     <router-view />
   </main>
@@ -19,28 +10,21 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-
+import { ElSwitch } from 'element-plus';
+import { Moon, Sunny } from '@element-plus/icons-vue';
+import AppNavigation from "@/components/_common/AppNavigation.vue";
 
 @Options({
-  watch: {
-    isDarkTheme(val) {
-      localStorage.setItem('isDarkTheme', val);
-    }
-  }
+  components: {
+    AppNavigation
+  },
 })
 export default class AppComponent extends Vue {
 
-public isDarkTheme = false;
-
-  mounted() {
-    const isDarkThemeStatus = localStorage.getItem('isDarkTheme');
-    if (isDarkThemeStatus)
-      this.isDarkTheme = JSON.parse(isDarkThemeStatus);
-  }
+  public isDarkTheme = false;
 
 }//
 </script>
-
 
 <style lang="scss">
 #app {
@@ -51,8 +35,6 @@ public isDarkTheme = false;
 }
 
 #nav {
-  padding: 30px;
-
   a {
     font-weight: bold;
     color: #2c3e50;

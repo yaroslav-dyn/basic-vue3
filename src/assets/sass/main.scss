@@ -4,13 +4,13 @@
   --editor-bg: #fff; 
   --editor-text: #444; 
 
-  --editor-bg--light: #fff;
+  --editor-bg--light: #efefef;
   --editor-text--light: #444;
 
   --editor-bg--dark: #0b1821;
   --editor-text--dark: #fff;
 
-  --light--outline_color: blue;
+  --light--outline_color: #545c64;
   --dark--outline_color: #444;
 }
 
@@ -28,11 +28,13 @@ body {
 
 .main--element {
   min-height: 100vh;
-  padding: 0 2rem 2rem;
+  padding-bottom: 2rem;
 }
 
+// NOTE: Main editable element
 .editor--area {
   min-height: 100vh;
+  padding: 1.2rem;
 
   .--light-theme & {
     background-color: var(--editor-bg--light);

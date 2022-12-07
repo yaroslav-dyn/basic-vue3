@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/views/Home.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1670362057484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1670362076007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n </template>\n \n <script lang=\"ts\">\n import { Options, Vue } from \"vue-class-component\";\n-import EditorIndex from \"@/components/Memo/MemoIndex.vue\";\n+import EditorIndex from \"@/components/Memo/EditorIndex.vue\";\n \n @Options({\n   components: {\n     MemoIndex,\n"
+                },
+                {
+                    "date": 1670362101969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,13 @@\n <template>\n   <div class=\"home\">\n-    <MemoIndex/>\n+    <EditorIndex/>\n   </div>\n </template>\n \n <script lang=\"ts\">\n import { Options, Vue } from \"vue-class-component\";\n-import EditorIndex from \"@/components/Memo/EditorIndex.vue\";\n+import EditorIndex from \"@/components/EditorIndex.vue\";\n \n @Options({\n   components: {\n     MemoIndex,\n"
+                },
+                {
+                    "date": 1670362109920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n import EditorIndex from \"@/components/EditorIndex.vue\";\n \n @Options({\n   components: {\n-    MemoIndex,\n+    EditorIndex,\n   },\n })\n export default class Home extends Vue {}\n </script>\n"
+                },
+                {
+                    "date": 1670362336402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n </template>\n \n <script lang=\"ts\">\n import { Options, Vue } from \"vue-class-component\";\n-import EditorIndex from \"@/components/EditorIndex.vue\";\n+import EditorIndex from \"@/components/Editor.vue\";\n \n @Options({\n   components: {\n     EditorIndex,\n"
+                },
+                {
+                    "date": 1670362344113,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n </template>\n \n <script lang=\"ts\">\n import { Options, Vue } from \"vue-class-component\";\n-import EditorIndex from \"@/components/Editor.vue\";\n+import EditorIndex from \"@/components/EditorView.vue\";\n \n @Options({\n   components: {\n     EditorIndex,\n"
+                }
+            ],
+            "date": 1670362057484,
+            "name": "Commit-0",
+            "content": "<template>\n  <div class=\"home\">\n    <MemoIndex/>\n  </div>\n</template>\n\n<script lang=\"ts\">\nimport { Options, Vue } from \"vue-class-component\";\nimport EditorIndex from \"@/components/Memo/MemoIndex.vue\";\n\n@Options({\n  components: {\n    MemoIndex,\n  },\n})\nexport default class Home extends Vue {}\n</script>\n"
+        }
+    ]
+}
