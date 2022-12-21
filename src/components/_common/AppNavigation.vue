@@ -39,6 +39,7 @@
         inactive-color="green"
         size="large"
         v-model="isDarkTheme"
+        @input="onChangeTheme"
       />
     </div>
 
@@ -49,28 +50,45 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import { Moon, Sunny } from '@element-plus/icons-vue';
+import { mapActions, mapState } from "vuex";
 
 @Options({
-  components: {
+ methods: {
+   ...mapActions({
+     setColorThemeAction: 'setColorTheme'
+   })
+ },
+  computed: {
+   ...mapState({
+     isDarkThemeState: (state: any) => state.isDarkTheme
+   })
   },
   watch: {
-    isDarkTheme(val) {
+    isDarkThemeState(val) {
       localStorage.setItem('isDarkTheme', val);
-      this.$emit('onChangeTheme', val);
+      this.isDarkTheme = val;
     }
   }
 })
 export default class AppNavigation extends Vue {
+
+  setColorThemeAction!: (value: boolean) => void;
+
   public Moon = Moon;
   public Sunny = Sunny;
   public activeIndex = 0;
   public activeIndex2 = 0;
   public isDarkTheme = false;
 
+  onChangeTheme() {
+    this.setColorThemeAction(this.isDarkTheme);
+  }
+
   mounted() {
     const isDarkThemeStatus = localStorage.getItem('isDarkTheme');
     if (isDarkThemeStatus)
       this.isDarkTheme = JSON.parse(isDarkThemeStatus);
+      this.setColorThemeAction(this.isDarkTheme);
   }
 
 }

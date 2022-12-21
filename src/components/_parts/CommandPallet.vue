@@ -1,12 +1,13 @@
 <template>
   <div class="command--panel__search">
     <el-autocomplete
+      ref="command_input"
       class="input_autocomplete"
       v-model="commandText"
       :fetch-suggestions="querySearchAsync"
       value-key="value"
       placeholder="Please input"
-      @blur="commandText = ''"
+      @blur="commandText = null"
       @select="actionSelect"
     />
   </div>
@@ -32,8 +33,8 @@ export default class EditorCommandPallet extends mixins(
   loadAll() {
     return [
       { value: 'Save document', action: 'SAVE_DOCUMENT' },
-      { value: 'Dark mode', action: 'dark mode' },
-      { value: 'Light mode', action: 'light mode' },
+      { value: 'Dark mode', action: 'DARK_MODE' },
+      { value: 'Light mode', action: 'LIGHT_MODE' },
       { value: 'Font: increase font size', action: 'INCREASE_FONT_SIZE' },
       { value: 'Font: decrease font size', action: 'DECREASE_FONT_SIZE' },
       { value: 'Font: reset font size', action: 'RESET_FONT_SIZE' },
@@ -63,6 +64,8 @@ export default class EditorCommandPallet extends mixins(
   actionSelect(item: LinkItem) {
     this.runAction(item.action);
     this.commandText = null;
+    //@ts-ignore html element
+    this.$refs.command_input.blur();
   }
 
   mounted() {

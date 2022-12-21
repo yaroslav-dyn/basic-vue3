@@ -1,7 +1,7 @@
 <template>
-  <main class="main--element" :class="!isDarkTheme ? '--light-theme' : '--dark-theme '">
-    <div id="nav">
-      <AppNavigation @onChangeTheme="(theme: boolean) => { isDarkTheme = theme }" />
+  <main class="main--element" :class="!isDarkThemeState ? '--light-theme' : '--dark-theme '">
+    <div class="top__menu" id="nav">
+      <AppNavigation />
     </div>
     <router-view />
   </main>
@@ -11,13 +11,20 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import AppNavigation from "@/components/_common/AppNavigation.vue";
+import { mapState } from "vuex";
 
 @Options({
   components: {
     AppNavigation
   },
+  computed: {
+    ...mapState({
+      isDarkThemeState: (state: any) => state.isDarkTheme,
+    })
+  },
 })
 export default class AppComponent extends Vue {
+  isDarkThemeState!: boolean
 
   public isDarkTheme = false;
 

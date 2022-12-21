@@ -1,4 +1,4 @@
-@import'_helpers';
+@import '_helpers';
 
 :root {
   --editor-bg: #fff;
@@ -32,6 +32,11 @@ body {
 .main--element {
   min-height: 100vh;
   padding-bottom: 1.2rem;
+}
+.top__menu {
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 // NOTE: Main editable element
@@ -71,7 +76,7 @@ body {
     min-height: 100vh;
     padding: 1.2rem;
     text-indent: 1.2rem;
-    }
+  }
 
   .--light-theme & {
     background-color: var(--editor-bg);
@@ -93,6 +98,7 @@ body {
 .command--panel {
   &__search {
     flex-basis: 40%;
+
     .input_autocomplete {
       width: 100%;
     }

@@ -19,13 +19,15 @@ export default createStore({
 
     changeFontSizeMutation(state: StateInterface, value: number) {
       state.CurrentfontSize = value;
+    },
+
+    changeColorThemeMutation(state:StateInterface, value: boolean ) {
+      state.isDarkTheme = value;
     }
 
   },
   getters: {
-    getCurrentFontSize(state: StateInterface) {
-      return state.CurrentfontSize;
-    }
+
   },
   actions: {
 
@@ -49,6 +51,10 @@ export default createStore({
 
     setFontSize({ state, commit }, value: number) {
       commit("changeFontSizeMutation", value);
+    },
+
+    setColorTheme({state, commit}, value: boolean) {
+      commit('changeColorThemeMutation', value);
     }
 
   },

@@ -5,16 +5,31 @@ import { mapActions } from "vuex";
 
   methods: {
     ...mapActions({
-      changeFontSize: 'changeFontSize'
+      changeFontSize: "changeFontSize",
+      setColorTheme: "setColorTheme"
     })
   }
 })
 export default class RunCommandMixin extends Vue {
-  changeFontSize!: (action: string) => any;
+
+  changeFontSize!: (action: string) => void;
+  setColorTheme!: (action: boolean) => void;
 
   runAction(action: string): void {
-    this.changeFontSize(action);
+    console.log("act", action);
+    switch (action) {
+      case "INCREASE_FONT_SIZE":
+      case "DECREASE_FONT_SIZE":
+        this.changeFontSize(action);
+        break;
+      case "LIGHT_MODE":
+        this.setColorTheme(false);
+        break;
+      case "DARK_MODE":
+        this.setColorTheme(true);
+        break;
+      default:
+        return
+    }
   }
-
-
-}
+}//

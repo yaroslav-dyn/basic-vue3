@@ -85,7 +85,6 @@ export default class Home extends mixins(General) {
   currentDoc = "Hello!";
 
 
-
   changeEditorState() {
     this.isEditable = !this.isEditable;
     let areaElement = this.$refs.mainEditor as HTMLAreaElement;
