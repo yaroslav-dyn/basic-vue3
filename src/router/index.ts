@@ -10,6 +10,9 @@ const routes: Array<RouteRecordRaw> = [
     components: {
       default: Home
     },
+    meta: {
+      projectName: 'TrueStory'
+    }
   },
   {
     path: "/editor",

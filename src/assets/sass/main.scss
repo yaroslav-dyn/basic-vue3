@@ -1,8 +1,8 @@
 @import'_helpers';
 
 :root {
-  --editor-bg: #fff; 
-  --editor-text: #444; 
+  --editor-bg: #fff;
+  --editor-text: #444;
 
   --editor-bg--light: #efefef;
   --editor-text--light: #444;
@@ -10,7 +10,7 @@
   --editor-bg--dark: #0b1821;
   --editor-text--dark: #fff;
 
-  --light--outline_color: #545c64;
+  --light--outline_color: #ffd04b;
   --dark--outline_color: #444;
 }
 
@@ -24,21 +24,58 @@ body {
   padding: 0;
   background-color: var(--editor-bg);
   color: var(--editor-text);
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .main--element {
   min-height: 100vh;
-  padding-bottom: 2rem;
+  padding-bottom: 1.2rem;
 }
 
 // NOTE: Main editable element
-.editor--area {
-  min-height: 100vh;
-  padding: 1.2rem;
+.home {
+  padding: 0 1.2rem;
 
   .--light-theme & {
     background-color: var(--editor-bg--light);
     color: var(--editor-text--light);
+
+    .editor--area {
+      &:focus {
+        outline-color: var(--light--outline_color);
+      }
+    }
+  }
+
+  .--dark-theme & {
+    background-color: var(--editor-bg--dark);
+    color: var(--editor-text--dark);
+
+    .editor--area {
+      &:focus {
+        outline-color: var(--dark--outline_color);
+      }
+    }
+
+  }
+}
+
+.editor {
+  &--wrapper {
+    padding: 1.2rem 1rem;
+  }
+
+  &--area {
+    min-height: 100vh;
+    padding: 1.2rem;
+    text-indent: 1.2rem;
+    }
+
+  .--light-theme & {
+    background-color: var(--editor-bg);
+    color: var(--editor-text);
 
     &:focus {
       outline-color: var(--light--outline_color);
@@ -49,20 +86,15 @@ body {
     background-color: var(--editor-bg--dark);
     color: var(--editor-text--dark);
 
-    &:focus {
-      outline-color: var(--dark--outline_color);
+
+  }
+}
+
+.command--panel {
+  &__search {
+    flex-basis: 40%;
+    .input_autocomplete {
+      width: 100%;
     }
   }
-
-}
-
-
-.--light-theme {
-  background-color: var(--editor-bg);
-  color: var(--editor-text);
-}
-
-.--dark-theme {
-  background-color: var(--editor-bg--dark);
-  color: var(--editor-text--dark);
 }

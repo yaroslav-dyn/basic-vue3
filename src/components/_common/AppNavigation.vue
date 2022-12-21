@@ -1,14 +1,16 @@
 <template>
-  <el-menu 
-    :default-active="activeIndex" 
-    class="el-menu-demo" 
-    mode="horizontal" 
+  <el-menu
+    :default-active="activeIndex"
+    class="el-menu-demo"
+    mode="horizontal"
     text-color="#fff"
-    active-text-color="#ffd04b" 
+    active-text-color="#ffd04b"
     background-color="#545c64"
     :ellipsis="false"
-    >
-    <el-menu-item index="1">Processing Center</el-menu-item>
+  >
+    <el-menu-item index="1">
+     {{ $route.meta.projectName }}
+    </el-menu-item>
     <el-sub-menu index="2">
       <template #title>File</template>
       <el-menu-item index="2-1">Save</el-menu-item>
@@ -20,12 +22,24 @@
         <el-menu-item index="2-4-3">item three</el-menu-item>
       </el-sub-menu> -->
     </el-sub-menu>
-    <el-menu-item index="3" disabled>View</el-menu-item>
+    <el-menu-item
+      index="3"
+      disabled>
+      View
+    </el-menu-item>
     <el-menu-item index="4">Help</el-menu-item>
     <div class="flex-grow"></div>
 
     <div class="switcher--element">
-      <el-switch inline-prompt :active-icon="Moon" :inactive-icon="Sunny" v-model="isDarkTheme" />
+      <el-switch
+        inline-prompt
+        :active-icon="Moon"
+        :inactive-icon="Sunny"
+        active-color="var(--el-menu-active-color)"
+        inactive-color="green"
+        size="large"
+        v-model="isDarkTheme"
+      />
     </div>
 
 
@@ -66,6 +80,7 @@ export default class AppNavigation extends Vue {
 .flex-grow {
   flex-grow: 1;
 }
+
 .switcher--element {
   padding: 1rem 0;
 }

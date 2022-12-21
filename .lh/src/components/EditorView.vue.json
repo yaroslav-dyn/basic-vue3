@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1670362398330,
@@ -28,6 +28,10 @@
                 {
                     "date": 1670366694982,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n <script lang=\"ts\">\n import { Options, mixins } from \"vue-class-component\";\n import General from \"@/mixins/General\";\n-import {Edit, Lock} from \n+import {Edit, Lock} from ''\n \n @Options({\n   components: {},\n })\n"
+                },
+                {
+                    "date": 1670532941958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     </div>\n     <div>\n       <el-switch\n         inline-prompt\n-        :active-icon=\"LockIcon\"\n+        :active-icon=\"LockIcon \"\n         :inactive-icon=\"\"\n         active-color=\"var(--el-menu-active-color)\"\n         inactive-color=\"green\"\n         @change=\"changeEditorState\"\n"
                 }
             ],
             "date": 1670362398330,

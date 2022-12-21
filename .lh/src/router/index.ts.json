@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 13,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1660734332399,
@@ -60,6 +60,18 @@
                 {
                     "date": 1670362187008,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n   {\n     path: \"/editor\",\n     name: \"Editor\",\n     component: () =>\n-      import(/* webpackChunkName: \"about\" */ \"../components/EditorView.vue\"),\n+      import( \"../components/EditorView.vue\"),\n   },\n ];\n \n const router = createRouter({\n"
+                },
+                {
+                    "date": 1670533292054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,14 +9,15 @@\n     name: \"Home\",\n     components: {\n       default: Home\n     },\n+    meta: {}\n   },\n   {\n     path: \"/editor\",\n     name: \"Editor\",\n     component: () =>\n-      import( \"../components/EditorView.vue\"),\n+      import(\"../components/EditorView.vue\"),\n   },\n ];\n \n const router = createRouter({\n"
+                },
+                {
+                    "date": 1670533301314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,11 @@\n     name: \"Home\",\n     components: {\n       default: Home\n     },\n-    meta: {}\n+    meta: {\n+      projectName: ''\n+    }\n   },\n   {\n     path: \"/editor\",\n     name: \"Editor\",\n"
+                },
+                {
+                    "date": 1670533309340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     components: {\n       default: Home\n     },\n     meta: {\n-      projectName: ''\n+      projectName: 'TRueStory'\n     }\n   },\n   {\n     path: \"/editor\",\n"
                 }
             ],
             "date": 1660734332399,

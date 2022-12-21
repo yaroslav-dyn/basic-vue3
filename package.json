@@ -14,7 +14,8 @@
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
     "vue-property-decorator": "^9.1.2",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@element-plus/icons-vue": "^2.0.4",
@@ -27,12 +28,13 @@
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
     "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^8.0.3",
     "fullstack-serverless": "^0.8.0",
     "lint-staged": "^11.1.2",
     "prettier": "^2.4.1",
+    "prettier-eslint": "^15.0.1",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
     "typescript": "~4.5.5"

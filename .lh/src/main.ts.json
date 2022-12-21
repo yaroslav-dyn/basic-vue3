@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 24,
+            "activePatchIndex": 25,
             "patches": [
                 {
                     "date": 1670331660709,
@@ -104,6 +104,10 @@
                 {
                     "date": 1670363854919,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,15 @@\n import { createApp } from \"vue\";\n import App from \"./App.vue\";\n import router from \"./router\";\n import store from \"./store\";\n-import ElementPlus from 'element-plus'\n+import ElementPlus from 'element-plus';\n \n import './assets/sass/main.scss';\n \n import 'element-plus/dist/index.css';\n \n createApp(App)\n   .use(store)\n   .use(router)\n+  .use()ElementPlus\n   .mount(\"#app\");\n"
+                },
+                {
+                    "date": 1670685160959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,8 @@\n \n import 'element-plus/dist/index.css';\n \n createApp(App)\n+  .use(router)\n+  .use(ElementPlus)\n   .use(store)\n-  .use(router)\n-  .use()ElementPlus\n   .mount(\"#app\");\n"
                 }
             ],
             "date": 1670331660709,
