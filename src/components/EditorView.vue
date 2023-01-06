@@ -34,6 +34,7 @@
     ref="mainEditor"
     :contenteditable="isEditable"
     :style="{ fontSize: fontSizeState + 'px' }"
+    @dblclick="changeEditorState"
     @blur="updateValue($event)"
   >
     {{ currentDoc }}
@@ -53,24 +54,34 @@ import { mapActions, mapGetters, mapState } from "vuex";
   },
   methods: {
     ...mapActions({
-      setFontSizeAction: 'setFontSize'
+      setFontSizeAction: 'setFontSize',
+      setFilesArrayAction: 'setFilesArrayAction',
+      setCurrentFileAction: 'setCurrentFileAction'
     })
   },
   computed: {
     ...mapState({
       fontSizeState: (state: any) => state.CurrentfontSize,
+      currentDocSate: (state: any) => state.currentDocSate,
+      filesArrayState: (state: any) => state.filesArrayState
     })
   },
   watch: {
     fontSizeState(val) {
       this.areaFontSize = val;
+    },
+    'currentDocSate.name'(val) {
+      this.currentDoc = this.currentDocSate.data;
     }
   }
 })
 export default class Home extends mixins(General) {
   fontSizeState!: number;
+  filesArrayState!: {name: string, data: string}[];
+  currentDocSate?: { name: string, data: string };
   setFontSizeAction!: (value: number) => void;
-
+  setCurrentFileAction!: (data: any) => void;
+  setFilesArrayAction!: (data: any) => void;
 
   public editIcon = Edit;
   public LockIcon = Lock;
@@ -99,14 +110,31 @@ export default class Home extends mixins(General) {
     this.setFontSizeAction(currentValue);
   }
 
-
+  
   updateValue(contentEvent: any): void {
-    localStorage.setItem(this.currentDocName, contentEvent.srcElement!.innerText);
+    // localStorage.setItem(this.currentDocName, contentEvent.srcElement!.innerText);
+    this.currentDoc = contentEvent.srcElement!.innerText;
+    //@ts-ignore warn
+    this.setCurrentFileAction({ name: this.currentDocSate?.name, data: contentEvent.srcElement!.innerText });
+    const updatedFileIndex: number = this.filesArrayState?.findIndex((f: {name: string, data: string}) => f.name === this.currentDocSate?.name);
+    
+    const modifiedFiles: { name: string, data: string }[] = this.filesArrayState;
+    if (updatedFileIndex && updatedFileIndex >= 0)
+     // this.setCurrentFileAction({ name: this.currentDocSate?.name, data: contentEvent.srcElement!.innerText });
+    modifiedFiles[updatedFileIndex] = { name: this.currentDocSate!.name, data: this.currentDocSate!.data};
+    //@ts-ignore  next
+    (modifiedFiles) && this.setFilesArrayAction(modifiedFiles);
+    localStorage.setItem('filesArray', JSON.stringify(modifiedFiles) );
   }
 
   mounted(): void {
-    const currentDoc = localStorage.getItem(this.currentDocName);
-    currentDoc && (this.currentDoc = currentDoc);
+    const currentDocs = localStorage.getItem('filesArray');
+    const currentFontSize = localStorage.getItem('currentFontSize');
+    currentFontSize && this.setFontSizeAction(parseInt(currentFontSize));
+       //@ts-ignore  next
+    (currentDocs) &&  this.setFilesArrayAction(JSON.parse(currentDocs));
+    currentDocs && !(this.currentDocSate?.name.length == 0) && (this.setCurrentFileAction( JSON.parse(currentDocs).slice(-1).shift()) );
+    this.currentDocSate && (this.currentDoc = this.currentDocSate.data);
   }
 }
 </script>

@@ -9,10 +9,12 @@
     :ellipsis="false"
   >
     <el-menu-item index="1">
-     {{ $route.meta.projectName }}
+     {{ currentDocSate.name.length > 0 ? currentDocSate.name : $route.meta.projectName }}
     </el-menu-item>
-    <el-sub-menu index="2">
+    <el-sub-menu index="2" @select="onChangeCommand">
       <template #title>File</template>
+      <el-menu-item index="1-1" @click="onChangeCommand('OPEN_FILE')">Open</el-menu-item>
+      <el-menu-item index="1-2" @click="onChangeCommand('CREATE_FILE')">New</el-menu-item>
       <el-menu-item index="2-1">Save</el-menu-item>
       <el-menu-item index="2-2">Save as</el-menu-item>
       <!-- <el-sub-menu index="2-4">
@@ -60,7 +62,8 @@ import { mapActions, mapState } from "vuex";
  },
   computed: {
    ...mapState({
-     isDarkThemeState: (state: any) => state.isDarkTheme
+     isDarkThemeState: (state: any) => state.isDarkTheme,
+     currentDocSate: (state: any) => state.currentDocSate
    })
   },
   watch: {
@@ -82,6 +85,12 @@ export default class AppNavigation extends Vue {
 
   onChangeTheme() {
     this.setColorThemeAction(this.isDarkTheme);
+  }
+
+  onChangeCommand(command: string) {
+    console.log('menu command', command);
+    this.$emit('menuAction', command);
+    
   }
 
   mounted() {

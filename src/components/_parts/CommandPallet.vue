@@ -35,6 +35,8 @@ export default class EditorCommandPallet extends mixins(
       { value: 'Save document', action: 'SAVE_DOCUMENT' },
       { value: 'Dark mode', action: 'DARK_MODE' },
       { value: 'Light mode', action: 'LIGHT_MODE' },
+      { value: 'File: Create new document', action: 'CREATE_FILE' },
+      { value: 'File: Open file', action: 'OPEN_FILE'},
       { value: 'Font: increase font size', action: 'INCREASE_FONT_SIZE' },
       { value: 'Font: decrease font size', action: 'DECREASE_FONT_SIZE' },
       { value: 'Font: reset font size', action: 'RESET_FONT_SIZE' },

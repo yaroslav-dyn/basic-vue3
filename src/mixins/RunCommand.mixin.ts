@@ -1,8 +1,7 @@
-import { Options, Vue } from "vue-class-component";
+import { mixins, Options, Vue } from "vue-class-component";
 import { mapActions } from "vuex";
-
+import FileCommandMixin from "./fileCommand.mixin";
 @Options({
-
   methods: {
     ...mapActions({
       changeFontSize: "changeFontSize",
@@ -10,7 +9,9 @@ import { mapActions } from "vuex";
     })
   }
 })
-export default class RunCommandMixin extends Vue {
+export default class RunCommandMixin extends mixins(
+  FileCommandMixin
+) {
 
   changeFontSize!: (action: string) => void;
   setColorTheme!: (action: boolean) => void;
@@ -27,6 +28,12 @@ export default class RunCommandMixin extends Vue {
         break;
       case "DARK_MODE":
         this.setColorTheme(true);
+        break;
+      case "CREATE_FILE":
+        this.createFile();
+        break;  
+      case "OPEN_FILE":
+       // this.openFile();  
         break;
       default:
         return
