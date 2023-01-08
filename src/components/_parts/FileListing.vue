@@ -28,12 +28,14 @@ import { Document } from '@element-plus/icons-vue'
 @Options({
   methods: {
     ...mapActions({
-      setCurrentFileAction: 'setCurrentFileAction'
+      setCurrentFileAction: 'setCurrentFileAction',
+      openFilePanelAction: 'openFileAction'
     })
   }
 })
 export default class FileListingComponent extends Vue {
   setCurrentFileAction!: (data: FileTypesInterface) => void;
+  openFilePanelAction!: (data: boolean) => void;
 
   public documentIcon = Document;
   public filesArray = [] as FileTypesInterface[];
@@ -47,7 +49,7 @@ export default class FileListingComponent extends Vue {
 
   selectFile(file: FileTypesInterface) {
     this.setCurrentFileAction(file);
-    this.$emit('onFileSelect')
+    this.openFilePanelAction(false);
   }
 
   mounted() {

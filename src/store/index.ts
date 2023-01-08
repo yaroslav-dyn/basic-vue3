@@ -16,7 +16,8 @@ export interface StateInterface {
   currentDocSate: {
     name: string,
     data: string
-  }
+  },
+  filePanelIsOpenState: boolean
 }
 
 export default createStore({
@@ -31,7 +32,8 @@ export default createStore({
         data: ""
       },
       filesArrayState: [{name: '', data: ''}],
-      currentDocSate: {name: '', data: ''}
+      currentDocSate: {name: '', data: ''},
+      filePanelIsOpenState: false
     };
   },
   mutations: {
@@ -59,8 +61,11 @@ export default createStore({
 
     setFillesArrayMutation(state: StateInterface, data) {
       state.filesArrayState = data;
-    }
+    },
 
+    openFileMutation(state: StateInterface, data) {
+      state.filePanelIsOpenState = data;
+    }
 
   },
   getters: {
@@ -105,6 +110,10 @@ export default createStore({
 
     setFilesArrayAction({ state, commit }, data) {
       commit('setFillesArrayMutation', data);
+    },
+
+    openFileAction({ state, commit }, data) {
+      commit('openFileMutation', data)
     }
 
   },

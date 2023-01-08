@@ -5,7 +5,8 @@ import FileCommandMixin from "./fileCommand.mixin";
   methods: {
     ...mapActions({
       changeFontSize: "changeFontSize",
-      setColorTheme: "setColorTheme"
+      setColorTheme: "setColorTheme",
+      openFileAction: "openFileAction"
     })
   }
 })
@@ -15,6 +16,7 @@ export default class RunCommandMixin extends mixins(
 
   changeFontSize!: (action: string) => void;
   setColorTheme!: (action: boolean) => void;
+  openFileAction!: (state: boolean) => void;
 
   runAction(action: string): void {
     console.log("act", action);
@@ -33,7 +35,7 @@ export default class RunCommandMixin extends mixins(
         this.createFile();
         break;  
       case "OPEN_FILE":
-       // this.openFile();  
+        this.openFileAction(true);  
         break;
       default:
         return

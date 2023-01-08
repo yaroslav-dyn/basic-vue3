@@ -9,9 +9,10 @@
 
   --editor-bg--dark: #0b1821;
   --editor-text--dark: #fff;
+  --editor--outline-width: 1px;
 
-  --light--outline_color: #ffd04b;
-  --dark--outline_color: #444;
+  --light--outline_color: ##ffd04b;
+  --dark--outline_color: #ffd04b;
 }
 
 html {
@@ -33,18 +34,19 @@ body {
   min-height: 100vh;
   padding-bottom: 1.2rem;
 }
+
 .top__menu {
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
- .--dark-theme {
+.--dark-theme {
   .el-drawer.open {
-      color: var(--editor-text--dark);
-      background-color: var(--editor-bg--dark);
-    }
- }
+    color: var(--editor-text--dark);
+    background-color: var(--editor-bg--dark);
+  }
+}
 
 // NOTE: Main editable element
 .home {
@@ -66,7 +68,9 @@ body {
     color: var(--editor-text--dark);
 
     .editor--area {
-      &:focus {
+
+      &:focus,
+      &.isEditable {
         outline-color: var(--dark--outline_color);
       }
     }
@@ -83,23 +87,16 @@ body {
     padding: 1.2rem;
     text-indent: 1.2rem;
     line-height: 1.6;
-  }
 
-  .--light-theme & {
-    background-color: var(--editor-bg);
-    color: var(--editor-text);
-
-    &:focus {
+    &:focus, &.isEditable {
+      outline-width: thin;
+      outline-style: solid;
+      outline-width: var(--editor--outline-width);
       outline-color: var(--light--outline_color);
     }
-  }
-
-  .--dark-theme & {
-    background-color: var(--editor-bg--dark);
-    color: var(--editor-text--dark);
-
 
   }
+
 }
 
 .command--panel {

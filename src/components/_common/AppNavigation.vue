@@ -109,6 +109,6 @@ export default class AppNavigation extends Vue {
 }
 
 .switcher--element {
-  padding: 1rem 0;
+  padding: 1rem 2rem 0;
 }
 </style>

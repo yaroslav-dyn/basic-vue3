@@ -19,10 +19,11 @@
     <el-drawer
       :modal-class="!isDarkThemeState ? '--light-theme' : '--dark-theme '"
       v-model="showFilesPage"
+      @closed="onCloseFilePanel"
       title="Open file"
       :with-header="true"
     >
-      <FileListing @onFileSelect="showFilesPage = false" />
+      <FileListing />
     </el-drawer>
   </main>
 </template>

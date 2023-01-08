@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 106,
+            "activePatchIndex": 107,
             "patches": [
                 {
                     "date": 1670332321142,
@@ -432,6 +432,10 @@
                 {
                     "date": 1670684801429,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n       console.log('mutate fs', state.currentfontSize);\n-      localStorage.setItem('currentfontSize', ,<string>state.currentfontSize as string)\n+      localStorage.setItem('currentfontSize', ,state.currentfontSize as string)\n       \n     }\n \n   },\n"
+                },
+                {
+                    "date": 1673187751402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n     setFillesArrayMutation(state: StateInterface, data) {\n       state.filesArrayState = data;\n     },\n \n-    openFileMutsation\n+    openFileMutsatio\n \n \n   },\n   getters: {\n"
                 }
             ],
             "date": 1670332321142,

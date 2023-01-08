@@ -6,7 +6,8 @@ import { mapActions, mapMutations, mapState } from "vuex";
   methods: {
     ...mapActions({
       setCurrentOperation: 'setCurrentOperation',
-      setCurrentFileAction: 'setCurrentFileAction'
+      setCurrentFileAction: 'setCurrentFileAction',
+      openFilePanelAction: 'openFileAction'
     }),
     ...mapMutations({
       setActionMenuState: 'setActionMenuState'
@@ -14,12 +15,18 @@ import { mapActions, mapMutations, mapState } from "vuex";
   },
   computed: {
     ...mapState({
-      showActionMenuState: (state: any) => state.showActionMenuState
+      showActionMenuState: (state: any) => state.showActionMenuState,
+      filePanelIsOpenState: (state: any) => state.filePanelIsOpenState
     })
   },
   watch: {
     showActionMenuState(val) {
-      this.actionDialogVisible = val;      
+      this.actionDialogVisible = val;
+    },
+    filePanelIsOpenState(val) {
+      this.showFilesPage = val;
+      console.log('open', val);
+      
     }
   }
 })
@@ -27,6 +34,7 @@ export default class FileCommandMixin extends Vue {
   setCurrentOperation!: (data: { name: string, data: any }) => void;
   setActionMenuState!: (data: boolean) => void;
   setCurrentFileAction!: (data: any) => void;
+  openFilePanelAction!: (data: boolean) => void;
 
   public actionDialogVisible = false;
   public showFilesPage = false;
@@ -38,7 +46,7 @@ export default class FileCommandMixin extends Vue {
   menuAction(command: string) {
     switch (command) {
       case "OPEN_FILE":
-        this.runOpenFile();
+        this.openFile();
         break;
       case "CREATE_FILE":
         this.createFile();
@@ -46,13 +54,13 @@ export default class FileCommandMixin extends Vue {
     }
   }
 
-  runOpenFile() {
-    this.showFilesPage = true;
+  createFile() {
+    // this.actionDialogVisible = true;
+    this.setActionMenuState(true);
   }
 
-  createFile() {
-   // this.actionDialogVisible = true;
-    this.setActionMenuState(true);
+  openFile() {
+    this.openFilePanelAction(true);
   }
 
   addAndOpenFile(data: { fileName: string }) {
@@ -69,6 +77,10 @@ export default class FileCommandMixin extends Vue {
 
     this.addAndOpenFile(data);
     this.actionDialogVisible = false;
+  }
+
+  onCloseFilePanel() {
+    this.openFilePanelAction(false);
   }
 
 

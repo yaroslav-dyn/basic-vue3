@@ -3,6 +3,7 @@
     class="d-flex editor--wrapper"
     align="--center"
     justify="--space-between"
+    @dblclick="isEditable = false" 
   >
     <el-input-number
       :min="8"
@@ -12,7 +13,7 @@
       @input="onChangeFontSize"
     />
 
-    <CommandPallet />
+    <CommandPallet/>
 
     <el-switch
       class="w100"
@@ -30,7 +31,7 @@
   <br />
 
   <div
-    class="editor--area"
+    :class="['editor--area', { isEditable }]"
     ref="mainEditor"
     :contenteditable="isEditable"
     :style="{ fontSize: fontSizeState + 'px' }"
