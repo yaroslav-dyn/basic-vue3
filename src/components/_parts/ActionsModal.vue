@@ -8,6 +8,7 @@
   >
 
     <el-form
+      action="#"
       :model="actionsForm"
     >
       <el-form-item >

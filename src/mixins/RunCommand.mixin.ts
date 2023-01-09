@@ -13,7 +13,6 @@ import FileCommandMixin from "./fileCommand.mixin";
 export default class RunCommandMixin extends mixins(
   FileCommandMixin
 ) {
-
   changeFontSize!: (action: string) => void;
   setColorTheme!: (action: boolean) => void;
   openFileAction!: (state: boolean) => void;
@@ -33,9 +32,12 @@ export default class RunCommandMixin extends mixins(
         break;
       case "CREATE_FILE":
         this.createFile();
-        break;  
+        break;
       case "OPEN_FILE":
-        this.openFileAction(true);  
+        this.openFileAction(true);
+        break;
+      case "SAVE_DOCUMENT":
+        this.saveFile();
         break;
       default:
         return

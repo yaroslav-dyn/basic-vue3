@@ -30,7 +30,7 @@
 
   <br />
 
-  <div
+  <pre
     :class="['editor--area', { isEditable }]"
     ref="mainEditor"
     :contenteditable="isEditable"
@@ -39,7 +39,7 @@
     @blur="updateValue($event)"
   >
     {{ currentDoc }}
-  </div>
+  </pre>
 </template>
 
 <script lang="ts">
@@ -47,7 +47,8 @@ import { Options, mixins } from "vue-class-component";
 import General from "@/mixins/General";
 import { Edit, Lock, Watch } from "@element-plus/icons-vue";
 import CommandPallet from "@/components/_parts/CommandPallet.vue";
-import { mapActions, mapGetters, mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
+import { FileTypesInterface } from "@/models/file.model";
 
 @Options({
   components: {
@@ -82,7 +83,7 @@ export default class Home extends mixins(General) {
   currentDocSate?: { name: string, data: string };
   setFontSizeAction!: (value: number) => void;
   setCurrentFileAction!: (data: any) => void;
-  setFilesArrayAction!: (data: any) => void;
+  setFilesArrayAction!: (data: FileTypesInterface) => void;
 
   public editIcon = Edit;
   public LockIcon = Lock;
@@ -117,24 +118,17 @@ export default class Home extends mixins(General) {
     this.currentDoc = contentEvent.srcElement!.innerText;
     //@ts-ignore warn
     this.setCurrentFileAction({ name: this.currentDocSate?.name, data: contentEvent.srcElement!.innerText });
-    const updatedFileIndex: number = this.filesArrayState?.findIndex((f: {name: string, data: string}) => f.name === this.currentDocSate?.name);
-    
-    const modifiedFiles: { name: string, data: string }[] = this.filesArrayState;
-    if (updatedFileIndex && updatedFileIndex >= 0)
-     // this.setCurrentFileAction({ name: this.currentDocSate?.name, data: contentEvent.srcElement!.innerText });
-    modifiedFiles[updatedFileIndex] = { name: this.currentDocSate!.name, data: this.currentDocSate!.data};
-    //@ts-ignore  next
-    (modifiedFiles) && this.setFilesArrayAction(modifiedFiles);
-    localStorage.setItem('filesArray', JSON.stringify(modifiedFiles) );
   }
 
   mounted(): void {
     const currentDocs = localStorage.getItem('filesArray');
     const currentFontSize = localStorage.getItem('currentFontSize');
     currentFontSize && this.setFontSizeAction(parseInt(currentFontSize));
-       //@ts-ignore  next
-    (currentDocs) &&  this.setFilesArrayAction(JSON.parse(currentDocs));
-    currentDocs && !(this.currentDocSate?.name.length == 0) && (this.setCurrentFileAction( JSON.parse(currentDocs).slice(-1).shift()) );
+    currentDocs && this.setFilesArrayAction(JSON.parse(currentDocs));
+   const currentDocStorage = localStorage.getItem('currentDoc');
+    if (currentDocStorage) this.setCurrentFileAction(JSON.parse(currentDocStorage));
+    else 
+      currentDocs && (this.currentDocSate?.name.length == 0) && (this.setCurrentFileAction( JSON.parse(currentDocs).slice(-1).shift()) );
     this.currentDocSate && (this.currentDoc = this.currentDocSate.data);
   }
 }

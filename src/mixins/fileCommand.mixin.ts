@@ -7,7 +7,9 @@ import { mapActions, mapMutations, mapState } from "vuex";
     ...mapActions({
       setCurrentOperation: 'setCurrentOperation',
       setCurrentFileAction: 'setCurrentFileAction',
-      openFilePanelAction: 'openFileAction'
+      setFilesArrayAction: 'setFilesArrayAction',
+      openFilePanelAction: 'openFileAction',
+      saveFileAction: 'saveFileAction'
     }),
     ...mapMutations({
       setActionMenuState: 'setActionMenuState'
@@ -25,8 +27,6 @@ import { mapActions, mapMutations, mapState } from "vuex";
     },
     filePanelIsOpenState(val) {
       this.showFilesPage = val;
-      console.log('open', val);
-      
     }
   }
 })
@@ -34,7 +34,9 @@ export default class FileCommandMixin extends Vue {
   setCurrentOperation!: (data: { name: string, data: any }) => void;
   setActionMenuState!: (data: boolean) => void;
   setCurrentFileAction!: (data: any) => void;
+  setFilesArrayAction!: (data: any) => void;
   openFilePanelAction!: (data: boolean) => void;
+  saveFileAction!: () => void;
 
   public actionDialogVisible = false;
   public showFilesPage = false;
@@ -51,11 +53,13 @@ export default class FileCommandMixin extends Vue {
       case "CREATE_FILE":
         this.createFile();
         break;
+      case "SAVE_DOCUMENT":
+        this.saveFile();
+        break;
     }
   }
 
   createFile() {
-    // this.actionDialogVisible = true;
     this.setActionMenuState(true);
   }
 
@@ -63,18 +67,21 @@ export default class FileCommandMixin extends Vue {
     this.openFilePanelAction(true);
   }
 
+  saveFile() {
+    this.saveFileAction()
+  }
+
   addAndOpenFile(data: { fileName: string }) {
     const presentFile = localStorage.getItem('filesArray');
     const filesArray = presentFile ? JSON.parse(presentFile) : [];
     filesArray.push({ name: data.fileName, data: '' });
     this.setCurrentFileAction({ name: data.fileName, data: '' })
+    this.setFilesArrayAction(filesArray);
     localStorage.setItem('filesArray', JSON.stringify(filesArray));
   }
 
   onConfirmAction(data: { fileName: string }) {
     this.setCurrentOperation({ name: 'CREATE_FILE', data: "" });
-    console.log('cf', data);
-
     this.addAndOpenFile(data);
     this.actionDialogVisible = false;
   }

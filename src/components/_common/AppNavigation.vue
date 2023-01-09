@@ -15,7 +15,7 @@
       <template #title>File</template>
       <el-menu-item index="1-1" @click="onChangeCommand('OPEN_FILE')">Open</el-menu-item>
       <el-menu-item index="1-2" @click="onChangeCommand('CREATE_FILE')">New</el-menu-item>
-      <el-menu-item index="2-1">Save</el-menu-item>
+      <el-menu-item index="2-1" @click="onChangeCommand('SAVE_DOCUMENT')">Save</el-menu-item>
       <el-menu-item index="2-2">Save as</el-menu-item>
       <!-- <el-sub-menu index="2-4">
         <template #title>item four</template>

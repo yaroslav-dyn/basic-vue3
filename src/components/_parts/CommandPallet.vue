@@ -32,9 +32,9 @@ export default class EditorCommandPallet extends mixins(
 
   loadAll() {
     return [
-      { value: 'Save document', action: 'SAVE_DOCUMENT' },
       { value: 'Dark mode', action: 'DARK_MODE' },
       { value: 'Light mode', action: 'LIGHT_MODE' },
+      { value: 'File: Save document', action: 'SAVE_DOCUMENT' },
       { value: 'File: Create new document', action: 'CREATE_FILE' },
       { value: 'File: Open file', action: 'OPEN_FILE'},
       { value: 'Font: increase font size', action: 'INCREASE_FONT_SIZE' },
@@ -51,12 +51,11 @@ export default class EditorCommandPallet extends mixins(
     const results = queryString
       ? this.links.filter(this.createFilter(queryString))
       : this.links
-
     //@ts-ignore old types
     clearTimeout(this.timeout)
     this.timeout = setTimeout(() => {
       cb(results)
-    }, 500 * Math.random())
+    }, 500)
   }
 
   createFilter(queryString: string) {

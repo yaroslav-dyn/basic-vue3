@@ -57,10 +57,12 @@ export default createStore({
 
     setCurrentFileMutation(state: StateInterface, value) {
       state.currentDocSate = value;
+      localStorage.setItem('currentDoc', JSON.stringify(value))
     },
 
     setFillesArrayMutation(state: StateInterface, data) {
       state.filesArrayState = data;
+      localStorage.setItem("filesArray", JSON.stringify(data));
     },
 
     openFileMutation(state: StateInterface, data) {
@@ -114,6 +116,16 @@ export default createStore({
 
     openFileAction({ state, commit }, data) {
       commit('openFileMutation', data)
+    },
+
+    saveFileAction({ state, commit, dispatch }) {
+      const currentDoc = state.currentDocSate;
+      const currentDocArray = [...state.filesArrayState];
+      const currentDocIndex = currentDocArray?.findIndex((f: { name: string, data: string }) => f.name === currentDoc?.name);
+      if (currentDocIndex && currentDocIndex >= 0) {
+          currentDocArray[currentDocIndex] = currentDoc;
+          dispatch('setFilesArrayAction',currentDocArray);
+      } 
     }
 
   },
