@@ -89,7 +89,8 @@ body {
     white-space: pre-line;
     line-height: 1.6;
 
-    &:focus, &.isEditable {
+    &:focus,
+    &.isEditable {
       outline-width: thin;
       outline-style: solid;
       outline-width: var(--editor--outline-width);
@@ -108,4 +109,11 @@ body {
       width: 100%;
     }
   }
+}
+
+.interface__show-files--button {
+  position: fixed;
+  right: 0;
+  top: 115px;
+  z-index: 10;
 }

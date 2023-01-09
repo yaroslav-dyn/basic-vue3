@@ -42,18 +42,20 @@ export default class FileListingComponent extends Vue {
 
 
 
-  getFilsArray() {
+  getFilesArray() {
     const tempArray = localStorage.getItem('filesArray');
     tempArray && (this.filesArray = JSON.parse(tempArray));
   }
 
   selectFile(file: FileTypesInterface) {
+    console.log('file', file);
+    
     this.setCurrentFileAction(file);
     this.openFilePanelAction(false);
   }
 
   mounted() {
-    this.getFilsArray();
+    this.getFilesArray();
   }
 
 }

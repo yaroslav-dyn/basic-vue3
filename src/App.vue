@@ -16,7 +16,15 @@
       @onClose="onCloseDialog"
       @onConfirmAction="onConfirmAction"
     />
+      <el-button
+        class="interface__show-files--button"
+        type="warning"
+        :icon="ArrowLeftBold"
+        circle
+        @click="openFile"
+      />
     <el-drawer
+      v-if="showFilesPage"
       :modal-class="!isDarkThemeState ? '--light-theme' : '--dark-theme '"
       v-model="showFilesPage"
       @closed="onCloseFilePanel"
@@ -37,6 +45,9 @@ import ActionsModal from "./components/_parts/ActionsModal.vue";
 import FileListing from "./components/_parts/FileListing.vue";
 import { RouterView } from "vue-router";
 import FileCommandMixin from "./mixins/fileCommand.mixin";
+import {
+  ArrowLeftBold
+} from '@element-plus/icons-vue'
 
 @Options({
   components: {
@@ -57,6 +68,7 @@ export default class AppComponent extends mixins(
   isDarkThemeState!: boolean;
 
   public isDarkTheme = false;
+  public ArrowLeftBold = ArrowLeftBold;
 
 
 }//

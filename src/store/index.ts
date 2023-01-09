@@ -122,12 +122,12 @@ export default createStore({
       const currentDoc = state.currentDocSate;
       const currentDocArray = [...state.filesArrayState];
       const currentDocIndex = currentDocArray?.findIndex((f: { name: string, data: string }) => f.name === currentDoc?.name);
-      if (currentDocIndex && currentDocIndex >= 0) {
+      if (currentDocIndex >= 0) {
           currentDocArray[currentDocIndex] = currentDoc;
-          dispatch('setFilesArrayAction',currentDocArray);
+          dispatch('setFilesArrayAction', currentDocArray);
       } 
     }
 
   },
-  modules: {}
+  //modules: {}
 });
