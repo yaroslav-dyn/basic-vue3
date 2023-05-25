@@ -67,6 +67,11 @@ export default createStore({
 
     openFileMutation(state: StateInterface, data) {
       state.filePanelIsOpenState = data;
+    },
+
+    renameFileMutation(state: StateInterface) {
+      console.log('fired rename');   
+      state.showActionMenuState = true;
     }
 
   },
@@ -87,7 +92,7 @@ export default createStore({
           break;
         case "RESET_FONT_SIZE":
           currentfontSize = state.defaultFontSize;
-          break
+          break;
         default:
           return false;
       }
@@ -116,6 +121,10 @@ export default createStore({
 
     openFileAction({ state, commit }, data) {
       commit('openFileMutation', data)
+    },
+
+    renameCurrentFile({commit}) {
+      commit('renameFileMutation');
     },
 
     saveFileAction({ state, commit, dispatch }) {

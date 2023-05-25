@@ -6,7 +6,8 @@ import FileCommandMixin from "./fileCommand.mixin";
     ...mapActions({
       changeFontSize: "changeFontSize",
       setColorTheme: "setColorTheme",
-      openFileAction: "openFileAction"
+      openFileAction: "openFileAction",
+      renameCurrentFile: "renameCurrentFile"
     })
   }
 })
@@ -16,6 +17,7 @@ export default class RunCommandMixin extends mixins(
   changeFontSize!: (action: string) => void;
   setColorTheme!: (action: boolean) => void;
   openFileAction!: (state: boolean) => void;
+  renameCurrentFile!: () => void;
 
   runAction(action: string): void {
     console.log("act", action);
@@ -33,11 +35,18 @@ export default class RunCommandMixin extends mixins(
       case "CREATE_FILE":
         this.createFile();
         break;
+        
       case "OPEN_FILE":
         this.openFileAction(true);
         break;
       case "SAVE_DOCUMENT":
         this.saveFile();
+        break;
+      case "RENAME_CURRENT_FILE":
+        this.renameCurrentFile();
+        break;  
+      case "RESET_FONT_SIZE" : 
+        this.changeFontSize('RESET_FONT_SIZE')
         break;
       default:
         return

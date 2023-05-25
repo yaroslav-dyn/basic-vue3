@@ -37,6 +37,7 @@ export default class EditorCommandPallet extends mixins(
       { value: 'File: Save document', action: 'SAVE_DOCUMENT' },
       { value: 'File: Create new document', action: 'CREATE_FILE' },
       { value: 'File: Open file', action: 'OPEN_FILE'},
+      { value: 'File: Rename file', action: 'RENAME_CURRENT_FILE'},
       { value: 'Font: increase font size', action: 'INCREASE_FONT_SIZE' },
       { value: 'Font: decrease font size', action: 'DECREASE_FONT_SIZE' },
       { value: 'Font: reset font size', action: 'RESET_FONT_SIZE' },
