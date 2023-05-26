@@ -40,12 +40,20 @@ export default class FileCommandMixin extends Vue {
 
   public actionDialogVisible = false;
   public showFilesPage = false;
-
+  
   onCloseDialog(val: boolean) {
     this.setActionMenuState(false);
   }
 
+  redirectToEditor(command: string) {
+    const fileTypeCmd = command.includes('FILE');
+    const currentRoute = this.$route.name;
+    if (fileTypeCmd && currentRoute !== 'Home')
+    this.$router.push({name: 'Home'});  
+  }
+
   menuAction(command: string) {
+    this.redirectToEditor(command);
     switch (command) {
       case "OPEN_FILE":
         this.openFile();
@@ -55,7 +63,7 @@ export default class FileCommandMixin extends Vue {
         break;
       case "SAVE_DOCUMENT":
         this.saveFile();
-        break;
+        break;      
     }
   }
 
@@ -74,14 +82,14 @@ export default class FileCommandMixin extends Vue {
   addAndOpenFile(data: { fileName: string }) {
     const presentFile = localStorage.getItem('filesArray');
     const filesArray = presentFile ? JSON.parse(presentFile) : [];
-    filesArray.push({ name: data.fileName, data: '' });
-    this.setCurrentFileAction({ name: data.fileName, data: '' })
+    filesArray.push({ name: data.fileName, data: '', status: 'TODO'});
+    this.setCurrentFileAction({ name: data.fileName, data: '', status: 'TODO'})
     this.setFilesArrayAction(filesArray);
     localStorage.setItem('filesArray', JSON.stringify(filesArray));
   }
 
   onConfirmAction(data: { fileName: string }) {
-    this.setCurrentOperation({ name: 'CREATE_FILE', data: "" });
+    this.setCurrentOperation({ name: 'CREATE_FILE', data: "", status: 'TODO' });
     this.addAndOpenFile(data);
     this.actionDialogVisible = false;
   }

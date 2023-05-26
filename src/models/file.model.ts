@@ -2,5 +2,6 @@
 
 export interface FileTypesInterface {
   name: string;
-  data: string
+  data: any;
+  status?: string
 }

@@ -42,7 +42,7 @@
     @dblclick="changeEditorState"
     @blur="updateValue($event)"
   >
-    {{ currentDoc }}
+  {{currentDoc}}
   </pre>
 </template>
 

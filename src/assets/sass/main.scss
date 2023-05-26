@@ -1,6 +1,8 @@
 @import '_helpers';
 
 :root {
+
+  --footer-bg-color: var(--el-bg-color-page);
   --editor-bg: #fff;
   --editor-text: #444;
 
@@ -13,6 +15,9 @@
 
   --light--outline_color: ##ffd04b;
   --dark--outline_color: #ffd04b;
+
+  --header-height: 60px;
+  --footer-height: 80px;
 }
 
 html {
@@ -51,6 +56,7 @@ body {
 // NOTE: Main editable element
 .home {
   padding: 0 1.2rem;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
 
   .--light-theme & {
     background-color: var(--editor-bg--light);
@@ -83,7 +89,9 @@ body {
   }
 
   &--area {
-    min-height: 100vh;
+    min-height: 69vh;
+    max-height: 70vh;
+    overflow-y: auto;
     padding: 1.2rem;
     // text-indent: 1.2rem;
     white-space: pre-line;
@@ -101,6 +109,12 @@ body {
 
 }
 
+.app__footer {
+  min-height: var(--footer-height);
+  //background-color: var(--footer-bg-color);
+  background-color: var(--editor-bg--light);
+}
+
 .command--panel {
   &__search {
     flex-basis: 40%;
@@ -116,4 +130,10 @@ body {
   right: 0;
   top: 115px;
   z-index: 10;
+}
+
+.content__page {
+  &--container {
+    padding: 1.2rem;
+  }
 }

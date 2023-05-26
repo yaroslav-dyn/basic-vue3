@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 16,
+            "activePatchIndex": 25,
             "patches": [
                 {
                     "date": 1660734332399,
@@ -72,6 +72,42 @@
                 {
                     "date": 1670533309340,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     components: {\n       default: Home\n     },\n     meta: {\n-      projectName: ''\n+      projectName: 'TRueStory'\n     }\n   },\n   {\n     path: \"/editor\",\n"
+                },
+                {
+                    "date": 1685099322213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,17 +10,23 @@\n     components: {\n       default: Home\n     },\n     meta: {\n-      projectName: 'TRueStory'\n+      projectName: 'TrueStory'\n     }\n   },\n   {\n     path: \"/editor\",\n     name: \"Editor\",\n     component: () =>\n       import(\"../components/EditorView.vue\"),\n   },\n+  {\n+    path: \"/about\",\n+    name: \"Editor\",\n+    component: () =>\n+      import(\"../components/EditorView.vue\"),\n+  }\n ];\n \n const router = createRouter({\n   history: createWebHistory(process.env.BASE_URL),\n"
+                },
+                {
+                    "date": 1685099342375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,11 @@\n       import(\"../components/EditorView.vue\"),\n   },\n   {\n     path: \"/about\",\n-    name: \"Editor\",\n+    name: \"About\",\n     component: () =>\n-      import(\"../components/EditorView.vue\"),\n+      import(\"../components/About.vue\"),\n   }\n ];\n \n const router = createRouter({\n"
+                },
+                {
+                    "date": 1685099362752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n   {\n     path: \"/about\",\n     name: \"About\",\n     component: () =>\n-      import(\"../components/About.vue\"),\n+      import(\"../components/vi/About.vue\"),\n   }\n ];\n \n const router = createRouter({\n"
+                },
+                {
+                    "date": 1685099370271,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n   {\n     path: \"/about\",\n     name: \"About\",\n     component: () =>\n-      import(\"../components/vi/About.vue\"),\n+      import(\"../components/views/About.vue\"),\n   }\n ];\n \n const router = createRouter({\n"
+                },
+                {
+                    "date": 1685099380589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n   {\n     path: \"/about\",\n     name: \"About\",\n     component: () =>\n-      import(\"../components/views/About.vue\"),\n+      import(\"../views/About.vue\"),\n   }\n ];\n \n const router = createRouter({\n"
+                },
+                {
+                    "date": 1685099406357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n   {\n     path: \"/about\",\n     name: \"About\",\n     component: () =>\n-      import(\"../views/About.vue\"),\n+      import(\"../views/AboutView.vue\"),\n   }\n ];\n \n const router = createRouter({\n"
+                },
+                {
+                    "date": 1685101295384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,14 @@\n     path: \"/about\",\n     name: \"About\",\n     component: () =>\n       import(\"../views/AboutView.vue\"),\n+  },\n+  {\n+    path: \"/about\",\n+    name: \"About\",\n+    component: () =>\n+      import(\"../views/AboutView.vue\"),\n   }\n ];\n \n const router = createRouter({\n"
+                },
+                {
+                    "date": 1685101302671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,10 @@\n     component: () =>\n       import(\"../views/AboutView.vue\"),\n   },\n   {\n-    path: \"/about\",\n-    name: \"About\",\n+    path: \"/help\",\n+    name: \"Help\",\n     component: () =>\n       import(\"../views/AboutView.vue\"),\n   }\n ];\n"
+                },
+                {
+                    "date": 1685101365997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n   {\n     path: \"/help\",\n     name: \"Help\",\n     component: () =>\n-      import(\"../views/AboutView.vue\"),\n+      import(\"../views/HelpView.vue\"),\n   }\n ];\n \n const router = createRouter({\n"
                 }
             ],
             "date": 1660734332399,

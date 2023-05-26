@@ -20,6 +20,18 @@ const routes: Array<RouteRecordRaw> = [
     component: () =>
       import("../components/EditorView.vue"),
   },
+  {
+    path: "/about",
+    name: "About",
+    component: () =>
+      import("../views/AboutView.vue"),
+  },
+  {
+    path: "/help",
+    name: "Help",
+    component: () =>
+      import("../views/HelpView.vue"),
+  }
 ];
 
 const router = createRouter({

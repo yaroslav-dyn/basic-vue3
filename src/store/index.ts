@@ -1,3 +1,4 @@
+import { FileTypesInterface } from "@/models/file.model";
 import { createStore } from "vuex";
 
 export interface StateInterface {
@@ -9,14 +10,8 @@ export interface StateInterface {
     name: string,
     data: any
   } | null;
-  filesArrayState: {
-    name: string,
-    data: string
-  }[],
-  currentDocSate: {
-    name: string,
-    data: string
-  },
+  filesArrayState: FileTypesInterface[],
+  currentDocSate: FileTypesInterface,
   filePanelIsOpenState: boolean
 }
 
@@ -107,7 +102,7 @@ export default createStore({
       commit('changeColorThemeMutation', value);
     },
 
-    setCurrentOperation({ state, commit }, data: {name: string, data: any}) {
+    setCurrentOperation({ state, commit }, data: FileTypesInterface) {
       commit('setCurrentOperationMutation', data)
     },
 

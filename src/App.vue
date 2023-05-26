@@ -10,6 +10,7 @@
       <AppNavigation @menuAction="menuAction" />
     </div>
     <router-view />
+    <AppFooter :currentDoc="currentDoc" />
     <ActionsModal
       propTitle="Create new document"
       :showDialog="actionDialogVisible"
@@ -40,6 +41,7 @@
 <script lang="ts">
 import { mixins, Options, Vue } from "vue-class-component";
 import AppNavigation from "@/components/_common/AppNavigation.vue";
+import AppFooter from "@/components/_common/AppFooter.vue";
 import { mapState } from "vuex";
 import ActionsModal from "./components/_parts/ActionsModal.vue";
 import FileListing from "./components/_parts/FileListing.vue";
@@ -48,17 +50,20 @@ import FileCommandMixin from "./mixins/fileCommand.mixin";
 import {
   ArrowLeftBold
 } from '@element-plus/icons-vue'
+import { FileTypesInterface } from "./models/file.model";
 
 @Options({
   components: {
     AppNavigation,
     ActionsModal,
-    FileListing
+    FileListing,
+    AppFooter
   },
   computed: {
     ...mapState({
       isDarkThemeState: (state: any) => state.isDarkTheme,
-      showActionMenuState: (state: any) => state.showActionMenuState
+      showActionMenuState: (state: any) => state.showActionMenuState,
+      currentDoc: (state: any) => state.currentDocSate
     })
   },
 })
@@ -66,6 +71,7 @@ export default class AppComponent extends mixins(
   FileCommandMixin
 ) {
   isDarkThemeState!: boolean;
+  currentDoc!: FileTypesInterface;
 
   public isDarkTheme = false;
   public ArrowLeftBold = ArrowLeftBold;
