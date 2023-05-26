@@ -10,11 +10,6 @@ import { Options, Vue } from "vue-class-component";
 @Options({})
 export default class Home extends Vue {
 
-  mounted() {
-    console.log('mount');
-    
-  }
-
 }
 
 </script>

@@ -18,7 +18,12 @@
 
   --header-height: 60px;
   --footer-height: 80px;
+
+  --el-color-primary: var(--el-bg-color-page);
+
 }
+
+
 
 html {
   font-size: 10px;
@@ -125,15 +130,23 @@ body {
   }
 }
 
+
+/*
+* SECTION: UI Fsst command buttos 
+*/
 .interface__show-files--button {
   position: fixed;
-  right: 0;
+  right: 8px;
   top: 115px;
   z-index: 10;
+  &.add {
+    top: 77px
+  }
 }
 
 .content__page {
   &--container {
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
     padding: 1.2rem;
   }
 }

@@ -1,6 +1,6 @@
 import { Options, Vue } from "vue-class-component";
 import { mapActions, mapMutations, mapState } from "vuex";
-
+import { FileTypesInterface } from "../models/file.model";
 @Options({
 
   methods: {
@@ -31,7 +31,7 @@ import { mapActions, mapMutations, mapState } from "vuex";
   }
 })
 export default class FileCommandMixin extends Vue {
-  setCurrentOperation!: (data: { name: string, data: any }) => void;
+  setCurrentOperation!: (data: FileTypesInterface) => void;
   setActionMenuState!: (data: boolean) => void;
   setCurrentFileAction!: (data: any) => void;
   setFilesArrayAction!: (data: any) => void;
@@ -40,7 +40,7 @@ export default class FileCommandMixin extends Vue {
 
   public actionDialogVisible = false;
   public showFilesPage = false;
-  
+
   onCloseDialog(val: boolean) {
     this.setActionMenuState(false);
   }
@@ -49,7 +49,7 @@ export default class FileCommandMixin extends Vue {
     const fileTypeCmd = command.includes('FILE');
     const currentRoute = this.$route.name;
     if (fileTypeCmd && currentRoute !== 'Home')
-    this.$router.push({name: 'Home'});  
+      this.$router.push({ name: 'Home' });
   }
 
   menuAction(command: string) {
@@ -63,7 +63,7 @@ export default class FileCommandMixin extends Vue {
         break;
       case "SAVE_DOCUMENT":
         this.saveFile();
-        break;      
+        break;
     }
   }
 
@@ -82,8 +82,8 @@ export default class FileCommandMixin extends Vue {
   addAndOpenFile(data: { fileName: string }) {
     const presentFile = localStorage.getItem('filesArray');
     const filesArray = presentFile ? JSON.parse(presentFile) : [];
-    filesArray.push({ name: data.fileName, data: '', status: 'TODO'});
-    this.setCurrentFileAction({ name: data.fileName, data: '', status: 'TODO'})
+    filesArray.push({ name: data.fileName, data: '', status: 'TODO' });
+    this.setCurrentFileAction({ name: data.fileName, data: '', status: 'TODO' })
     this.setFilesArrayAction(filesArray);
     localStorage.setItem('filesArray', JSON.stringify(filesArray));
   }

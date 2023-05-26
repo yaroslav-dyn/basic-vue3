@@ -18,6 +18,13 @@
       @onConfirmAction="onConfirmAction"
     />
       <el-button
+        class="interface__show-files--button add"
+        type="success"
+        :icon="PlusIcon"
+        circle
+        @click="createFile"
+      />
+      <el-button
         class="interface__show-files--button"
         type="warning"
         :icon="ArrowLeftBold"
@@ -48,7 +55,8 @@ import FileListing from "./components/_parts/FileListing.vue";
 import { RouterView } from "vue-router";
 import FileCommandMixin from "./mixins/fileCommand.mixin";
 import {
-  ArrowLeftBold
+  ArrowLeftBold,
+  Plus
 } from '@element-plus/icons-vue'
 import { FileTypesInterface } from "./models/file.model";
 
@@ -75,6 +83,7 @@ export default class AppComponent extends mixins(
 
   public isDarkTheme = false;
   public ArrowLeftBold = ArrowLeftBold;
+  public PlusIcon = Plus;
 
 
 }//

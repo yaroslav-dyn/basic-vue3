@@ -10,18 +10,16 @@
   >
     <el-menu-item index="1">
       <router-link to="/">
-        {{ getHomelinkName
-         
-        }}
+        {{ getHomelinkName }}
       </router-link>
     </el-menu-item>
     <el-sub-menu index="2" @select="onChangeCommand">
       <template #title>File</template>
-      <el-menu-item index="1-1" @click="onChangeCommand('OPEN_FILE')"
-        >Open</el-menu-item
-      >
       <el-menu-item index="1-2" @click="onChangeCommand('CREATE_FILE')"
         >New</el-menu-item
+      >
+      <el-menu-item index="1-1" @click="onChangeCommand('OPEN_FILE')"
+        >Open</el-menu-item
       >
       <el-menu-item index="2-1" @click="onChangeCommand('SAVE_DOCUMENT')"
         >Save</el-menu-item
@@ -42,7 +40,7 @@
       <router-link to="/help"> Help </router-link>
     </el-menu-item>
 
-    <div class="flex-grow"></div>
+    <div class="flex-grow" flex-grow="1"></div>
 
     <div class="switcher--element">
       <el-switch
@@ -105,10 +103,10 @@ export default class AppNavigation extends Vue {
   }
 
   get getHomelinkName() {
-    const projectName = process.env.VUE_APP_PROJECT_NAME; 
-    return  this.currentDocSate && this.currentDocSate.name.length > 0
-            ? this.currentDocSate.name 
-            : projectName
+    const projectName = process.env.VUE_APP_PROJECT_NAME;
+    return this.currentDocSate && this.currentDocSate.name.length > 0
+      ? this.currentDocSate.name
+      : projectName
   }
 
   mounted() {
@@ -122,9 +120,7 @@ export default class AppNavigation extends Vue {
 </script>
 
 <style scoped>
-.flex-grow {
-  flex-grow: 1;
-}
+
 
 .switcher--element {
   padding: 1rem 2rem 0;
