@@ -122,6 +122,10 @@ export default class Home extends mixins(General) {
     this.currentDoc = contentEvent.srcElement!.innerText;
     //@ts-ignore warn
     this.setCurrentFileAction({ name: this.currentDocSate?.name, data: contentEvent.srcElement!.innerText });
+    /** TODO: Demo but user needs firred save action 
+      and than files array in local storage will be update:
+      - live per now or add updating for files array
+     **/
   }
 
   mounted(): void {
