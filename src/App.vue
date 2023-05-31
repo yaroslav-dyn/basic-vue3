@@ -85,7 +85,6 @@ export default class AppComponent extends mixins(
   public ArrowLeftBold = ArrowLeftBold;
   public PlusIcon = Plus;
 
-
 }//
 </script>
 

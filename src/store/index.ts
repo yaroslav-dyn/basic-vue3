@@ -122,7 +122,7 @@ export default createStore({
       commit('renameFileMutation');
     },
 
-    saveFileAction({ state, commit, dispatch }) {
+    saveFileAction({ state, dispatch }) {
       const currentDoc = state.currentDocSate;
       const currentDocArray = [...state.filesArrayState];
       const currentDocIndex = currentDocArray?.findIndex((f: { name: string, data: string }) => f.name === currentDoc?.name);
@@ -130,8 +130,15 @@ export default createStore({
           currentDocArray[currentDocIndex] = currentDoc;
           dispatch('setFilesArrayAction', currentDocArray);
       } 
+    },
+
+    deleteFileAction({ state, dispatch }, file: FileTypesInterface) {
+      console.log('deleteFileAction', file);
+      const currentDocArray = [...state.filesArrayState];
+      const currentDocnewArray = currentDocArray?.filter((f: { name: string, data: string }) => f.name != file?.name);
+      dispatch('setFilesArrayAction', currentDocnewArray);
     }
 
-  },
+  }
   //modules: {}
 });

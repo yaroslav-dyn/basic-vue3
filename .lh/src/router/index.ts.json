@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 25,
+            "activePatchIndex": 29,
             "patches": [
                 {
                     "date": 1660734332399,
@@ -108,6 +108,22 @@
                 {
                     "date": 1685101365997,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n   {\n     path: \"/help\",\n     name: \"Help\",\n     component: () =>\n-      import(\"../views/AboutView.vue\"),\n+      import(\"../views/HelpView.vue\"),\n   }\n ];\n \n const router = createRouter({\n"
+                },
+                {
+                    "date": 1685452551483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,14 @@\n     component: () =>\n       import(\"../components/EditorView.vue\"),\n   },\n   {\n+    path: \"/editor\",\n+    name: \"Editor\",\n+    component: () =>\n+      import(\"../components/EditorView.vue\"),\n+  },\n+  {\n     path: \"/about\",\n     name: \"About\",\n     component: () =>\n       import(\"../views/AboutView.vue\"),\n"
+                },
+                {
+                    "date": 1685452557895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,10 @@\n     component: () =>\n       import(\"../components/EditorView.vue\"),\n   },\n   {\n-    path: \"/editor\",\n-    name: \"Editor\",\n+    path: \"/files\",\n+    name: \"Files\",\n     component: () =>\n       import(\"../components/EditorView.vue\"),\n   },\n   {\n"
+                },
+                {
+                    "date": 1685452569171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,11 @@\n       import(\"../components/EditorView.vue\"),\n   },\n   {\n     path: \"/files\",\n-    name: \"Files\",\n+    name: \"FilesList\",\n     component: () =>\n-      import(\"../components/EditorView.vue\"),\n+      import(\"../components/FilesView.vue\"),\n   },\n   {\n     path: \"/about\",\n     name: \"About\",\n"
+                },
+                {
+                    "date": 1685452598045,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n   {\n     path: \"/files\",\n     name: \"FilesList\",\n     component: () =>\n-      import(\"../components/FilesView.vue\"),\n+      import(\"../views/FilesView.vue\"),\n   },\n   {\n     path: \"/about\",\n     name: \"About\",\n"
                 }
             ],
             "date": 1660734332399,

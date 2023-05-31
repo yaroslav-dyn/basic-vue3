@@ -32,11 +32,14 @@
         <el-menu-item index="2-4-3">item three</el-menu-item>
       </el-sub-menu> -->
     </el-sub-menu>
-    <el-menu-item index="3" disabled> View </el-menu-item>
-    <el-menu-item index="4">
+    <el-menu-item index="3"> 
+      <router-link to="/files"> Files </router-link>
+    </el-menu-item>
+    <el-menu-item index="4" disabled> View </el-menu-item>
+    <el-menu-item index="5">
       <router-link to="/about"> About </router-link>
     </el-menu-item>
-    <el-menu-item index="5">
+    <el-menu-item index="6">
       <router-link to="/help"> Help </router-link>
     </el-menu-item>
 

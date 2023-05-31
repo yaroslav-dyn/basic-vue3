@@ -21,6 +21,12 @@ const routes: Array<RouteRecordRaw> = [
       import("../components/EditorView.vue"),
   },
   {
+    path: "/files",
+    name: "FilesList",
+    component: () =>
+      import("../views/FilesView.vue"),
+  },
+  {
     path: "/about",
     name: "About",
     component: () =>

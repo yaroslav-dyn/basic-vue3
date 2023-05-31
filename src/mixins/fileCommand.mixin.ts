@@ -9,7 +9,8 @@ import { FileTypesInterface } from "../models/file.model";
       setCurrentFileAction: 'setCurrentFileAction',
       setFilesArrayAction: 'setFilesArrayAction',
       openFilePanelAction: 'openFileAction',
-      saveFileAction: 'saveFileAction'
+      saveFileAction: 'saveFileAction',
+      deleteFileAction: 'deleteFileAction',
     }),
     ...mapMutations({
       setActionMenuState: 'setActionMenuState'
@@ -36,6 +37,7 @@ export default class FileCommandMixin extends Vue {
   setCurrentFileAction!: (data: any) => void;
   setFilesArrayAction!: (data: any) => void;
   openFilePanelAction!: (data: boolean) => void;
+  deleteFileAction!: (data: FileTypesInterface) => void;
   saveFileAction!: () => void;
 
   public actionDialogVisible = false;
@@ -98,5 +100,12 @@ export default class FileCommandMixin extends Vue {
     this.openFilePanelAction(false);
   }
 
+  /**
+   *  NOTE get Files array (dev: local)
+   */
+  getFilesArray() {
+    const tempArray = localStorage.getItem('filesArray');
+    return tempArray ? JSON.parse(tempArray) : [];
+  }
 
 }//

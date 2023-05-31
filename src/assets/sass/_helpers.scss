@@ -1,12 +1,45 @@
 .d-flex {
   display: flex;
 
+  &.wrapped {
+    flex-wrap: wrap;
+  }
+  
+
+  [col='3'] {
+    flex-basis: 25%;
+    &.gaps & {
+        flex-basis: calc(25% - 2rem);
+    }
+  }
+
   [col='6'] {
-    flex-basis: 50%;
+        flex-basis: 50%;
+      &.gaps {
+          flex-basis: calc(50% - 2rem);
+    }
+  }
+
+  [col='9'] {
+    flex-basis: 75%;
+    &.gaps {
+      flex-basis: calc(75% - 2rem);
+    }
+  }
+
+  [col='12'] {
+    flex-basis: 100%;
+      &.gaps {
+          flex-basis: calc(100% - 2rem);
+        }
   }
 
   &[align='--center'] {
     align-items: center;
+  }
+
+  &[align='--end'] {
+    align-items: end;
   }
 
   &[justify='--space-between'] {

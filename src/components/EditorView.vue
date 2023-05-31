@@ -5,7 +5,7 @@
     justify="--space-between"
     @dblclick="isEditable = false"
   >
-    <div class="d-flex" align-center>
+    <div class="d-flex"  align="--center">
       <el-switch
         class="w100 gutter_element"
         inline-prompt
@@ -135,6 +135,11 @@ export default class Home extends mixins(General) {
       currentDocs && (this.currentDocSate?.name.length == 0) && (this.setCurrentFileAction(JSON.parse(currentDocs).slice(-1).shift()));
     this.currentDocSate && (this.currentDoc = this.currentDocSate.data);
   }
+
+  unmounted() {
+   // this.setCurrentFileAction(null);
+  }
+
 }
 </script>
 <style scoped>
