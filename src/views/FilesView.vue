@@ -1,3 +1,4 @@
+<!--SECTION: File listing page -->
 <template>
   <div class="content__page--container">
     <div class="card__controls">
@@ -7,6 +8,7 @@
             v-model="cardsScale"
             :step="3"
             show-stops
+            :show-tooltip="false"
             :min="0"
             :max="12"
           />
@@ -17,7 +19,7 @@
     <div class="d-flex wrapped">
       <el-card
         class="box-sizing card__item gaps"
-        :col="cardsScale"
+        :col="getCardScale"
         v-for="(file, index) in filesArray"
         :key="index"
         shadow="hover"
@@ -48,6 +50,12 @@ export default class extends mixins(
 ) {
   public filesArray = [] as FileTypesInterface[];
   public cardsScale = 6;
+
+  get getCardScale():number {
+    if(this.cardsScale === Number(0))
+     return 1
+    return this.cardsScale;
+  }
 
   mounted() {
     this.filesArray = this.getFilesArray();

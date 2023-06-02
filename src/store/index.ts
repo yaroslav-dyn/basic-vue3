@@ -5,7 +5,7 @@ export interface StateInterface {
   defaultFontSize: number;
   isDarkTheme: boolean;
   CurrentfontSize: number;
-  showActionMenuState: boolean;
+  showActionMenuState: boolean | object;
   currentOperation: {
     name: string,
     data: any
@@ -16,7 +16,7 @@ export interface StateInterface {
 }
 
 export default createStore({
-  state() {
+  state():any {
     return {
       defaultFontSize: 16,
       isDarkTheme: false,
@@ -46,7 +46,7 @@ export default createStore({
       state.currentOperation = value;
     },
 
-    setActionMenuState(state: StateInterface, value: boolean) {
+    setActionMenuState(state: StateInterface, value: boolean | object) {
       state.showActionMenuState = value;
     },
 
@@ -125,7 +125,7 @@ export default createStore({
     saveFileAction({ state, dispatch }) {
       const currentDoc = state.currentDocSate;
       const currentDocArray = [...state.filesArrayState];
-      const currentDocIndex = currentDocArray?.findIndex((f: { name: string, data: string }) => f.name === currentDoc?.name);
+      const currentDocIndex = currentDocArray?.findIndex((f: FileTypesInterface) => f.name === currentDoc?.name);
       if (currentDocIndex >= 0) {
           currentDocArray[currentDocIndex] = currentDoc;
           dispatch('setFilesArrayAction', currentDocArray);
@@ -135,7 +135,7 @@ export default createStore({
     deleteFileAction({ state, dispatch }, file: FileTypesInterface) {
       console.log('deleteFileAction', file);
       const currentDocArray = [...state.filesArrayState];
-      const currentDocnewArray = currentDocArray?.filter((f: { name: string, data: string }) => f.name != file?.name);
+      const currentDocnewArray = currentDocArray?.filter((f: FileTypesInterface) => f.name != file?.name);
       dispatch('setFilesArrayAction', currentDocnewArray);
     }
 

@@ -1,6 +1,7 @@
 import { Options, Vue } from "vue-class-component";
 import { mapActions, mapMutations, mapState } from "vuex";
 import { FileTypesInterface } from "../models/file.model";
+import { DocumentTypeEnum } from "@/models/enums.model";
 @Options({
 
   methods: {
@@ -33,7 +34,7 @@ import { FileTypesInterface } from "../models/file.model";
 })
 export default class FileCommandMixin extends Vue {
   setCurrentOperation!: (data: FileTypesInterface) => void;
-  setActionMenuState!: (data: boolean) => void;
+  setActionMenuState!: (data: boolean | object) => void;
   setCurrentFileAction!: (data: any) => void;
   setFilesArrayAction!: (data: any) => void;
   openFilePanelAction!: (data: boolean) => void;
@@ -81,6 +82,14 @@ export default class FileCommandMixin extends Vue {
     this.saveFileAction()
   }
 
+  editFile(file: FileTypesInterface) {
+    const actionObject = {
+      file: file,
+      operation: 'EDIT_DOCUMENT'
+    }
+    this.setActionMenuState(actionObject)
+  }
+
   addAndOpenFile(data: { fileName: string }) {
     const presentFile = localStorage.getItem('filesArray');
     const filesArray = presentFile ? JSON.parse(presentFile) : [];
@@ -91,7 +100,7 @@ export default class FileCommandMixin extends Vue {
   }
 
   onConfirmAction(data: { fileName: string }) {
-    this.setCurrentOperation({ name: 'CREATE_FILE', data: "", status: 'TODO' });
+    this.setCurrentOperation({ name: 'CREATE_FILE', data: "", status: 'TODO', createdAt: Date(), docType: DocumentTypeEnum.TEXT });
     this.addAndOpenFile(data);
     this.actionDialogVisible = false;
   }

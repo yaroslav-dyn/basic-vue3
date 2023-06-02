@@ -14,6 +14,7 @@
     <ActionsModal
       propTitle="Create new document"
       :showDialog="actionDialogVisible"
+      :propCurrentCommand="showActionMenuState"
       @onClose="onCloseDialog"
       @onConfirmAction="onConfirmAction"
     />
@@ -80,6 +81,7 @@ export default class AppComponent extends mixins(
 ) {
   isDarkThemeState!: boolean;
   currentDoc!: FileTypesInterface;
+  showActionMenuState?: boolean | object;
 
   public isDarkTheme = false;
   public ArrowLeftBold = ArrowLeftBold;

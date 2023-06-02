@@ -15,4 +15,7 @@ export default class GeneralMixin extends Vue {
   }
 
 
+  
+
+
 }//

@@ -4,8 +4,18 @@
   &.wrapped {
     flex-wrap: wrap;
   }
-  
+  &.column {
+    flex-direction: column;
+  }
 
+    [col='1'] {
+      flex-basis: 8.33%;
+  
+      &.gaps & {
+        flex-basis: calc(8.33% - 2rem);
+      }
+    }
+  
   [col='3'] {
     flex-basis: 25%;
     &.gaps & {

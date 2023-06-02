@@ -1,7 +1,8 @@
+<!--SECTION: File listing template:: drawer -->
 <template>
   <el-row :gutter="20">
     <el-col :span="12" v-for="file in filesArray" :key="file.name">
-      <div class="files_item d-flex" align="--end">
+      <div class="files_item d-flex">
         <el-avatar
           @click="selectFile(file)"
           class="files_item--icon"
@@ -10,13 +11,25 @@
           :size="50"
           src="/"
         />
-        <el-button
-          @click="onDeleteFile(file)"
-          type="danger"
-          :icon="DeleteIcon"
-          size="small"
-          circle
-        />
+        <div class="d-flex column" align="--center" justify="--space-between">
+          <div>
+            <el-button
+              @click="editFile(file)"
+              type="warning"
+              :icon="EditPenIcon"
+              size="small"
+              circle
+            />
+          </div>
+
+          <el-button
+            @click="onDeleteFile(file)"
+            type="danger"
+            :icon="DeleteIcon"
+            size="small"
+            circle
+          />
+        </div>
       </div>
       <span>{{ file.name }}</span>
     </el-col>
@@ -30,7 +43,8 @@ import { mixins, Options } from 'vue-class-component';
 import { Document } from '@element-plus/icons-vue'
 import FileCommandMixin from '@/mixins/fileCommand.mixin';
 import {
-  Delete
+  Delete,
+  EditPen
 } from '@element-plus/icons-vue'
 import { ElMessage, ElMessageBox } from 'element-plus';
 
@@ -42,6 +56,7 @@ export default class FileListingComponent extends mixins(
   public documentIcon = Document;
   public filesArray = [] as FileTypesInterface[];
   public DeleteIcon = Delete;
+  public EditPenIcon = EditPen;
 
   selectFile(file: FileTypesInterface) {
     this.setCurrentFileAction(file);
@@ -49,33 +64,31 @@ export default class FileListingComponent extends mixins(
     this.redirectToEditor('FILE_OPEN');
   }
 
-  onDeleteFile(file: FileTypesInterface) {
+  async onDeleteFile(file: FileTypesInterface) {
     // TODO: re-write to mixin
-    ElMessageBox.confirm(
-      `You want to delete file: ${file.name}?`,
-      'Warning',
-      {
-        confirmButtonText: 'OK',
-        cancelButtonText: 'Cancel',
-        type: 'warning',
-      }
-    )
-      .then(() => {
 
-       this.deleteFileAction(file); 
-      this.getFiles();
+    try {
+      const response = await ElMessageBox.confirm(
+        `You want to delete file: ${file.name}?`,
+        'Warning',
+        {
+          confirmButtonText: 'OK',
+          cancelButtonText: 'Cancel',
+          type: 'warning',
+        }
+      )
+      if (response) {
+        this.deleteFileAction(file);
+        this.getFiles();
         ElMessage({
           type: 'success',
           message: 'Delete completed',
         })
-      })
-      .catch(() => {
-        ElMessage({
-          type: 'info',
-          message: 'Delete canceled',
-        })
-      })
-  }
+      }
+    } catch (error) {
+      return
+    }
+  }//
 
   getFiles() {
     this.filesArray = this.getFilesArray();
