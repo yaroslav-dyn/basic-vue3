@@ -2,6 +2,7 @@
 <template>
   <el-row :gutter="20">
     <el-col :span="12" v-for="file in filesArray" :key="file.name">
+      <div>{{ file.name }}</div>
       <div class="files_item d-flex">
         <el-avatar
           @click="selectFile(file)"
@@ -31,7 +32,6 @@
           />
         </div>
       </div>
-      <span>{{ file.name }}</span>
     </el-col>
   </el-row>
 </template>
@@ -104,6 +104,7 @@ export default class FileListingComponent extends mixins(
 
 <style lang="scss" scoped>
 .files_item {
+  margin: 10px 0;
   &--icon {
     margin-right: 8px;
   }

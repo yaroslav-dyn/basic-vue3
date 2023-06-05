@@ -1,8 +1,8 @@
-@import '_helpers';
+@use '_theme' as *;
+@use '_helpers' as *;
+@use '_elements' as *;
 
 :root {
-
-  --footer-bg-color: var(--el-bg-color-page);
   --editor-bg: #fff;
   --editor-text: #444;
 
@@ -13,14 +13,14 @@
   --editor-text--dark: #fff;
   --editor--outline-width: 1px;
 
-  --light--outline_color: ##ffd04b;
+  --light--outline_color: #ffd04b;
   --dark--outline_color: #ffd04b;
+
+  --button-primary: green;
+  --button-default: #efefef;
 
   --header-height: 60px;
   --footer-height: 80px;
-
-  --el-color-primary: var(--el-bg-color-page);
-
 }
 
 

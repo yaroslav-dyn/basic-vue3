@@ -33,13 +33,13 @@ import { DocumentTypeEnum } from "@/models/enums.model";
   }
 })
 export default class FileCommandMixin extends Vue {
-  setCurrentOperation!: (data: FileTypesInterface) => void;
+  setCurrentOperation!: (data: {name: string, data:FileTypesInterface}) => void;
   setActionMenuState!: (data: boolean | object) => void;
   setCurrentFileAction!: (data: any) => void;
   setFilesArrayAction!: (data: any) => void;
   openFilePanelAction!: (data: boolean) => void;
   deleteFileAction!: (data: FileTypesInterface) => void;
-  saveFileAction!: () => void;
+  saveFileAction!: (data: FileTypesInterface | null) => void;
 
   public actionDialogVisible = false;
   public showFilesPage = false;
@@ -79,7 +79,7 @@ export default class FileCommandMixin extends Vue {
   }
 
   saveFile() {
-    this.saveFileAction()
+    this.saveFileAction(null)
   }
 
   editFile(file: FileTypesInterface) {
@@ -90,19 +90,23 @@ export default class FileCommandMixin extends Vue {
     this.setActionMenuState(actionObject)
   }
 
-  addAndOpenFile(data: { fileName: string }) {
+  addAndOpenFile(data: FileTypesInterface) {
     const presentFile = localStorage.getItem('filesArray');
     const filesArray = presentFile ? JSON.parse(presentFile) : [];
-    filesArray.push({ name: data.fileName, data: '', status: 'TODO' });
-    this.setCurrentFileAction({ name: data.fileName, data: '', status: 'TODO' })
+    filesArray.push(data);
+    this.setCurrentFileAction(data)
     this.setFilesArrayAction(filesArray);
     localStorage.setItem('filesArray', JSON.stringify(filesArray));
   }
 
-  onConfirmAction(data: { fileName: string }) {
-    this.setCurrentOperation({ name: 'CREATE_FILE', data: "", status: 'TODO', createdAt: Date(), docType: DocumentTypeEnum.TEXT });
-    this.addAndOpenFile(data);
-    this.actionDialogVisible = false;
+  onConfirmAction(data: FileTypesInterface) {
+    if(data.id === 0) {
+      this.setCurrentOperation({ name: 'CREATE_FILE', data: data });
+      this.addAndOpenFile(data);
+    } else {
+      this.saveFileAction(data)
+    }
+    this.setActionMenuState(false);
   }
 
   onCloseFilePanel() {

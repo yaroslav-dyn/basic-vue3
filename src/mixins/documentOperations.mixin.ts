@@ -7,6 +7,7 @@ import { DocumentTypeEnum } from "@/models/enums.model";
 export default class DocumentOpeartionsMixin extends Vue {
 
   public FileData = {
+    id: 0,
     docType: DocumentTypeEnum.TEXT,
     number: '1',
     name: '',
@@ -15,7 +16,7 @@ export default class DocumentOpeartionsMixin extends Vue {
     changedAt: null,
 
     // TASK
-    priority: 1,
+    priority: null,
     dueDate: null,
     status: 'TODO',
     labels: [],

@@ -2,6 +2,7 @@ import { DocumentTypeEnum } from "./enums.model";
 
 
 export interface FileTypesInterface {
+  id: number,
   name: string;
   data?: any;
   status?: string;
@@ -12,7 +13,7 @@ export interface FileTypesInterface {
   changedAt?: Date | null,
 
   // TASK
-  priority?: number,
+  priority?: string | null, //argent, high, normal, low
   dueDate?: Date | null,
   labels?: [], //TODO: add types
 

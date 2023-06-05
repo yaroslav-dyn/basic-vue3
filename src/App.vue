@@ -11,6 +11,7 @@
     </div>
     <router-view />
     <AppFooter :currentDoc="currentDoc" />
+    
     <ActionsModal
       propTitle="Create new document"
       :showDialog="actionDialogVisible"

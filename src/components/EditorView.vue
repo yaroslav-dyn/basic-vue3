@@ -42,7 +42,7 @@
     @dblclick="changeEditorState"
     @blur="updateValue($event)"
   >
-  {{currentDoc}}
+  {{currentDoc.data}}
   </pre>
 </template>
 
@@ -77,14 +77,14 @@ import { FileTypesInterface } from "@/models/file.model";
       this.areaFontSize = val;
     },
     'currentDocSate.name'(val) {
-      this.currentDoc = this.currentDocSate.data;
+      this.currentDoc = this.currentDocSate;
     }
   }
 })
 export default class Home extends mixins(General) {
   fontSizeState!: number;
-  filesArrayState!: { name: string, data: string }[];
-  currentDocSate?: { name: string, data: string };
+  filesArrayState!: FileTypesInterface[];
+  currentDocSate?: FileTypesInterface;
   setFontSizeAction!: (value: number) => void;
   setCurrentFileAction!: (data: any) => void;
   setFilesArrayAction!: (data: FileTypesInterface) => void;
@@ -99,7 +99,7 @@ export default class Home extends mixins(General) {
 
   public currentDocName = "File_1";
   public isEditable = false;
-  currentDoc = "Hello!";
+  public currentDoc = {}  as FileTypesInterface;
 
 
   changeEditorState() {
@@ -118,10 +118,12 @@ export default class Home extends mixins(General) {
 
 
   updateValue(contentEvent: any): void {
+    console.log('update', this.currentDoc, contentEvent.srcElement!.innerText);
+    this.currentDoc.data = contentEvent.srcElement!.innerText
     // localStorage.setItem(this.currentDocName, contentEvent.srcElement!.innerText);
-    this.currentDoc = contentEvent.srcElement!.innerText;
+    //this.currentDoc = contentEvent.srcElement!.innerText;
     //@ts-ignore warn
-    this.setCurrentFileAction({ name: this.currentDocSate?.name, data: contentEvent.srcElement!.innerText });
+    this.setCurrentFileAction( this.currentDoc );
     /** TODO: Demo but user needs firred save action 
       and than files array in local storage will be update:
       - live per now or add updating for files array
@@ -137,7 +139,7 @@ export default class Home extends mixins(General) {
     if (currentDocStorage) this.setCurrentFileAction(JSON.parse(currentDocStorage));
     else
       currentDocs && (this.currentDocSate?.name.length == 0) && (this.setCurrentFileAction(JSON.parse(currentDocs).slice(-1).shift()));
-    this.currentDocSate && (this.currentDoc = this.currentDocSate.data);
+    this.currentDocSate && (this.currentDoc = this.currentDocSate);
   }
 
   unmounted() {

@@ -102,7 +102,7 @@ export default createStore({
       commit('changeColorThemeMutation', value);
     },
 
-    setCurrentOperation({ state, commit }, data: FileTypesInterface) {
+    setCurrentOperation({ state, commit }, data: {data: FileTypesInterface}) {
       commit('setCurrentOperationMutation', data)
     },
 
@@ -122,10 +122,14 @@ export default createStore({
       commit('renameFileMutation');
     },
 
-    saveFileAction({ state, dispatch }) {
-      const currentDoc = state.currentDocSate;
+    saveFileAction({ state, dispatch }, data: FileTypesInterface | null) {
+      let currentDoc: FileTypesInterface | null = null;
+      if(!data)
+        currentDoc = state.currentDocSate;
+      else 
+        currentDoc = data;
       const currentDocArray = [...state.filesArrayState];
-      const currentDocIndex = currentDocArray?.findIndex((f: FileTypesInterface) => f.name === currentDoc?.name);
+      const currentDocIndex = currentDocArray?.findIndex((f: FileTypesInterface) => f.id === currentDoc?.id);
       if (currentDocIndex >= 0) {
           currentDocArray[currentDocIndex] = currentDoc;
           dispatch('setFilesArrayAction', currentDocArray);
@@ -135,7 +139,7 @@ export default createStore({
     deleteFileAction({ state, dispatch }, file: FileTypesInterface) {
       console.log('deleteFileAction', file);
       const currentDocArray = [...state.filesArrayState];
-      const currentDocnewArray = currentDocArray?.filter((f: FileTypesInterface) => f.name != file?.name);
+      const currentDocnewArray = currentDocArray?.filter((f: FileTypesInterface) => f.id != file?.id);
       dispatch('setFilesArrayAction', currentDocnewArray);
     }
 
