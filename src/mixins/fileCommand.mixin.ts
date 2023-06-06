@@ -99,12 +99,13 @@ export default class FileCommandMixin extends Vue {
     localStorage.setItem('filesArray', JSON.stringify(filesArray));
   }
 
-  onConfirmAction(data: FileTypesInterface) {
-    if(data.id === 0) {
-      this.setCurrentOperation({ name: 'CREATE_FILE', data: data });
-      this.addAndOpenFile(data);
-    } else {
-      this.saveFileAction(data)
+  onConfirmAction(postData: { data: FileTypesInterface, type: string }) {
+    console.log('debug saving is new', postData);
+    if (postData.type === 'CREATE_FILE') {
+      this.setCurrentOperation({ name: 'CREATE_FILE', data: postData.data });
+      this.addAndOpenFile(postData.data);
+    } else if (postData.type === 'EDIT_FILE') {
+      this.saveFileAction(postData.data)
     }
     this.setActionMenuState(false);
   }

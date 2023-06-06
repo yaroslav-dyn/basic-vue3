@@ -35,12 +35,14 @@
       />
     <el-drawer
       v-if="showFilesPage"
-      :modal-class="!isDarkThemeState ? '--light-theme' : '--dark-theme '"
+      :modal-class="`interface__drawer ${!isDarkThemeState ? '--light-theme' : '--dark-theme'}`"
       v-model="showFilesPage"
       @closed="onCloseFilePanel"
-      title="Open file"
       :with-header="true"
     >
+     <template #header>
+      <h4 class="text--center">Open file</h4>
+    </template>
       <FileListing />
     </el-drawer>
   </main>
@@ -90,7 +92,3 @@ export default class AppComponent extends mixins(
 
 }//
 </script>
-
-<style lang="scss">
-
-</style>

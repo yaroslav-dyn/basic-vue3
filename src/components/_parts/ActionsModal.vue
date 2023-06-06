@@ -8,9 +8,11 @@
   >
     <template #header>
       <div class="action_modal__header">
-      <h3>{{ getTitle }}</h3>
+        <div class="d-flex" justify="--space-between" align="--center">
+          <h3>{{ getTitle }}</h3>
+          <i class="doc__number" v-if="getDataFile">{{ currentFileData.number }}</i>
+        </div>
       </div>
-
     </template>
 
     <el-form :model="actionsForm" class="doc__form">
@@ -23,60 +25,66 @@
         <!-- <span>{{el.name}}</span> -->
 
         <el-form-item v-for="g in el.data" :key="g.elIndex" :style="g.style">
-          
-          <div class="doc__form--label">
+          <div
+            class="doc__form--label"
+            v-if="
+              el.name === 'TEXT' ||
+              (el.name === 'TASK' && currentFileData.docType === 'TASK')
+            "
+          >
             <!-- NOTE: Label -->
             <label :for="g.key">
               <strong>{{ g.title }}</strong>
             </label>
           </div>
 
-
-          <template v-if="el.name === 'TEXT' || el.name === 'TASK' && currentFileData.docType === 'TASK'">
-          <!-- NOTE: Text -->
-          <el-input
-            :name="g.key"
-            class="gaps"
-            v-if="g.type === 'text'"
-            :id="g.key"
-            v-model="g.value"
-            placeholder="File name"
-            :label="g.title"
-            @change="setFileObject($event, g.key)"
-          />
-
-          <!-- NOTE: Select -->
-          <el-select
-            class="w100 gaps"
-             v-if="g.type === 'select'"
-            :name="g.key"
-            v-model="g.value"
-            :id="g.key"
-            placeholder="Select"
-            @change="setFileObject($event, g.key)"
+          <template
+            v-if="
+              el.name === 'TEXT' ||
+              (el.name === 'TASK' && currentFileData.docType === 'TASK')
+            "
           >
-            <el-option
-              v-for="opt in g.options"
-              :key="opt.value"
-              :label="opt.label"
-              :value="opt.value"
+            <!-- NOTE: Text -->
+            <el-input
+              :name="g.key"
+              class="gaps"
+              v-if="g.type === 'text'"
+              :id="g.key"
+              v-model="g.value"
+              placeholder="File name"
+              :label="g.title"
+              @change="setFileObject($event, g.key)"
             />
-          </el-select>
 
+            <!-- NOTE: Select -->
+            <el-select
+              class="w100 gaps"
+              v-if="g.type === 'select'"
+              :name="g.key"
+              v-model="g.value"
+              :id="g.key"
+              placeholder="Select"
+              @change="setFileObject($event, g.key)"
+            >
+              <el-option
+                v-for="opt in g.options"
+                :key="opt.value"
+                :label="opt.label"
+                :value="opt.value"
+              />
+            </el-select>
 
-        <!-- NOTE: Datetime -->
-        <el-date-picker
-          class="w100"
-          v-if="g.type === 'datetime'"
-          :name="g.key"
-          v-model="g.value"
-          type="date"
-          placeholder="DueDate"
-          @change="setFileObject($event, g.key)"
-        />
-
-        </template>
-
+            <!-- NOTE: Datetime -->
+            <el-date-picker
+              class="w100"
+              v-if="g.type === 'datetime'"
+              :name="g.key"
+              v-model="g.value"
+              type="date"
+              placeholder="DueDate"
+              @change="setFileObject($event, g.key)"
+            />
+          </template>
         </el-form-item>
       </div>
       <hr />
@@ -87,27 +95,26 @@
           name="Filedata"
           class="doc__form--textarea"
           v-model="currentFileData.data"
-          :rows="2"
+          :rows="8"
           type="textarea"
           placeholder="Please input"
           @change="setFileObject($event, 'data')"
         />
       </div>
 
-
       <!-- <div>
         <pre>
           {{currentFileData}}
         </pre>
       </div> -->
-
-
     </el-form>
 
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="$emit('onClose', false)">Cancel</el-button>
-        <el-button class="action__btn" type="primary" @click="onConfirmAction"> Save </el-button>
+        <el-button class="action__btn" type="primary" @click="onConfirmAction">
+          Save
+        </el-button>
       </span>
     </template>
   </el-dialog>
@@ -136,7 +143,7 @@ import DocumentOpeartionsMixin from '@/mixins/documentOperations.mixin'
   watch: {
     showDialog(val) {
       this.isOpen = !!val;
-      if(this.getDataFile) {
+      if (this.getDataFile) {
         this.currentFileData = this.getDataFile;
       }
     }
@@ -153,23 +160,26 @@ export default class ActionsModal extends mixins(
   public isOpen = false;
   public fileName = '';
   public actionsForm = {
-   
+
   }
   public fileFormScema = FileFormScema;
   public currentFileData = this.FileData as FileTypesInterface;
 
 
-  setFileObject<T extends keyof FileTypesInterface>(value:any, key: T) {
+  setFileObject<T extends keyof FileTypesInterface>(value: any, key: T) {
     this.currentFileData[key] = value
   }
 
   onConfirmAction() {
-    console.log('onSave', this.currentFileData);
-    const postData = this.currentFileData;
-    if(!this.getDataFile)
-      this.$emit('onConfirmAction',  postData);
-    else  
-     this.$emit('onConfirmAction',  Object.assign(postData, {id: Math.random() * 100}));
+    let postData = {} as FileTypesInterface;
+    Object.assign(postData, this.currentFileData);
+    let curOperation = 'EDIT_FILE';
+    if (!this.getDataFile) {
+      curOperation = 'CREATE_FILE';
+      Object.assign(postData, { id: Math.random() * 100, number: this.stringToHash(postData.name) })
+    }
+
+    this.$emit('onConfirmAction', { data: postData, type: curOperation });
   }
 
   get getTitle() {
@@ -214,6 +224,10 @@ export default class ActionsModal extends mixins(
 .gaps {
   margin-right: 1rem;
   margin-bottom: 1rem;
+}
+
+.doc__number {
+  padding-right: 1rem;
 }
 
 .doc__form {

@@ -2,11 +2,10 @@
 <template>
   <el-row :gutter="20">
     <el-col :span="12" v-for="file in filesArray" :key="file.name">
-      <div>{{ file.name }}</div>
       <div class="files_item d-flex">
         <el-avatar
           @click="selectFile(file)"
-          class="files_item--icon"
+          class="files_item--icon action__pointer"
           :icon="documentIcon"
           shape="square"
           :size="50"
@@ -31,6 +30,11 @@
             circle
           />
         </div>
+      </div>
+      <div>
+        <strong @click="selectFile(file)" class="action__pointer">
+          {{ file.name }}
+          </strong>
       </div>
     </el-col>
   </el-row>

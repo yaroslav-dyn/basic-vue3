@@ -128,6 +128,7 @@ export default createStore({
         currentDoc = state.currentDocSate;
       else 
         currentDoc = data;
+      dispatch('setCurrentFileAction', currentDoc); 
       const currentDocArray = [...state.filesArrayState];
       const currentDocIndex = currentDocArray?.findIndex((f: FileTypesInterface) => f.id === currentDoc?.id);
       if (currentDocIndex >= 0) {

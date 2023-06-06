@@ -1,5 +1,4 @@
 //SECTION: Modals
-
 .action__modal {
   .el-dialog__header {
     margin-right: 0;
@@ -7,3 +6,11 @@
   }
 }
 
+
+//SECTION Drawer
+.interface__drawer {
+  .el-drawer__header {
+  margin: 0;
+  padding: 0;
+  }
+}

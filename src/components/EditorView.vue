@@ -5,7 +5,7 @@
     justify="--space-between"
     @dblclick="isEditable = false"
   >
-    <div class="d-flex"  align="--center">
+    <div class="d-flex" align="--center">
       <el-switch
         class="w100 gutter_element"
         inline-prompt
@@ -42,7 +42,7 @@
     @dblclick="changeEditorState"
     @blur="updateValue($event)"
   >
-  {{currentDoc.data}}
+  {{ currentDoc.data }}
   </pre>
 </template>
 
@@ -76,8 +76,11 @@ import { FileTypesInterface } from "@/models/file.model";
     fontSizeState(val) {
       this.areaFontSize = val;
     },
-    'currentDocSate.name'(val) {
-      this.currentDoc = this.currentDocSate;
+    currentDocSate: {
+      handler(newValue) {
+        this.currentDoc = newValue;
+      },
+      deep: true
     }
   }
 })
@@ -99,7 +102,7 @@ export default class Home extends mixins(General) {
 
   public currentDocName = "File_1";
   public isEditable = false;
-  public currentDoc = {}  as FileTypesInterface;
+  public currentDoc = {} as FileTypesInterface;
 
 
   changeEditorState() {
@@ -123,7 +126,7 @@ export default class Home extends mixins(General) {
     // localStorage.setItem(this.currentDocName, contentEvent.srcElement!.innerText);
     //this.currentDoc = contentEvent.srcElement!.innerText;
     //@ts-ignore warn
-    this.setCurrentFileAction( this.currentDoc );
+    this.setCurrentFileAction(this.currentDoc);
     /** TODO: Demo but user needs firred save action 
       and than files array in local storage will be update:
       - live per now or add updating for files array
@@ -143,13 +146,13 @@ export default class Home extends mixins(General) {
   }
 
   unmounted() {
-   // this.setCurrentFileAction(null);
+    // this.setCurrentFileAction(null);
   }
 
 }
 </script>
 <style scoped>
-  .gutter_element {
-    margin-right: 1.4rem;
-  }
+.gutter_element {
+  margin-right: 1.4rem;
+}
 </style>
