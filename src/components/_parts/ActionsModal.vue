@@ -4,13 +4,25 @@
     v-model="isOpen"
     width="60%"
     draggable
+    :modal="false"
     @close="$emit('onClose', false)"
   >
     <template #header>
       <div class="action_modal__header">
         <div class="d-flex" justify="--space-between" align="--center">
           <h3>{{ getTitle }}</h3>
-          <i class="doc__number" v-if="getDataFile">{{ currentFileData.number }}</i>
+
+          <i class="doc__number" v-if="getDataFile">
+            {{ currentFileData.number }}
+          </i>
+          <el-button
+            size="large"
+            circle
+            class="fullscreen__icon"
+            :icon="!fullScreenState ? FullScreen : ScaleToOriginal"
+            @click="triggerFullscreen(!fullScreenState)"
+          />
+
         </div>
       </div>
     </template>
@@ -124,7 +136,8 @@
 import { Options, mixins } from 'vue-class-component';
 import FileFormScema from '@/models/fileFormSchema';
 import { FileTypesInterface } from "@/models/file.model";
-import DocumentOpeartionsMixin from '@/mixins/documentOperations.mixin'
+import DocumentOpeartionsMixin from '@/mixins/documentOperations.mixin';
+import { FullScreen, ScaleToOriginal } from "@element-plus/icons-vue";
 
 @Options({
   props: {
@@ -138,6 +151,10 @@ import DocumentOpeartionsMixin from '@/mixins/documentOperations.mixin'
     },
     propCurrentCommand: {
       type: [Boolean, Object]
+    },
+    modalInfullScreen: {
+      type: Boolean,
+      default: () => false
     }
   },
   watch: {
@@ -145,7 +162,11 @@ import DocumentOpeartionsMixin from '@/mixins/documentOperations.mixin'
       this.isOpen = !!val;
       if (this.getDataFile) {
         this.currentFileData = this.getDataFile;
-      }
+      } else 
+      this.currentFileData = this.FileData;
+    },
+    modalInfullScreen(val) {
+      this.fullScreenState = val;
     }
   }
 })
@@ -156,7 +177,8 @@ export default class ActionsModal extends mixins(
   showDialog!: boolean | object;
   propCurrentCommand?: { file: FileTypesInterface, operation: string };
 
-
+  public FullScreen = FullScreen;
+  public ScaleToOriginal = ScaleToOriginal;
   public isOpen = false;
   public fileName = '';
   public actionsForm = {
@@ -164,6 +186,7 @@ export default class ActionsModal extends mixins(
   }
   public fileFormScema = FileFormScema;
   public currentFileData = this.FileData as FileTypesInterface;
+  public fullScreenState = false;
 
 
   setFileObject<T extends keyof FileTypesInterface>(value: any, key: T) {
@@ -176,10 +199,18 @@ export default class ActionsModal extends mixins(
     let curOperation = 'EDIT_FILE';
     if (!this.getDataFile) {
       curOperation = 'CREATE_FILE';
-      Object.assign(postData, { id: Math.random() * 100, number: this.stringToHash(postData.name) })
+      Object.assign(postData, { id: Math.random() * 100, number: this.stringToHash(postData.name), createdAt: Date() })
+    } else {
+      Object.assign(postData, { changedAt: Date()})
     }
 
     this.$emit('onConfirmAction', { data: postData, type: curOperation });
+  }
+
+
+  triggerFullscreen(state: boolean) {
+    this.fullScreenState = state;
+    this.$emit('triggerFullScreen', state);
   }
 
   get getTitle() {
@@ -226,13 +257,17 @@ export default class ActionsModal extends mixins(
   margin-bottom: 1rem;
 }
 
-.doc__number {
-  padding-right: 1rem;
+.fullscreen__icon {
+  display: inline-block;
+  margin-right: 2rem;
 }
 
 .doc__form {
   &--textarea {
     flex-basis: 100%;
+    .el-textarea__inner {
+      font-size: 1.6rem;
+    }
   }
   &--label {
     flex-basis: 100%;

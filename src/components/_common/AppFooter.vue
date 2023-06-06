@@ -6,28 +6,33 @@
     class="margin-top"
     title=""
     :border="true"
-    :column="3"
+    :column="4"
     size="small"
   >
     <template #extra>
     </template>
 
-    <el-descriptions-item label="Name">{{ currentDoc && currentDoc.name }}</el-descriptions-item>
+    <el-descriptions-item label="Number">{{ currentDoc && currentDoc.number }}</el-descriptions-item>
 
-    <el-descriptions-item label="Due date">{{Date()}}</el-descriptions-item>
+    <el-descriptions-item label="Type">{{currentDoc && currentDoc.docType}}</el-descriptions-item>
+
+    <el-descriptions-item label="Due date">{{currentDoc && currentDoc.dueDate}}</el-descriptions-item>
+
 
     <el-descriptions-item label="Created">
-      {{Date()}}
+      {{currentDoc && currentDoc.createdAt}}
     </el-descriptions-item>
+
+    <el-descriptions-item label="Name">{{ currentDoc && currentDoc.name }}</el-descriptions-item>
+    
+    <el-descriptions-item label="Status">{{ currentDoc && currentDoc.status || 'TODO' }}</el-descriptions-item>
     
     <el-descriptions-item label="Length">{{ getDocLength }}</el-descriptions-item>
 
-    <el-descriptions-item label="Status">{{ currentDoc && currentDoc.status || 'TODO' }}</el-descriptions-item>
 
     <el-descriptions-item label="Updated">
-      {{Date()}}
+      {{currentDoc && currentDoc.changedAt}}
     </el-descriptions-item>
-
 
 
   </el-descriptions>

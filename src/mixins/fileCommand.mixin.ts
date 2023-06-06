@@ -43,9 +43,15 @@ export default class FileCommandMixin extends Vue {
 
   public actionDialogVisible = false;
   public showFilesPage = false;
+  public modalInfullScreen = false;
 
   onCloseDialog(val: boolean) {
     this.setActionMenuState(false);
+  }
+
+
+  setFullScreen(state: boolean) {
+    this.modalInfullScreen = state;
   }
 
   redirectToEditor(command: string) {

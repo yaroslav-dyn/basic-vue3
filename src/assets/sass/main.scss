@@ -60,6 +60,14 @@ body {
     color: var(--editor-text--dark);
     background-color: var(--editor-bg--dark);
   }
+  .el-dialog {
+    color: var(--editor-text--dark);
+    background-color: var(--editor-bg--dark);
+  }
+  .content__page--container {
+    color: var(--editor-text--dark);
+    background-color: var(--editor-bg--dark);
+  }
 }
 
 // NOTE: Main editable element
@@ -136,15 +144,24 @@ body {
 
 
 /*
-* SECTION: UI Fsst command buttos 
+* SECTION: UI Fast command buttos 
 */
 .interface__show-files--button {
   position: fixed;
   right: 8px;
   top: 115px;
   z-index: 10;
+  &.open {
+    top: 153px;
+  }
   &.add {
-    top: 77px
+    top: 115px;
+  }
+  &.save {
+    top: 77px;
+  }
+  &.edit {
+    top: 191px;
   }
 }
 

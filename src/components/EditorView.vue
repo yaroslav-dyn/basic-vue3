@@ -40,8 +40,7 @@
     :contenteditable="isEditable"
     :style="{ fontSize: fontSizeState + 'px' }"
     @dblclick="changeEditorState"
-    @blur="updateValue($event)"
-  >
+    @blur="updateValue($event)" >
   {{ currentDoc.data }}
   </pre>
 </template>
