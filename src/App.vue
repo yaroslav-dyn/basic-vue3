@@ -35,10 +35,10 @@
       />
     </el-tooltip>
 
-
     <!--NOTE: Edit file  -->
     <el-tooltip effect="dark" content="Edit file" placement="left-start">
       <el-button
+        v-if="currentDoc && currentDoc.hasOwnProperty('id')"
         class="interface__show-files--button edit"
         type="success"
         :icon="EditIcon"
@@ -131,6 +131,11 @@ export default class AppComponent extends mixins(
   public PlusIcon = Plus;
   public DocumentAddIcon = DocumentAdd;
   public EditIcon = Edit;
+
+  mounted() {
+   const files = this.getFilesArray();
+   this.setFilesArrayAction(files);
+  }
 
 }//
 </script>

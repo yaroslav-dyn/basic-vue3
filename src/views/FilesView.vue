@@ -21,12 +21,11 @@
             placeholder="Select type"
             clearable
           >
-            <el-option 
+            <el-option
               :key="opt"
-              v-for="opt in getFilestypes"  
+              v-for="opt in getFilestypes"
               :label="opt.label"
               :value="opt.value"
-
             />
           </el-select>
         </el-col>
@@ -42,19 +41,7 @@
         shadow="hover"
       >
         <template #header>
-          <div class="d-flex" align="--baseline">
-            <el-button
-              class="gaps"
-              size="large"
-              circle
-              :type="getFileDesignProperties(file.docType).color"
-              :icon="getFileDesignProperties(file.docType).icon"
-            >
-            </el-button>
-            <h4 class="info" color="info">
-              {{ file.name }}
-            </h4>
-          </div>
+          <FileCardItem @onFileDelete="getFiles" :file="file" />
         </template>
 
         <div class="card--body">
@@ -70,10 +57,14 @@
 import { Options, mixins } from "vue-class-component";
 import { FileTypesInterface } from "@/models/file.model";
 import FileCommandMixin from '@/mixins/fileCommand.mixin';
-import { Document, Tickets, Notebook, Collection, Memo } from "@element-plus/icons-vue";
 import { DocumentTypeEnum } from "@/models/enums.model";
+import FileCardItem from "@/components/_parts/FileCardItem.vue";
 
-@Options({})
+@Options({
+  components: {
+    FileCardItem
+  }
+})
 export default class extends mixins(
   FileCommandMixin
 ) {
@@ -81,36 +72,6 @@ export default class extends mixins(
   public cardsScale = 6;
   public typeFilter = '';
 
-  getFileDesignProperties(type: string) {
-    let currentIcon;
-    let color;
-    switch (type) {
-      case "TEXT":
-        currentIcon = Document;
-        color = "info"
-        break;
-      case "TASK":
-        currentIcon = Tickets;
-        color = "primary"
-        break;
-      case "PACT":
-        currentIcon = Notebook;
-        color = "warning"
-        break;
-      case "MANIFEST":
-        currentIcon = Collection;
-        color = "danger"
-        break;
-      case "STORY":
-        currentIcon = Memo;
-        color = "warning"
-        break;
-      default:
-        currentIcon = Document;
-        color = "plain"
-    }
-    return { icon: currentIcon, color: color };
-  }
 
   get getCardScale(): number {
     if (this.cardsScale === Number(0))
@@ -119,20 +80,24 @@ export default class extends mixins(
   }
 
   get getFilestypes() {
-    return Object.values(DocumentTypeEnum).map(opt => ({value: opt, label: opt}));
+    return Object.values(DocumentTypeEnum).map(opt => ({ value: opt, label: opt }));
   }
 
   get getFilesArrayFiltered() {
     return this.filesArray.filter(f => {
-      if(this.typeFilter && this.typeFilter.length > 0) {
+      if (this.typeFilter && this.typeFilter.length > 0) {
         return f && f.docType === this.typeFilter;
       }
       return f;
     })
   }
 
+  getFiles() {
+      this.filesArray = this.getFilesArray();
+  }
+
   mounted() {
-    this.filesArray = this.getFilesArray();
+    this.getFiles();
   }
 
 }//

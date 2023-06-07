@@ -4,7 +4,6 @@
     v-model="isOpen"
     width="60%"
     draggable
-    :modal="false"
     @close="$emit('onClose', false)"
   >
     <template #header>

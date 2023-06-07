@@ -15,10 +15,10 @@
     "vue-class-component": "^8.0.0-0",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.0.3",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "@element-plus/icons-vue": "^2.0.4"
   },
   "devDependencies": {
-    "@element-plus/icons-vue": "^2.0.4",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",

@@ -57,7 +57,7 @@ export default class extends Vue {
   private currentDoc?: FileTypesInterface;
 
 get getDocLength() {
-  return this.currentDoc && this.currentDoc.data.length
+  return this.currentDoc && this.currentDoc?.data?.length;
 }
 
 }

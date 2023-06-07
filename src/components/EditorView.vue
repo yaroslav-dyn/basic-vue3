@@ -137,6 +137,9 @@ export default class Home extends mixins(General) {
     const currentFontSize = localStorage.getItem('currentFontSize');
     currentFontSize && this.setFontSizeAction(parseInt(currentFontSize));
     currentDocs && this.setFilesArrayAction(JSON.parse(currentDocs));
+
+
+    
     const currentDocStorage = localStorage.getItem('currentDoc');
     if (currentDocStorage) this.setCurrentFileAction(JSON.parse(currentDocStorage));
     else

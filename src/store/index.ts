@@ -26,8 +26,8 @@ export default createStore({
         name: "",
         data: ""
       },
-      filesArrayState: [{name: '', data: ''}],
-      currentDocSate: {name: '', data: ''},
+      filesArrayState: [] as FileTypesInterface[],
+      currentDocSate: {} as FileTypesInterface,
       filePanelIsOpenState: false
     };
   },
@@ -138,10 +138,9 @@ export default createStore({
     },
 
     deleteFileAction({ state, dispatch }, file: FileTypesInterface) {
-      console.log('deleteFileAction', file);
       const currentDocArray = [...state.filesArrayState];
-      const currentDocnewArray = currentDocArray?.filter((f: FileTypesInterface) => f.id != file?.id);
-      dispatch('setFilesArrayAction', currentDocnewArray);
+     const currentDocnewArray = currentDocArray?.filter((f: FileTypesInterface) => f.id != file?.id);
+     dispatch('setFilesArrayAction', currentDocnewArray);
     }
 
   }

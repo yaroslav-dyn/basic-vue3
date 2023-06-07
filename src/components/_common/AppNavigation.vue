@@ -64,6 +64,7 @@
 import { Options, Vue } from "vue-class-component";
 import { Moon, Sunny } from '@element-plus/icons-vue';
 import { mapActions, mapState } from "vuex";
+import { FileTypesInterface } from "@/models/file.model";
 
 @Options({
   methods: {
@@ -87,7 +88,7 @@ import { mapActions, mapState } from "vuex";
 export default class AppNavigation extends Vue {
 
   setColorThemeAction!: (value: boolean) => void;
-  currentDocSate?: { name: string, data: string };
+  currentDocSate?: FileTypesInterface;
 
   public Moon = Moon;
   public Sunny = Sunny;
@@ -107,7 +108,7 @@ export default class AppNavigation extends Vue {
 
   get getHomelinkName() {
     const projectName = process.env.VUE_APP_PROJECT_NAME;
-    return this.currentDocSate && this.currentDocSate.name.length > 0
+    return this.currentDocSate && 'name' in this.currentDocSate && this.currentDocSate.name.length > 0
       ? this.currentDocSate.name
       : projectName
   }

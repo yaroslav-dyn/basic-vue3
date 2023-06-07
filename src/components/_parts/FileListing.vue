@@ -1,8 +1,11 @@
 <!--SECTION: File listing template:: drawer -->
 <template>
-  <el-row :gutter="20">
-    <el-col :span="12" v-for="file in filesArray" :key="file.name">
-      <div class="files_item d-flex">
+  <el-row :gutter="20" align="center">
+    <el-col :span="24" v-for="file in filesArray" :key="file.name">
+
+
+      <FileCardItem @onFileDelete="getFiles" :file="file" @click="selectFile(file)" />
+      <!-- <div class="files_item d-flex">
         <el-avatar
           @click="selectFile(file)"
           class="files_item--icon action__pointer"
@@ -35,7 +38,7 @@
         <strong @click="selectFile(file)" class="action__pointer">
           {{ file.name }}
           </strong>
-      </div>
+      </div> -->
     </el-col>
   </el-row>
 </template>
@@ -51,8 +54,13 @@ import {
   EditPen
 } from '@element-plus/icons-vue'
 import { ElMessage, ElMessageBox } from 'element-plus';
+import FileCardItem from "@/components/_parts/FileCardItem.vue";
 
-@Options({})
+@Options({
+  components: {
+    FileCardItem
+  }
+})
 export default class FileListingComponent extends mixins(
   FileCommandMixin
 ) {
