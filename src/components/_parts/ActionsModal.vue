@@ -1,134 +1,134 @@
 <template>
-  <el-dialog
-    class="action__modal"
-    v-model="isOpen"
-    width="60%"
-    draggable
-    @close="$emit('onClose', false)"
-  >
-    <template #header>
-      <div class="action_modal__header">
-        <div class="d-flex" justify="--space-between" align="--center">
-          <h3>{{ getTitle }}</h3>
+    <el-dialog
+      :custom-class="`action_modal ${getFileDesignProperties(getDataFile && getDataFile.docType || 'TEXT').color}__bg`"
+      v-model="isOpen"
+      width="60%"
+      draggable
+      @close="$emit('onClose', false)"
+    >
+      <template #header>
+        <div class="action_modal__header">
+          <div class="d-flex" justify="--space-between" align="--center">
+            <h3>{{ getTitle }}</h3>
 
-          <i class="doc__number" v-if="getDataFile">
-            {{ currentFileData.number }}
-          </i>
-          <el-button
-            size="large"
-            circle
-            class="fullscreen__icon"
-            :icon="!fullScreenState ? FullScreen : ScaleToOriginal"
-            @click="triggerFullscreen(!fullScreenState)"
-          />
+            <small class="doc__number" v-if="getDataFile">
+              {{ currentFileData.number }}
+            </small>
 
-        </div>
-      </div>
-    </template>
-
-    <el-form :model="actionsForm" class="doc__form">
-      <div
-        class="d-flex wrapped"
-        align="--baseline"
-        v-for="el in fileFormScemaArray"
-        :key="el.name"
-      >
-        <!-- <span>{{el.name}}</span> -->
-
-        <el-form-item v-for="g in el.data" :key="g.elIndex" :style="g.style">
-          <div
-            class="doc__form--label"
-            v-if="
-              el.name === 'TEXT' ||
-              (el.name === 'TASK' && currentFileData.docType === 'TASK')
-            "
-          >
-            <!-- NOTE: Label -->
-            <label :for="g.key">
-              <strong>{{ g.title }}</strong>
-            </label>
+            <el-icon 
+              class="fullscreen__icon action__pointer"
+              :size="24"
+              @click="triggerFullscreen(!fullScreenState)"
+              >
+              <component :is="fullScreenState ? FullScreen : ScaleToOriginal" />
+            </el-icon>
           </div>
-
-          <template
-            v-if="
-              el.name === 'TEXT' ||
-              (el.name === 'TASK' && currentFileData.docType === 'TASK')
-            "
-          >
-            <!-- NOTE: Text -->
-            <el-input
-              :name="g.key"
-              class="gaps"
-              v-if="g.type === 'text'"
-              :id="g.key"
-              v-model="g.value"
-              placeholder="File name"
-              :label="g.title"
-              @change="setFileObject($event, g.key)"
-            />
-
-            <!-- NOTE: Select -->
-            <el-select
-              class="w100 gaps"
-              v-if="g.type === 'select'"
-              :name="g.key"
-              v-model="g.value"
-              :id="g.key"
-              placeholder="Select"
-              @change="setFileObject($event, g.key)"
+        </div>
+      </template>
+  
+      <el-form :model="actionsForm" class="doc__form">
+        <div
+          class="d-flex wrapped"
+          align="--baseline"
+          v-for="el in fileFormScemaArray"
+          :key="el.name"
+        >
+          <!-- <span>{{el.name}}</span> -->
+  
+          <el-form-item v-for="g in el.data" :key="g.elIndex" :style="g.style">
+            <div
+              class="doc__form--label"
+              v-if="
+                el.name === 'TEXT' ||
+                (el.name === 'TASK' && currentFileData.docType === 'TASK')
+              "
             >
-              <el-option
-                v-for="opt in g.options"
-                :key="opt.value"
-                :label="opt.label"
-                :value="opt.value"
+              <!-- NOTE: Label -->
+              <label :for="g.key">
+                <strong>{{ g.title }}</strong>
+              </label>
+            </div>
+  
+            <template
+              v-if="
+                el.name === 'TEXT' ||
+                (el.name === 'TASK' && currentFileData.docType === 'TASK')
+              "
+            >
+              <!-- NOTE: Text -->
+              <el-input
+                :name="g.key"
+                class="gaps"
+                v-if="g.type === 'text'"
+                :id="g.key"
+                v-model="g.value"
+                placeholder="File name"
+                :label="g.title"
+                @change="setFileObject($event, g.key)"
               />
-            </el-select>
-
-            <!-- NOTE: Datetime -->
-            <el-date-picker
-              class="w100"
-              v-if="g.type === 'datetime'"
-              :name="g.key"
-              v-model="g.value"
-              type="date"
-              placeholder="DueDate"
-              @change="setFileObject($event, g.key)"
-            />
-          </template>
-        </el-form-item>
-      </div>
-      <hr />
-      <br />
-      <div>
-        <!-- NOTE: Textarea -->
-        <el-input
-          name="Filedata"
-          class="doc__form--textarea"
-          v-model="currentFileData.data"
-          :rows="8"
-          type="textarea"
-          placeholder="Please input"
-          @change="setFileObject($event, 'data')"
-        />
-      </div>
-
-      <!-- <div>
-        <pre>
-          {{currentFileData}}
-        </pre>
-      </div> -->
-    </el-form>
-
-    <template #footer>
-      <span class="dialog-footer">
-        <el-button @click="$emit('onClose', false)">Cancel</el-button>
-        <el-button class="action__btn" type="primary" @click="onConfirmAction">
-          Save
-        </el-button>
-      </span>
-    </template>
-  </el-dialog>
+  
+              <!-- NOTE: Select -->
+              <el-select
+                class="w100 gaps"
+                v-if="g.type === 'select'"
+                :name="g.key"
+                v-model="g.value"
+                :id="g.key"
+                placeholder="Select"
+                @change="setFileObject($event, g.key)"
+              >
+                <el-option
+                  v-for="opt in g.options"
+                  :key="opt.value"
+                  :label="opt.label"
+                  :value="opt.value"
+                />
+              </el-select>
+  
+              <!-- NOTE: Datetime -->
+              <el-date-picker
+                class="w100"
+                v-if="g.type === 'datetime'"
+                :name="g.key"
+                v-model="g.value"
+                type="date"
+                placeholder="DueDate"
+                @change="setFileObject($event, g.key)"
+              />
+            </template>
+          </el-form-item>
+        </div>
+        <hr />
+        <br />
+        <div>
+          <!-- NOTE: Textarea -->
+          <el-input
+            name="Filedata"
+            class="doc__form--textarea"
+            v-model="currentFileData.data"
+            :rows="8"
+            type="textarea"
+            placeholder="Please input"
+            @change="setFileObject($event, 'data')"
+          />
+        </div>
+  
+        <!-- <div>
+          <pre>
+            {{currentFileData}}
+          </pre>
+        </div> -->
+      </el-form>
+  
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="$emit('onClose', false)">Cancel</el-button>
+          <el-button class="action__btn" type="primary" @click="onConfirmAction">
+            Save
+          </el-button>
+        </span>
+      </template>
+    </el-dialog>
 </template>
 
 <script  lang="ts">
@@ -258,7 +258,7 @@ export default class ActionsModal extends mixins(
 
 .fullscreen__icon {
   display: inline-block;
-  margin-right: 2rem;
+  margin-right: 4rem;
 }
 
 .doc__form {

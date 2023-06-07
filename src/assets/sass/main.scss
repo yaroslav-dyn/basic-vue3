@@ -154,16 +154,16 @@ body {
   top: 115px;
   z-index: 10;
   &.open {
-    top: 153px;
+    top: 191px;
   }
   &.add {
-    top: 115px;
-  }
-  &.save {
     top: 77px;
   }
+  &.save {
+    top: 115px;
+  }
   &.edit {
-    top: 191px;
+    top: 153px;
   }
 }
 

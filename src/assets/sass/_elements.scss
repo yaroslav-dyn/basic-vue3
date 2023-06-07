@@ -6,11 +6,41 @@
   }
 }
 
-
 //SECTION Drawer
 .interface__drawer {
   .el-drawer__header {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/**SECTION modal 
+* Action modal with colors
+**/ 
+.action_modal {
+  .el-dialog__header {
+    color: #fff;
+    margin-right: 0;
+    .el-dialog__close {
+      color: #fff;
+    }
+  }
+}
+
+.el-dialog__header {
+  .danger__bg & {
+    background-color: var(--el-color-info);
+  }
+  .primary__bg & {
+    background-color: var(--el-color-primary);
+  }
+  .info__bg & {
+    background-color: var(--el-color-info);
+  }
+  .warning__bg & {
+    background-color: var(--el-color-warning);
+  }
+  .danger__bg & {
+    background-color: var(--el-color-danger);
   }
 }

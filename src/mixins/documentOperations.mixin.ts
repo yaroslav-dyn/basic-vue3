@@ -41,8 +41,11 @@ export default class DocumentOpeartionsMixin extends Vue {
 
   } as FileTypesInterface;
 
-
-
+/**
+ * Get file releted icon & color
+ * @param type string
+ * @returns 
+ */
   getFileDesignProperties(type: string) {
     let currentIcon;
     let color;

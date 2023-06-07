@@ -2,43 +2,7 @@
 <template>
   <el-row :gutter="20" align="center">
     <el-col :span="24" v-for="file in filesArray" :key="file.name">
-
-
       <FileCardItem @onFileDelete="getFiles" :file="file" @click="selectFile(file)" />
-      <!-- <div class="files_item d-flex">
-        <el-avatar
-          @click="selectFile(file)"
-          class="files_item--icon action__pointer"
-          :icon="documentIcon"
-          shape="square"
-          :size="50"
-          src="/"
-        />
-        <div class="d-flex column" align="--center" justify="--space-between">
-          <div>
-            <el-button
-              @click="editFile(file)"
-              type="warning"
-              :icon="EditPenIcon"
-              size="small"
-              circle
-            />
-          </div>
-
-          <el-button
-            @click="onDeleteFile(file)"
-            type="danger"
-            :icon="DeleteIcon"
-            size="small"
-            circle
-          />
-        </div>
-      </div>
-      <div>
-        <strong @click="selectFile(file)" class="action__pointer">
-          {{ file.name }}
-          </strong>
-      </div> -->
     </el-col>
   </el-row>
 </template>
