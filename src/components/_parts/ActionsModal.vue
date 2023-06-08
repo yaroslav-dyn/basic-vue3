@@ -1,7 +1,9 @@
 <template>
   <el-dialog
     :custom-class="`action_modal ${
-      getFileDesignProperties((getDataFile && getDataFile.docType) || 'TEXT').color}__bg`"
+      getFileDesignProperties((getDataFile && getDataFile.docType) || 'TEXT')
+        .color
+    }__bg`"
     v-model="isOpen"
     width="60%"
     draggable
@@ -9,11 +11,10 @@
   >
     <template #header>
       <div class="action_modal__header">
-            <small class="doc__number" v-if="getDataFile">
-              {{ currentFileData.number }}
-            </small>
+        <small class="doc__number" v-if="getDataFile">
+          {{ currentFileData.number }}
+        </small>
         <div class="d-flex" justify="--space-between" align="--center">
-
           <h3>
             {{ getTitle }}
           </h3>
@@ -219,8 +220,8 @@ export default class ActionsModal extends mixins(
     // @ts-ignore TODO
     const currentTitle = this.propCurrentCommand && this.propCurrentCommand?.file?.name;
     // @ts-ignore TODO
-    const currentOperation = this.propCurrentCommand && this.propCurrentCommand?.operation;
-    return this.hasOpeartion ? `${currentOperation} ${currentTitle}` : this.propTitle;
+    const currentOperation = this.propCurrentCommand && this.propCurrentCommand?.operation || 'CREATE_DOCUMENT';
+    return this.hasOpeartion ? this.$t("message." + currentOperation) + ` ${currentTitle} ` : this.propTitle;
   }
 
   get hasOpeartion() {

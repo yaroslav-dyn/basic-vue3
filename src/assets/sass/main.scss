@@ -65,6 +65,7 @@ body {
     background-color: var(--editor-bg--dark);
   }
   .content__page--container {
+    box-sizing: border-box;
     color: var(--editor-text--dark);
     background-color: var(--editor-bg--dark);
   }
@@ -91,7 +92,7 @@ body {
     color: var(--editor-text--dark);
 
     .editor--area {
-
+     background-color: var(--el-color-info-dark-2);
       &:focus,
       &.isEditable {
         outline-color: var(--dark--outline_color);

@@ -32,7 +32,7 @@
         <el-menu-item index="2-4-3">item three</el-menu-item>
       </el-sub-menu> -->
     </el-sub-menu>
-    <el-menu-item index="3"> 
+    <el-menu-item index="3">
       <router-link to="/files"> Files </router-link>
     </el-menu-item>
     <el-menu-item index="4" disabled> View </el-menu-item>
@@ -57,6 +57,17 @@
         @input="onChangeTheme"
       />
     </div>
+
+    <!-- Localiztion seleect -->
+    <select v-model="$i18n.locale">
+      <option
+        v-for="locale in $i18n.availableLocales"
+        :key="`locale-${locale}`"
+        :value="locale"
+      >
+        {{ locale }}
+      </option>
+    </select>
   </el-menu>
 </template>
 
@@ -124,8 +135,6 @@ export default class AppNavigation extends Vue {
 </script>
 
 <style scoped>
-
-
 .switcher--element {
   padding: 1rem 2rem 0;
 }

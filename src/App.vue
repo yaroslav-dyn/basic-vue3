@@ -7,6 +7,7 @@
       <AppNavigation @menuAction="menuAction" />
     </div>
     <router-view />
+
     <AppFooter :currentDoc="currentDoc" />
 
     <ActionsModal
