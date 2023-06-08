@@ -2,7 +2,7 @@
 <template>
   <el-row :gutter="20" align="center">
     <el-col :span="24" v-for="file in filesArray" :key="file.name">
-      <FileCardItem @onFileDelete="getFiles" :file="file" @click="selectFile(file)" />
+      <FileCardItem class="action__cursor" @onFileDelete="getFiles" :file="file" @click="selectFile(file)" />
     </el-col>
   </el-row>
 </template>

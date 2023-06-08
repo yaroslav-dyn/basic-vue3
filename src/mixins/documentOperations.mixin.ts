@@ -4,6 +4,7 @@ import { FileTypesInterface } from "@/models/file.model";
 import { DocumentTypeEnum } from "@/models/enums.model";
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { Document, Tickets, Notebook, Collection, Memo } from "@element-plus/icons-vue";
+import FileFormScema from '@/models/fileFormSchema';
 
 @Options({
   methods: {
@@ -14,6 +15,12 @@ import { Document, Tickets, Notebook, Collection, Memo } from "@element-plus/ico
 export default class DocumentOpeartionsMixin extends Vue {
 
   deleteFileAction!: (data: FileTypesInterface) => void;
+
+  public fileFormScema = FileFormScema;
+
+  public actionsForm = {
+
+  }
 
   public FileData = {
     id: 0,
@@ -41,6 +48,7 @@ export default class DocumentOpeartionsMixin extends Vue {
 
   } as FileTypesInterface;
 
+  public currentFileData = this.FileData as FileTypesInterface;
 /**
  * Get file releted icon & color
  * @param type string
@@ -103,6 +111,37 @@ export default class DocumentOpeartionsMixin extends Vue {
   }
 
 
+  /** 
+   * NOTE: Form operations 
+   */
+
+  setFileObject<T extends keyof FileTypesInterface>(value: any, key: T) {
+    this.currentFileData[key] = value
+  }
+
+  get getCurrentFile() {
+    return this.currentFileData;
+  }
+
+  get fileFormScemaArray() {
+    return this.fileFormScema.map(s => {
+      //@ts-ignore ???
+      s.data.map(sg => {
+        //TODO: Get file!
+        if (this.getCurrentFile && sg.key in this.getCurrentFile) {
+          //@ts-ignore TODO: add types
+          sg.value = this.getCurrentFile[sg.key];
+        } else {
+          //@ts-ignore TODO: add types
+          sg.value = this.FileData[sg.key]
+        }
+        return sg
+      })
+      return s
+    })
+  }
+
+
   //TODO: DEBUG Generating hash for document number
   stringToHash(str: string) {
     let hash = 0;
@@ -114,6 +153,5 @@ export default class DocumentOpeartionsMixin extends Vue {
     }
     return hash;
   }
-
 
 }//

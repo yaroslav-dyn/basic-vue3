@@ -27,6 +27,13 @@ const routes: Array<RouteRecordRaw> = [
       import("../views/FilesView.vue"),
   },
   {
+    path: "/files/:fileNumber",
+    name: "OneFile",
+    props: true,
+    component: () =>
+      import("../views/FileView.vue"),
+  },
+  {
     path: "/about",
     name: "About",
     component: () =>

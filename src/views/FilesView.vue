@@ -41,7 +41,16 @@
         shadow="hover"
       >
         <template #header>
-          <FileCardItem @onFileDelete="getFiles" :file="file" />
+          <FileCardItem
+            @onFileDelete="getFiles"
+            :file="file"
+            @click="
+              $router.push({
+                name: 'OneFile',
+                params: { fileNumber: file.number },
+              })
+            "
+          />
         </template>
 
         <div class="card--body">
@@ -93,7 +102,7 @@ export default class extends mixins(
   }
 
   getFiles() {
-      this.filesArray = this.getFilesArray();
+    this.filesArray = this.getFilesArray();
   }
 
   mounted() {
