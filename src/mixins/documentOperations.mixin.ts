@@ -52,7 +52,7 @@ export default class DocumentOpeartionsMixin extends Vue {
     switch (type) {
       case "TEXT":
         currentIcon = Document;
-        color = "info"
+        color = "default"
         break;
       case "TASK":
         currentIcon = Tickets;
@@ -68,7 +68,7 @@ export default class DocumentOpeartionsMixin extends Vue {
         break;
       case "STORY":
         currentIcon = Memo;
-        color = "warning"
+        color = "info"
         break;
       default:
         currentIcon = Document;
