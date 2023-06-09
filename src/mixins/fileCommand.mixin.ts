@@ -1,9 +1,8 @@
 import { Options, Vue } from "vue-class-component";
 import { mapActions, mapMutations, mapState } from "vuex";
 import { FileTypesInterface } from "../models/file.model";
-import { DocumentTypeEnum } from "@/models/enums.model";
-@Options({
 
+@Options({
   methods: {
     ...mapActions({
       setCurrentOperation: 'setCurrentOperation',
@@ -20,7 +19,7 @@ import { DocumentTypeEnum } from "@/models/enums.model";
   computed: {
     ...mapState({
       showActionMenuState: (state: any) => state.showActionMenuState,
-      filePanelIsOpenState: (state: any) => state.filePanelIsOpenState
+      filePanelIsOpenState: (state: any) => state.filePanelIsOpenState,
     })
   },
   watch: {
@@ -44,6 +43,7 @@ export default class FileCommandMixin extends Vue {
   public actionDialogVisible = false;
   public showFilesPage = false;
   public modalInfullScreen = false;
+  public loading = false;
 
   onCloseDialog(val: boolean) {
     this.setActionMenuState(false);
@@ -106,6 +106,7 @@ export default class FileCommandMixin extends Vue {
   }
 
   onConfirmAction(postData: { data: FileTypesInterface, type: string }) {
+    this.loading = true;
     console.log('debug saving is new', postData);
     if (postData.type === 'CREATE_FILE') {
       this.setCurrentOperation({ name: 'CREATE_FILE', data: postData.data });
@@ -114,6 +115,7 @@ export default class FileCommandMixin extends Vue {
       this.saveFileAction(postData.data)
     }
     this.setActionMenuState(false);
+    this.loading = false;
   }
 
   onCloseFilePanel() {

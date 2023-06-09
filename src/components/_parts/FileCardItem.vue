@@ -1,7 +1,11 @@
 <template>
-  <div class="d-flex grow" align="--center">
+  <div class="" align="--center">
     <!-- SECTION: File Card component  -->
-    <div class="d-flex grow" align="--center" justify="--space-around">
+    <div
+      class="item__box d-flex grow action__pointer"
+      align="--center"
+      justify="--space-around"
+    >
       <el-button
         class="gaps"
         size="large"
@@ -18,24 +22,42 @@
         </template>
       </el-button>
 
-      <div class="d-flex grow" justify="--space-between" align="--baseline">
-        <h4 class="info" color="info">
-          {{ file.name }}
+      <div class="d-flex grow" justify="--stretch" align="--baseline">
+        <h4 class="item__box--title info" col="4" color="info">
+          <span> {{ file.name }} </span>
         </h4>
 
-        <div>
+        <div class="d-flex" col="7">
+          <el-tag class="ml-2" type="info">
+            <b
+              ><small>{{ file.number }}</small></b
+            >
+          </el-tag>
+          <div v-if="getFileType('TASK', file.docType) && cardScale && cardScale > 3">
+            <span class="gaps">{{ file.status }} </span>
+            <span class="gaps">{{ file.priority }} </span>
+          </div>
+        </div>
+
+        <div
+          class="item__box--controls title d-flex row--revers"
+          flex-grow="1"
+          col="1"
+        >
           <el-button
-            @click="editFile(file)"
-            type="warning"
-            :icon="EditPenIcon"
+            class="gaps"
+            @click.stop="onDeleteFile(file)"
+            type="danger"
+            :icon="DeleteIcon"
             size="small"
             circle
           />
 
           <el-button
-            @click="onDeleteFile(file)"
-            type="danger"
-            :icon="DeleteIcon"
+            class="gaps"
+            @click.stop="editFile(file)"
+            type="warning"
+            :icon="EditPenIcon"
             size="small"
             circle
           />
@@ -62,6 +84,10 @@ import DocumentOpeartionsMixin from "@/mixins/documentOperations.mixin";
       type: Object,
       required: true
     },
+    cardScale: {
+      type: Number,
+      default: () => 6
+    },
     controls: {
       type: Boolean
     }
@@ -74,6 +100,7 @@ export default class FileCardItem extends mixins(
 
   public file!: FileTypesInterface;
   public controls?: boolean;
+  public cardScale?: number;
 
   public DeleteIcon = Delete;
   public EditPenIcon = EditPen;
@@ -88,3 +115,9 @@ export default class FileCardItem extends mixins(
 }//
 
 </script>
+
+<style lang="scss" scoped>
+.item__box {
+  --default-column-gaps: 1rem;
+}
+</style> 

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home content__page--container">
     <EditorIndex/>
   </div>
 </template>

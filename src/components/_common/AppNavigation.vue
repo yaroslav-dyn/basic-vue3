@@ -43,7 +43,7 @@
       <router-link to="/help"> Help </router-link>
     </el-menu-item>
 
-    <div class="flex-grow" flex-grow="1"></div>
+    <div flex-grow="1"></div>
 
     <div class="switcher--element">
       <el-switch

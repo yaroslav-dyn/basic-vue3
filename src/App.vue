@@ -11,6 +11,7 @@
     <AppFooter :currentDoc="currentDoc" />
 
     <ActionsModal
+      v-if="!loading"
       class="action__modal"
       propTitle="Create new document"
       :showDialog="actionDialogVisible"

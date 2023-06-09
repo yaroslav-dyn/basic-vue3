@@ -5,6 +5,7 @@
         .color
     }__bg`"
     v-model="isOpen"
+    lock-scroll
     width="60%"
     draggable
     @close="$emit('onClose', false)"

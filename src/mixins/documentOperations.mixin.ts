@@ -85,6 +85,10 @@ export default class DocumentOpeartionsMixin extends Vue {
     return { icon: currentIcon, color: color };
   }
 
+  getFileType(type: string, docType: string) {
+    return type === docType;
+  }
+
   async onDeleteFile(file: FileTypesInterface) {
     // TODO: re-write to mixin
     try {
@@ -151,7 +155,7 @@ export default class DocumentOpeartionsMixin extends Vue {
       hash = ((hash << 5) - hash) + char;
       hash = hash & hash;
     }
-    return hash;
+    return hash.toString();
   }
 
 }//
