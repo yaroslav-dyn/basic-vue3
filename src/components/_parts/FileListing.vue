@@ -1,6 +1,6 @@
 <!--SECTION: File listing template:: drawer -->
 <template>
-  <el-row :gutter="20" align="center">
+  <el-row class="card__module" :gutter="20" align="center">
     <el-col 
       class="item__short_description"
       :span="24" 

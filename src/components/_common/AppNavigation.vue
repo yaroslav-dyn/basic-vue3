@@ -35,7 +35,7 @@
     <el-menu-item index="3">
       <router-link to="/files"> Files </router-link>
     </el-menu-item>
-    <el-menu-item index="4" disabled> View </el-menu-item>
+    <el-menu-item index="4" disabled> Board </el-menu-item>
     <el-menu-item index="5">
       <router-link to="/about"> About </router-link>
     </el-menu-item>

@@ -7,6 +7,8 @@ export interface FileTypesInterface {
   data?: string | null; // file content
   status?: string; //BACKLOG, TODO, IN_PROGRESS, TESTING, DONE. *there may be others.
 
+  comments?: [] //Investigate.
+
   docType: DocumentTypeEnum, //TEXT, PACT, MANIFEST, STORY 
   number?: string, //hash 
   createdAt: Date | string,

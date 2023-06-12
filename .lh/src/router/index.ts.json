@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 34,
+            "activePatchIndex": 39,
             "patches": [
                 {
                     "date": 1660734332399,
@@ -144,6 +144,26 @@
                 {
                     "date": 1686228591725,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,10 +28,11 @@\n   },\n   {\n     path: \"/files/:fileNumber\",\n     name: \"OneFile\",\n+    props: true,\n     component: () =>\n-      import(\"../views/File.vue\"),\n+      import(\"../views/FileView.vue\"),\n   },\n   {\n     path: \"/about\",\n     name: \"About\",\n"
+                },
+                {
+                    "date": 1686561433968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,8 +33,15 @@\n     component: () =>\n       import(\"../views/FileView.vue\"),\n   },\n   {\n+    path: \"/files/:fileNumber\",\n+    name: \"OneFile\",\n+    props: true,\n+    component: () =>\n+      import(\"../views/FileView.vue\"),\n+  },\n+  {\n     path: \"/about\",\n     name: \"About\",\n     component: () =>\n       import(\"../views/AboutView.vue\"),\n"
+                },
+                {
+                    "date": 1686561459393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n     component: () =>\n       import(\"../views/FileView.vue\"),\n   },\n   {\n-    path: \"/files/:fileNumber\",\n+    path: \"/board\",\n     name: \"OneFile\",\n     props: true,\n     component: () =>\n       import(\"../views/FileView.vue\"),\n"
+                },
+                {
+                    "date": 1686561474930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n       import(\"../views/FileView.vue\"),\n   },\n   {\n     path: \"/board\",\n-    name: \"OneFile\",\n+    name: \"TaskBoard\",\n     props: true,\n     component: () =>\n       import(\"../views/FileView.vue\"),\n   },\n"
+                },
+                {
+                    "date": 1686561488832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,11 +35,10 @@\n   },\n   {\n     path: \"/board\",\n     name: \"TaskBoard\",\n-    props: true,\n     component: () =>\n-      import(\"../views/FileView.vue\"),\n+      import(\"../views/boardView.vue\"),\n   },\n   {\n     path: \"/about\",\n     name: \"About\",\n"
+                },
+                {
+                    "date": 1686561633982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n   {\n     path: \"/board\",\n     name: \"TaskBoard\",\n     component: () =>\n-      import(\"../views/boardView.vue\"),\n+      import(\"../views/BoardView.vue\"),\n   },\n   {\n     path: \"/about\",\n     name: \"About\",\n"
                 }
             ],
             "date": 1660734332399,

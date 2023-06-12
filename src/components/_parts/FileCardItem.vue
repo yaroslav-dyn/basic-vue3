@@ -33,7 +33,12 @@
               ><small>{{ file.number }}</small></b
             >
           </el-tag>
-          <div v-if="getFileType('TASK', file.docType) && cardScale && cardScale > 3">
+
+          <div
+            v-if="
+              getFileType('TASK', file.docType) && cardScale && cardScale > 3
+            "
+          >
             <span class="gaps">{{ file.status }} </span>
             <span class="gaps">{{ file.priority }} </span>
           </div>

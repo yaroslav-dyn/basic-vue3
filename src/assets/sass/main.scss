@@ -177,3 +177,14 @@ body {
     padding-right: 4rem;
   }
 }
+
+//SECTION: Files Card item
+.card__module {
+  .item__short_description {
+      .item__box {
+        &--title {
+          @include text-elepsis(100px);
+        }
+      }
+    }
+}

@@ -34,7 +34,7 @@
       </el-row>
     </div>
 
-    <div class="d-flex wrapped">
+    <div class="d-flex wrapped card__module">
       <el-card
         class="box-sizing card__item gaps"
         :col="getCardScale"
@@ -151,7 +151,7 @@ export default class extends mixins(
 }//
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use "@/assets/sass/_helpers" as *;
 
 .card__controls {
@@ -165,11 +165,4 @@ export default class extends mixins(
   margin: 1rem;
 }
 
-.item__short_description {
-  .item__box {
-    &--title {
-      @include text-elepsis(100px);
-    }
-  }
-}
 </style>

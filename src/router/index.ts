@@ -34,6 +34,12 @@ const routes: Array<RouteRecordRaw> = [
       import("../views/FileView.vue"),
   },
   {
+    path: "/board",
+    name: "TaskBoard",
+    component: () =>
+      import("../views/BoardView.vue"),
+  },
+  {
     path: "/about",
     name: "About",
     component: () =>
