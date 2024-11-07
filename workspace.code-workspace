@@ -2,10 +2,13 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../Svelte/svelte-lite"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.background": "#372D05",
+			"titleBar.activeBackground": "#4D3F08",
+			"titleBar.activeForeground": "#FDFAEC"
+		}
+	}
 }
