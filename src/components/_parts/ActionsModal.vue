@@ -103,7 +103,7 @@ export default class ActionsModal extends mixins(
   // public actionsForm = {
   // }
   // }
-  // public fileFormScema = FileFormScema;
+  // public FileFormSchema = FileFormSchema;
   public currentFileData = this.FileData as FileTypesInterface;
   public fullScreenState = false;
 

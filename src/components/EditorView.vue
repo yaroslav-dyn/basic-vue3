@@ -5,7 +5,10 @@
     justify="--space-between"
     @dblclick="isEditable = false"
   >
-    <div class="d-flex" align="--center">
+    <div
+      class="d-flex"
+      align="--center"
+    >
       <el-switch
         class="w100 gutter_element"
         inline-prompt
@@ -34,15 +37,19 @@
 
   <br />
 
-  <pre
-    :class="['editor--area', { isEditable }]"
-    ref="mainEditor"
-    :contenteditable="isEditable"
-    :style="{ fontSize: fontSizeState + 'px' }"
+  <div
     @dblclick="changeEditorState"
-    @blur="updateValue($event)" >
-  {{ currentDoc.data }}
-  </pre>
+    ref="mainEditor"
+    :class="isDarkThemeState ? 'no--invert' : ''"
+  >
+    <v-md-editor
+      :height="editorHeight"
+      v-model="currentDoc.data"
+      :mode="isEditable ? 'edit' : 'preview'"
+      @click="updateValue($event)"
+    />
+  </div>
+
 </template>
 
 <script lang="ts">
@@ -52,6 +59,8 @@ import { Edit, Lock, Watch } from "@element-plus/icons-vue";
 import CommandPallet from "@/components/_parts/CommandPallet.vue";
 import { mapActions, mapState } from "vuex";
 import { FileTypesInterface } from "@/models/file.model";
+import { FileDataDefault, Constants } from "@/services/Constants";
+import { StateInterface } from "@/store";
 
 @Options({
   components: {
@@ -68,7 +77,8 @@ import { FileTypesInterface } from "@/models/file.model";
     ...mapState({
       fontSizeState: (state: any) => state.CurrentfontSize,
       currentDocSate: (state: any) => state.currentDocSate,
-      filesArrayState: (state: any) => state.filesArrayState
+      filesArrayState: (state: any) => state.filesArrayState,
+      isDarkThemeState: (state: any) => state.isDarkTheme
     })
   },
   watch: {
@@ -91,9 +101,13 @@ export default class Home extends mixins(General) {
   setCurrentFileAction!: (data: any) => void;
   setFilesArrayAction!: (data: FileTypesInterface) => void;
 
+
+  public isDarkThemeState!: boolean;
   public editIcon = Edit;
   public LockIcon = Lock;
   public areaFontSize = 16;
+  public editorHeight = 'auto'
+  private demoDoc = FileDataDefault;
 
   #refs!: {
     mainEditor: HTMLElement
@@ -106,12 +120,6 @@ export default class Home extends mixins(General) {
 
   changeEditorState() {
     this.isEditable = !this.isEditable;
-    let areaElement = this.$refs.mainEditor as HTMLAreaElement;
-    this.$nextTick(() => {
-      this.isEditable && areaElement.focus();
-      document.execCommand("selectAll", false, undefined);
-      document?.getSelection()?.collapseToEnd();
-    });
   }
 
   onChangeFontSize(currentValue: number) {
@@ -120,8 +128,9 @@ export default class Home extends mixins(General) {
 
 
   updateValue(contentEvent: any): void {
-    console.log('update', this.currentDoc, contentEvent.srcElement!.innerText);
-    this.currentDoc.data = contentEvent.srcElement!.innerText
+    console.log('update', 'ev:', contentEvent, this.currentDoc.data);
+    // this.currentDoc.data = contentEvent.srcElement.value;
+    // contentEvent.srcElement!.innerText
     // localStorage.setItem(this.currentDocName, contentEvent.srcElement!.innerText);
     //this.currentDoc = contentEvent.srcElement!.innerText;
     //@ts-ignore warn
@@ -132,17 +141,51 @@ export default class Home extends mixins(General) {
      **/
   }
 
-  mounted(): void {
+  setDemoDoc() {
+    this.demoDoc.data = Constants.welcomeDocument
+    this.currentDoc = this.currentDocSate ?? this.demoDoc;
+    this.setCurrentFileAction(this.currentDoc)
+  }
+
+  setFileArray(currentDocStorage: FileTypesInterface[]) {
+    this.setCurrentFileAction(currentDocStorage);
+  }
+
+  public setInitialDocument() {
     const currentDocs = localStorage.getItem('filesArray');
     const currentFontSize = localStorage.getItem('currentFontSize');
     currentFontSize && this.setFontSizeAction(parseInt(currentFontSize));
     currentDocs && this.setFilesArrayAction(JSON.parse(currentDocs));
 
     const currentDocStorage = localStorage.getItem('currentDoc');
-    if (currentDocStorage) this.setCurrentFileAction(JSON.parse(currentDocStorage));
-    else
-      currentDocs && (this.currentDocSate?.name?.length == 0) && (this.setCurrentFileAction(JSON.parse(currentDocs).slice(-1).shift()));
-    this.currentDocSate && (this.currentDoc = this.currentDocSate);
+    if (currentDocStorage) {
+      this.setFileArray(JSON.parse(currentDocStorage));
+
+    }
+    else if (currentDocs) {
+      currentDocs && (this.currentDocSate?.name?.length == 0) &&
+        (this.setCurrentFileAction(JSON.parse(currentDocs).slice(-1).shift()));
+    } else {
+      this.setDemoDoc();
+    }
+  }//
+
+  getEditorHeight() {
+    this.$nextTick(()=> {
+      let areaElement = this.$refs.mainEditor as HTMLAreaElement;
+      if (!areaElement) return
+      const editorHeight = window.innerHeight - areaElement.offsetTop - 100;
+
+      this.editorHeight = (editorHeight + 'px') ?? 'auto';
+      console.log("🚀 ~ Home ~ getEditorHeight ~ editorHeight:", this.editorHeight)
+    })
+    
+  }
+
+  mounted(): void {
+    //TODO: Demo demonstratn mode
+    this.setInitialDocument();
+    this.getEditorHeight();
   }
 
   unmounted() {

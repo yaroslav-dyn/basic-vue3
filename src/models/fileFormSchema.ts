@@ -1,4 +1,4 @@
-const FileFormScema = [
+const FileFormSchema = [
   {
     name: 'TEXT',
     data: [
@@ -83,4 +83,4 @@ const FileFormScema = [
 
 ]//!SECTION
 
-export default FileFormScema;
+export default FileFormSchema;

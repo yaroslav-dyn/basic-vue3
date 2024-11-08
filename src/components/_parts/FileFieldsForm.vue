@@ -1,14 +1,21 @@
 <template>
-  <el-form :model="actionsForm" class="doc__form">
+  <el-form
+    :model="actionsForm"
+    class="doc__form"
+  >
     <div
       class="d-flex wrapped"
       align="--baseline"
-      v-for="el in fileFormScemaArray"
+      v-for="el in FileFormSchemaArray"
       :key="el.name"
     >
       <!-- <span>{{el.name}}</span> -->
 
-      <el-form-item v-for="g in el.data" :key="g.elIndex" :style="g.style">
+      <el-form-item
+        v-for="g in el.data"
+        :key="g.elIndex"
+        :style="g.style"
+      >
         <div
           class="doc__form--label"
           v-if="
@@ -22,12 +29,10 @@
           </label>
         </div>
 
-        <template
-          v-if="
+        <template v-if="
             el.name === 'TEXT' ||
             (el.name === 'TASK' && currentFileData.docType === 'TASK')
-          "
-        >
+          ">
           <!-- NOTE: Text -->
           <el-input
             :name="g.key"
@@ -74,8 +79,8 @@
     <hr />
     <br />
     <div>
-      <!-- NOTE: Textarea -->
-      <el-input
+
+      <!-- <el-input
         name="Filedata"
         class="doc__form--textarea"
         v-model="currentFileData.data"
@@ -83,6 +88,14 @@
         type="textarea"
         placeholder="Please input"
         @change="setFileObject($event, 'data')"
+      /> -->
+      <hr />
+      <!-- NOTE: Editor/Textarea -->
+      <v-md-editor
+        :mode="'edit'"
+        height="40vh"
+        v-model="editorValue"
+        @change="changeMd"
       />
     </div>
   </el-form>
@@ -106,9 +119,16 @@ export default class FileFieldsForm extends mixins(
 ) {
 
   public fileDataProp?: FileTypesInterface;
+  public editorValue = ''
+
+   changeMd(e:Event | string) {
+    console.log('change markup', e)
+    this.currentFileData.data = e as string;
+  }
 
   mounted() {
-    this.currentFileData = this.fileDataProp ? this.fileDataProp : this.FileData;
+    this.currentFileData =  this.fileDataProp ?? this.FileData;
+    this.editorValue = this.currentFileData?.data || '';
   }
 }//LINK: src/mixins/documentOperations.mixin.ts
 </script>
