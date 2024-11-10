@@ -1,0 +1,27 @@
+/**
+  * SECTION: Rewrite element-ui css variables
+**/
+
+
+@mixin revrite-button-states($base-color) {
+  background-color: $base-color;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: $base-color;
+  }
+}
+
+.action__btn {
+  color: #fff;
+  border: none;
+  outline: none;
+
+  &.el-button--primary {
+    @include revrite-button-states(var(--button-primary));
+  }
+}

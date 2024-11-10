@@ -1,0 +1,446 @@
+{
+    "sourceFile": "src/store/index.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 107,
+            "patches": [
+                {
+                    "date": 1670332321142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1670332330340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n-    current\n+    currentTheme\n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670332337194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n-    currentTheme\n+    colorTheme: \n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670332362755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n-    colorTheme: \n+    colorTheme: '--light-theme'\n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670679898519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n-    colorTheme: '--light-theme'\n+    isDa: '--light-theme'\n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670679908284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n-    isDa: '--light-theme'\n+    isDarkTheme: false\n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670679923729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n-    isDarkTheme: false\n+    isDarkTheme: false,\n+    fontSize: \n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670679929047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export default createStore({\n   state: {\n     isDarkTheme: false,\n-    fontSize: \n+    fontSize: 16\n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670679936762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export default createStore({\n   state: {\n     isDarkTheme: false,\n-    fontSize: 16\n+    fontSize: 16;\n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670680005852,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export default createStore({\n   state: {\n     isDarkTheme: false,\n-    fontSize: 16;\n+    CUrrentfontSize: 16\n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670680011914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export default createStore({\n   state: {\n     isDarkTheme: false,\n-    CUrrentfontSize: 16\n+    currentfontSize: 16\n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670680022404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,10 @@\n \n export default createStore({\n   state: {\n     isDarkTheme: false,\n-    currentfontSize: 16\n+\n+    curentfontSize: 16\n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670680031037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export default createStore({\n   state: {\n     isDarkTheme: false,\n \n-    curentfontSize: 16\n+    current fontSize: 16\n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670680038465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export default createStore({\n   state: {\n     isDarkTheme: false,\n \n-    current fontSize: 16\n+    currentfontSize: 16\n   },\n   mutations: {},\n   actions: {},\n   modules: {},\n"
+                },
+                {
+                    "date": 1670680285478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,12 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n+\n+\n+\n+    \n     isDarkTheme: false,\n \n     currentfontSize: 16\n   },\n"
+                },
+                {
+                    "date": 1670680290870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n+      defau\n \n \n \n-    \n     isDarkTheme: false,\n \n     currentfontSize: 16\n   },\n"
+                },
+                {
+                    "date": 1670680299395,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n-      defau\n+      defaultFontSize\n \n \n \n     isDarkTheme: false,\n"
+                },
+                {
+                    "date": 1670680319621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n-      defaultFontSize\n+      defaultFontSize: 16,\n \n \n \n     isDarkTheme: false,\n"
+                },
+                {
+                    "date": 1670680962954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,13 +4,15 @@\n   state: {\n       defaultFontSize: 16,\n \n \n-\n     isDarkTheme: false,\n-\n     currentfontSize: 16\n   },\n   mutations: {},\n-  actions: {},\n+  actions: {\n+\n+    changeFontSize(state)\n+\n+  },\n   modules: {},\n });\n"
+                },
+                {
+                    "date": 1670680977062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,11 @@\n   },\n   mutations: {},\n   actions: {\n \n-    changeFontSize(state)\n+    changeFontSize(state, action) {\n+      \n+    }\n \n   },\n   modules: {},\n });\n"
+                },
+                {
+                    "date": 1670680982945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,13 +7,15 @@\n \n     isDarkTheme: false,\n     currentfontSize: 16\n   },\n-  mutations: {},\n+  mutations: {\n+    chan\n+  },\n   actions: {\n \n     changeFontSize(state, action) {\n-      \n+\n     }\n \n   },\n   modules: {},\n"
+                },
+                {
+                    "date": 1670680995231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,11 @@\n     isDarkTheme: false,\n     currentfontSize: 16\n   },\n   mutations: {\n-    chan\n+    changeFontSize(state) {\n+      \n+    }\n   },\n   actions: {\n \n     changeFontSize(state, action) {\n"
+                },
+                {
+                    "date": 1670681001662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     currentfontSize: 16\n   },\n   mutations: {\n     changeFontSize(state) {\n-      \n+      currentfontSize\n     }\n   },\n   actions: {\n \n"
+                },
+                {
+                    "date": 1670681010960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     isDarkTheme: false,\n     currentfontSize: 16\n   },\n   mutations: {\n-    changeFontSize(state) {\n+    changeFontSize(state, 'oparation') {\n       currentfontSize\n     }\n   },\n   actions: {\n"
+                },
+                {
+                    "date": 1670681016125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     isDarkTheme: false,\n     currentfontSize: 16\n   },\n   mutations: {\n-    changeFontSize(state, 'oparation') {\n+    changeFontSize(state, oparation) {\n       currentfontSize\n     }\n   },\n   actions: {\n"
+                },
+                {
+                    "date": 1670681031513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     isDarkTheme: false,\n     currentfontSize: 16\n   },\n   mutations: {\n-    changeFontSize(state, oparation) {\n+    changeFontSize(state, value) {\n       currentfontSize\n     }\n   },\n   actions: {\n"
+                },
+                {
+                    "date": 1670681037400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     isDarkTheme: false,\n     currentfontSize: 16\n   },\n   mutations: {\n-    changeFontSize(state, value) {\n+    changeFontSize(state, value: number) {\n       currentfontSize\n     }\n   },\n   actions: {\n"
+                },
+                {
+                    "date": 1670681046240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     currentfontSize: 16\n   },\n   mutations: {\n     changeFontSize(state, value: number) {\n-      currentfontSize\n+      state.currentfontSize\n     }\n   },\n   actions: {\n \n"
+                },
+                {
+                    "date": 1670681051496,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     currentfontSize: 16\n   },\n   mutations: {\n     changeFontSize(state, value: number) {\n-      state.currentfontSize\n+      state.currentfontSize = \n     }\n   },\n   actions: {\n \n"
+                },
+                {
+                    "date": 1670681065056,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     currentfontSize: 16\n   },\n   mutations: {\n     changeFontSize(state, value: number) {\n-      state.currentfontSize = \n+      state.currentfontSize = value;\n     }\n   },\n   actions: {\n \n"
+                },
+                {
+                    "date": 1670681086233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n   },\n   actions: {\n \n     changeFontSize(state, action) {\n-\n+        this.commit()\n     }\n \n   },\n   modules: {},\n"
+                },
+                {
+                    "date": 1670681102318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     }\n   },\n   actions: {\n \n-    changeFontSize(state, action) {\n+    changeFontSize(dispatch, commit) {\n         this.commit()\n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670681108674,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n   },\n   actions: {\n \n     changeFontSize(dispatch, commit) {\n-        this.commit()\n+        commit('')\n     }\n \n   },\n   modules: {},\n"
+                },
+                {
+                    "date": 1670681114636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n   },\n   actions: {\n \n     changeFontSize(dispatch, commit) {\n-        commit('')\n+      commit('changeFontSize', )\n     }\n \n   },\n   modules: {},\n"
+                },
+                {
+                    "date": 1670681139106,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,12 @@\n     }\n   },\n   actions: {\n \n-    changeFontSize(dispatch, commit) {\n+    changeFontSize({dispatch, commit) {\n+\n+\n+\n       commit('changeFontSize', )\n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670681145831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     }\n   },\n   actions: {\n \n-    changeFontSize({dispatch, commit) {\n+    changeFontSize({dispatch, commit}, ) {\n \n \n \n       commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670681153152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     }\n   },\n   actions: {\n \n-    changeFontSize({dispatch, commit}, ) {\n+    changeFontSize({dispatch, commit}) {\n \n \n \n       commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670681181028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,12 +14,10 @@\n     }\n   },\n   actions: {\n \n-    changeFontSize({dispatch, commit}) {\n+    changeFontSize({dispatch, commit}, '') {\n \n-\n-\n       commit('changeFontSize', )\n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670681186312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     }\n   },\n   actions: {\n \n-    changeFontSize({dispatch, commit}, '') {\n+    changeFontSize({dispatch, commit}, operation) {\n \n       commit('changeFontSize', )\n     }\n \n"
+                },
+                {
+                    "date": 1670681192838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,12 @@\n     }\n   },\n   actions: {\n \n-    changeFontSize({dispatch, commit}, operation) {\n+    changeFontSize({dispatch, commit}, operation: string) {\n \n+      \n+\n       commit('changeFontSize', )\n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670681198171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     changeFontSize({dispatch, commit}, operation: string) {\n \n       \n \n-      commit('changeFontSize', )\n+      //commit('changeFontSize', )\n     }\n \n   },\n   modules: {},\n"
+                },
+                {
+                    "date": 1670681205920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n   actions: {\n \n     changeFontSize({dispatch, commit}, operation: string) {\n \n+      console.log('');\n       \n \n       //commit('changeFontSize', )\n     }\n"
+                },
+                {
+                    "date": 1670681215176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n   actions: {\n \n     changeFontSize({dispatch, commit}, operation: string) {\n \n-      console.log('');\n+      console.log('act', operation);\n       \n \n       //commit('changeFontSize', )\n     }\n"
+                },
+                {
+                    "date": 1670682000013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n export default createStore({\n   state: {\n       defaultFontSize: 16,\n \n-\n     isDarkTheme: false,\n     currentfontSize: 16\n   },\n   mutations: {\n"
+                },
+                {
+                    "date": 1670682013200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,9 @@\n import { createStore } from \"vuex\";\n \n export default createStore({\n   state: {\n-      defaultFontSize: 16,\n-\n+    defaultFontSize: 16,\n     isDarkTheme: false,\n     currentfontSize: 16\n   },\n   mutations: {\n@@ -13,13 +12,13 @@\n     }\n   },\n   actions: {\n \n-    changeFontSize({dispatch, commit}, operation: string) {\n+    changeFontSize({ dispatch, commit }, operation: string) {\n \n       console.log('act', operation);\n-      \n \n+\n       //commit('changeFontSize', )\n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670682228054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,11 @@\n     changeFontSize({ dispatch, commit }, operation: string) {\n \n       console.log('act', operation);\n \n+      cosnt \n \n+\n       //commit('changeFontSize', )\n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670682233874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     changeFontSize({ dispatch, commit }, operation: string) {\n \n       console.log('act', operation);\n \n-      cosnt \n+      cosnt fs\n \n \n       //commit('changeFontSize', )\n     }\n"
+                },
+                {
+                    "date": 1670682247762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     changeFontSize({ dispatch, commit }, operation: string) {\n \n       console.log('act', operation);\n \n-      cosnt fs\n+      cosnt fontSizeVal\n \n \n       //commit('changeFontSize', )\n     }\n"
+                },
+                {
+                    "date": 1670682255079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     changeFontSize({ dispatch, commit }, operation: string) {\n \n       console.log('act', operation);\n \n-      cosnt fontSizeVal\n+      const fontSizeValue\n \n \n       //commit('changeFontSize', )\n     }\n"
+                },
+                {
+                    "date": 1670682264531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     changeFontSize({ dispatch, commit }, operation: string) {\n \n       console.log('act', operation);\n \n-      const fontSizeValue\n+      const fontSizeValue = \n \n \n       //commit('changeFontSize', )\n     }\n"
+                },
+                {
+                    "date": 1670682272664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,11 @@\n     changeFontSize({ dispatch, commit }, operation: string) {\n \n       console.log('act', operation);\n \n-      const fontSizeValue = \n+      const fontSizeValue = (\n+        \n+      )\n \n \n       //commit('changeFontSize', )\n     }\n"
+                },
+                {
+                    "date": 1670682283935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \n       console.log('act', operation);\n \n       const fontSizeValue = (\n-        \n+        'operation'\n       )\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682289378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \n       console.log('act', operation);\n \n       const fontSizeValue = (\n-        'operation'\n+        'operation === \n       )\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682319310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \n       console.log('act', operation);\n \n       const fontSizeValue = (\n-        'operation === \n+        operation === 'INCREASE_FONT_SIZE'\n       )\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682339603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \n       console.log('act', operation);\n \n       const fontSizeValue = (\n-        operation === 'INCREASE_FONT_SIZE'\n+        operation === 'INCREASE_FONT_SIZE' \n       )\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682348408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \n       console.log('act', operation);\n \n       const fontSizeValue = (\n-        operation === 'INCREASE_FONT_SIZE' \n+        operation === 'INCREASE_FONT_SIZE' ? \n       )\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682358345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \n       console.log('act', operation);\n \n       const fontSizeValue = (\n-        operation === 'INCREASE_FONT_SIZE' ? \n+        operation === 'INCREASE_FONT_SIZE' ? s\n       )\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682385537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,10 +16,12 @@\n     changeFontSize({ dispatch, commit }, operation: string) {\n \n       console.log('act', operation);\n \n+      const currentfontSize = this.state\n+\n       const fontSizeValue = (\n-        operation === 'INCREASE_FONT_SIZE' ? s\n+        operation === 'INCREASE_FONT_SIZE' ? \n       )\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682658051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     }\n   },\n   actions: {\n \n-    changeFontSize({ dispatch, commit }, operation: string) {\n+    changeFontSize({ state, commit }, operation: string) {\n \n       console.log('act', operation);\n \n       const currentfontSize = this.state\n"
+                },
+                {
+                    "date": 1670682663928,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     changeFontSize({ state, commit }, operation: string) {\n \n       console.log('act', operation);\n \n-      const currentfontSize = this.state\n+      const currentfontSize = state.defaultFontSize\n \n       const fontSizeValue = (\n         operation === 'INCREASE_FONT_SIZE' ? \n       )\n"
+                },
+                {
+                    "date": 1670682675092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     changeFontSize({ state, commit }, operation: string) {\n \n       console.log('act', operation);\n \n-      const currentfontSize = state.defaultFontSize\n+      let currentfontSize = state.defaultFontSize\n \n       const fontSizeValue = (\n         operation === 'INCREASE_FONT_SIZE' ? \n       )\n"
+                },
+                {
+                    "date": 1670682682606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n       let currentfontSize = state.defaultFontSize\n \n       const fontSizeValue = (\n-        operation === 'INCREASE_FONT_SIZE' ? \n+        operation === 'INCREASE_FONT_SIZE' ? currentfontSize\n       )\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682688916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n       let currentfontSize = state.defaultFontSize\n \n       const fontSizeValue = (\n-        operation === 'INCREASE_FONT_SIZE' ? currentfontSize\n+        operation === 'INCREASE_FONT_SIZE' ? currentfontSize +=\n       )\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682696633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n       let currentfontSize = state.defaultFontSize\n \n       const fontSizeValue = (\n-        operation === 'INCREASE_FONT_SIZE' ? currentfontSize +=\n+        operation === 'INCREASE_FONT_SIZE' ? currentfontSize += 1\n       )\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682705214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n       let currentfontSize = state.defaultFontSize\n \n       const fontSizeValue = (\n-        operation === 'INCREASE_FONT_SIZE' ? currentfontSize += 1\n+        operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++\n       )\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682718956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,10 @@\n \n       let currentfontSize = state.defaultFontSize\n \n       const fontSizeValue = (\n-        operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++\n+        operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++ : \n+        \n       )\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682734774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,11 +18,14 @@\n       console.log('act', operation);\n \n       let currentfontSize = state.defaultFontSize\n \n+\n+      \n+\n       const fontSizeValue = (\n         operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++ : \n-        \n+\n       )\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682752047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n       let currentfontSize = state.defaultFontSize\n \n \n-      \n+      switch()\n \n       const fontSizeValue = (\n         operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++ : \n \n"
+                },
+                {
+                    "date": 1670682760998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,11 @@\n \n       let currentfontSize = state.defaultFontSize\n \n \n-      switch()\n+      switch (operation) {\n+        case \n+      }\n \n       const fontSizeValue = (\n         operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++ : \n \n"
+                },
+                {
+                    "date": 1670682771240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,10 @@\n       let currentfontSize = state.defaultFontSize\n \n \n       switch (operation) {\n-        case \n+        case 'INCREASE_FONT_SIZE' :\n+          \n       }\n \n       const fontSizeValue = (\n         operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++ : \n"
+                },
+                {
+                    "date": 1670682781482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \n \n       switch (operation) {\n         case 'INCREASE_FONT_SIZE' :\n-          \n+          currentfontSize \n       }\n \n       const fontSizeValue = (\n         operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++ : \n"
+                },
+                {
+                    "date": 1670682797156,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,11 @@\n \n \n       switch (operation) {\n         case 'INCREASE_FONT_SIZE' :\n-          currentfontSize \n+          currentfontSize ++;\n+          break;\n+          \n       }\n \n       const fontSizeValue = (\n         operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++ : \n"
+                },
+                {
+                    "date": 1670682823792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n       switch (operation) {\n         case 'INCREASE_FONT_SIZE' :\n           currentfontSize ++;\n           break;\n-          \n+        case 'INCREASE_FONT_SIZE':\n       }\n \n       const fontSizeValue = (\n         operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++ : \n"
+                },
+                {
+                    "date": 1670682834472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n       switch (operation) {\n         case 'INCREASE_FONT_SIZE' :\n           currentfontSize ++;\n           break;\n-        case 'INCREASE_FONT_SIZE':\n+        case 'DECREASE_FONT_SIZE':\n       }\n \n       const fontSizeValue = (\n         operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++ : \n"
+                },
+                {
+                    "date": 1670682851634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,9 @@\n         case 'INCREASE_FONT_SIZE' :\n           currentfontSize ++;\n           break;\n         case 'DECREASE_FONT_SIZE':\n+          \n       }\n \n       const fontSizeValue = (\n         operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++ : \n"
+                },
+                {
+                    "date": 1670682857842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         case 'INCREASE_FONT_SIZE' :\n           currentfontSize ++;\n           break;\n         case 'DECREASE_FONT_SIZE':\n-          \n+          currentfontSize--;\n       }\n \n       const fontSizeValue = (\n         operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++ : \n"
+                },
+                {
+                    "date": 1670682865599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,14 +27,9 @@\n         case 'DECREASE_FONT_SIZE':\n           currentfontSize--;\n       }\n \n-      const fontSizeValue = (\n-        operation === 'INCREASE_FONT_SIZE' ? currentfontSize ++ : \n \n-      )\n-\n-\n       //commit('changeFontSize', )\n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670682872065,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,13 +14,10 @@\n   actions: {\n \n     changeFontSize({ state, commit }, operation: string) {\n \n-      console.log('act', operation);\n-\n       let currentfontSize = state.defaultFontSize\n \n-\n       switch (operation) {\n         case 'INCREASE_FONT_SIZE' :\n           currentfontSize ++;\n           break;\n"
+                },
+                {
+                    "date": 1670682891802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,10 @@\n           currentfontSize ++;\n           break;\n         case 'DECREASE_FONT_SIZE':\n           currentfontSize--;\n+          break;\n+          default\n       }\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682899999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n           break;\n         case 'DECREASE_FONT_SIZE':\n           currentfontSize--;\n           break;\n-          default\n+          default: \n       }\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682934505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n           break;\n         case 'DECREASE_FONT_SIZE':\n           currentfontSize--;\n           break;\n-          default: \n+          default \n       }\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682967329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,12 +20,13 @@\n       switch (operation) {\n         case 'INCREASE_FONT_SIZE' :\n           currentfontSize ++;\n           break;\n-        case 'DECREASE_FONT_SIZE':\n+          case 'DECREASE_FONT_SIZE':\n           currentfontSize--;\n           break;\n-          default \n+          default: \n+          \n       }\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682979639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n           case 'DECREASE_FONT_SIZE':\n           currentfontSize--;\n           break;\n           default: \n-          \n+          ''\n       }\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682986225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n           case 'DECREASE_FONT_SIZE':\n           currentfontSize--;\n           break;\n           default: \n-          ''\n+          false\n       }\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670682992487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,9 @@\n           break;\n           case 'DECREASE_FONT_SIZE':\n           currentfontSize--;\n           break;\n-          default: \n-          false\n+          default: false\n       }\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670683012305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,10 @@\n           break;\n           case 'DECREASE_FONT_SIZE':\n           currentfontSize--;\n           break;\n-          default: false\n+          default: \n+            logg\n       }\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670683023403,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n           case 'DECREASE_FONT_SIZE':\n           currentfontSize--;\n           break;\n           default: \n-            logg\n+            \n       }\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670683038168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,13 +20,13 @@\n       switch (operation) {\n         case 'INCREASE_FONT_SIZE' :\n           currentfontSize ++;\n           break;\n-          case 'DECREASE_FONT_SIZE':\n+          `case 'DECREASE_FONT_SIZE':\n           currentfontSize--;\n           break;\n           default: \n-            \n+            false\n       }\n \n \n       //commit('changeFontSize', )\n"
+                },
+                {
+                    "date": 1670683045834,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,12 +20,12 @@\n       switch (operation) {\n         case 'INCREASE_FONT_SIZE' :\n           currentfontSize ++;\n           break;\n-          `case 'DECREASE_FONT_SIZE':\n+        case 'DECREASE_FONT_SIZE':\n           currentfontSize--;\n           break;\n-          default: \n+        default: \n             false\n       }\n \n \n"
+                },
+                {
+                    "date": 1670683265235,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,11 +26,9 @@\n           break;\n         default: \n             false\n       }\n-\n-\n-      //commit('changeFontSize', )\n+      commit('changeFontSize', )\n     }\n \n   },\n   modules: {},\n"
+                },
+                {
+                    "date": 1670683276515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,10 @@\n           break;\n         default: \n             false\n       }\n-      commit('changeFontSize', )\n+\n+      commit('changeFontSize', currentfontSize)\n     }\n \n   },\n   modules: {},\n"
+                },
+                {
+                    "date": 1670683284335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,13 @@\n     isDarkTheme: false,\n     currentfontSize: 16\n   },\n   mutations: {\n+\n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n     }\n+    \n   },\n   actions: {\n \n     changeFontSize({ state, commit }, operation: string) {\n"
+                },
+                {
+                    "date": 1670683883228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,12 @@\n   mutations: {\n \n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n+      console.log('mutate fs');\n+      \n     }\n-    \n+\n   },\n   actions: {\n \n     changeFontSize({ state, commit }, operation: string) {\n"
+                },
+                {
+                    "date": 1670683888634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   mutations: {\n \n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n-      console.log('mutate fs');\n+      console.log('mutate fs', );\n       \n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670683896317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   mutations: {\n \n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n-      console.log('mutate fs', );\n+      console.log('mutate fs', state.currentfontSize);\n       \n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670683903210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n       console.log('mutate fs', state.currentfontSize);\n       \n+      \n     }\n \n   },\n   actions: {\n"
+                },
+                {
+                    "date": 1670683920740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,10 @@\n \n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n       console.log('mutate fs', state.currentfontSize);\n+      localStorage.setItem()\n       \n-      \n     }\n \n   },\n   actions: {\n"
+                },
+                {
+                    "date": 1670683928504,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n       console.log('mutate fs', state.currentfontSize);\n-      localStorage.setItem()\n+      localStorage.setItem('currentfontSize)\n       \n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670683938708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n       console.log('mutate fs', state.currentfontSize);\n-      localStorage.setItem('currentfontSize)\n+      localStorage.setItem('currentfontSize', state.currentfontSize)\n       \n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670683952772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n       console.log('mutate fs', state.currentfontSize);\n-      localStorage.setItem('currentfontSize', state.currentfontSize)\n+      localStorage.setItem('currentfontSize', state.currentfontSize.to)\n       \n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670683958178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n       console.log('mutate fs', state.currentfontSize);\n-      localStorage.setItem('currentfontSize', state.currentfontSize.to)\n+      localStorage.setItem('currentfontSize', state.currentfontSize.toS)\n       \n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670684036087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,18 +10,18 @@\n \n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n       console.log('mutate fs', state.currentfontSize);\n-      localStorage.setItem('currentfontSize', state.currentfontSize.toS)\n+      localStorage.setItem('currentfontSize', state.currentfontSize.toString())\n       \n     }\n \n   },\n   actions: {\n \n     changeFontSize({ state, commit }, operation: string) {\n \n-      let currentfontSize = state.defaultFontSize\n+      let currentfontSize = state.currentfontSize\n \n       switch (operation) {\n         case 'INCREASE_FONT_SIZE' :\n           currentfontSize ++;\n"
+                },
+                {
+                    "date": 1670684421342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export default createStore({\n   state: {\n     defaultFontSize: 16,\n     isDarkTheme: false,\n-    currentfontSize: 16\n+    currentfontSize: 18\n   },\n   mutations: {\n \n     changeFontSize(state, value: number) {\n@@ -19,9 +19,9 @@\n   actions: {\n \n     changeFontSize({ state, commit }, operation: string) {\n \n-      let currentfontSize = state.currentfontSize\n+      let currentfontSize = state.currentfontSize;\n \n       switch (operation) {\n         case 'INCREASE_FONT_SIZE' :\n           currentfontSize ++;\n"
+                },
+                {
+                    "date": 1670684431688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export default createStore({\n   state: {\n     defaultFontSize: 16,\n     isDarkTheme: false,\n-    currentfontSize: 18\n+    currentfontSize: 16\n   },\n   mutations: {\n \n     changeFontSize(state, value: number) {\n"
+                },
+                {
+                    "date": 1670684772474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n       console.log('mutate fs', state.currentfontSize);\n-      localStorage.setItem('currentfontSize', state.currentfontSize.toString())\n+      localStorage.setItem('currentfontSize',)\n       \n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670684782523,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n       console.log('mutate fs', state.currentfontSize);\n-      localStorage.setItem('currentfontSize',)\n+      localStorage.setItem('currentfontSize', state.currentfontSize as string)\n       \n     }\n \n   },\n"
+                },
+                {
+                    "date": 1670684801429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n     changeFontSize(state, value: number) {\n       state.currentfontSize = value;\n       console.log('mutate fs', state.currentfontSize);\n-      localStorage.setItem('currentfontSize', ,<string>state.currentfontSize as string)\n+      localStorage.setItem('currentfontSize', ,state.currentfontSize as string)\n       \n     }\n \n   },\n"
+                },
+                {
+                    "date": 1673187751402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n     setFillesArrayMutation(state: StateInterface, data) {\n       state.filesArrayState = data;\n     },\n \n-    openFileMutsation\n+    openFileMutsatio\n \n \n   },\n   getters: {\n"
+                }
+            ],
+            "date": 1670332321142,
+            "name": "Commit-0",
+            "content": "import { createStore } from \"vuex\";\n\nexport default createStore({\n  state: {\n    current\n  },\n  mutations: {},\n  actions: {},\n  modules: {},\n});\n"
+        }
+    ]
+}

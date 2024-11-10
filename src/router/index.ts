@@ -2,6 +2,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -9,16 +10,47 @@ const routes: Array<RouteRecordRaw> = [
     components: {
       default: Home
     },
+    meta: {
+      projectName: 'TrueStory'
+    }
+  },
+  {
+    path: "/editor",
+    name: "Editor",
+    component: () =>
+      import("../components/EditorView.vue"),
+  },
+  {
+    path: "/files",
+    name: "FilesList",
+    component: () =>
+      import("../views/FilesView.vue"),
+  },
+  {
+    path: "/files/:fileNumber",
+    name: "OneFile",
+    props: true,
+    component: () =>
+      import("../views/FileView.vue"),
+  },
+  {
+    path: "/board",
+    name: "TaskBoard",
+    component: () =>
+      import("../views/BoardView.vue"),
   },
   {
     path: "/about",
     name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+      import("../views/AboutView.vue"),
   },
+  {
+    path: "/help",
+    name: "Help",
+    component: () =>
+      import("../views/HelpView.vue"),
+  }
 ];
 
 const router = createRouter({

@@ -1,16 +1,16 @@
 <template>
-  <div class="home">
-    <MemoIndex/>
+  <div class="home content__page--container">
+    <EditorIndex/>
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import MemoIndex from "@/components/Memo/MemoIndex.vue";
+import EditorIndex from "@/components/EditorView.vue";
 
 @Options({
   components: {
-    MemoIndex,
+    EditorIndex,
   },
 })
 export default class Home extends Vue {}

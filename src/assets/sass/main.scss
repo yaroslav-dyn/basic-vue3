@@ -1,0 +1,193 @@
+@use '_theme' as *;
+@use '_helpers' as *;
+@use '_elements' as *;
+
+:root {
+  --editor-bg: #fff;
+  --editor-text: #444;
+
+  --editor-bg--light: #efefef;
+  --editor-text--light: #444;
+
+  --editor-bg--dark: #0b1821;
+  --editor-text--dark: #fff;
+  --editor--outline-width: 1px;
+
+  --light--outline_color: #ffd04b;
+  --dark--outline_color: #ffd04b;
+
+  --button-primary: green;
+  --button-default: #efefef;
+
+  --header-height: 60px;
+  --footer-height: 80px;
+
+  --default-column-gaps: 1rem;
+}
+
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+  background-color: var(--editor-bg);
+  color: var(--editor-text);
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.box-sizing {
+  box-sizing: border-box;
+}
+
+.main--element {
+  min-height: 100vh;
+  padding-bottom: 1.2rem;
+}
+
+.top__menu {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.--dark-theme {
+  .el-drawer.open {
+    color: var(--editor-text--dark);
+    background-color: var(--editor-bg--dark);
+  }
+  .el-dialog {
+    color: var(--editor-text--dark);
+    background-color: var(--editor-bg--dark);
+  }
+  .content__page--container {
+    box-sizing: border-box;
+    color: var(--editor-text--dark);
+    background-color: var(--editor-bg--dark);
+  }
+}
+
+// NOTE: Main editable element
+.home {
+  padding: 0 1.2rem;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+
+  .--light-theme & {
+    background-color: var(--editor-bg--light);
+    color: var(--editor-text--light);
+
+    .editor--area {
+      &:focus {
+        outline-color: var(--light--outline_color);
+      }
+    }
+  }
+
+  .--dark-theme & {
+    background-color: var(--editor-bg--dark);
+    color: var(--editor-text--dark);
+
+    .editor--area {
+     background-color: var(--el-color-info-dark-2);
+      &:focus,
+      &.isEditable {
+        outline-color: var(--dark--outline_color);
+      }
+    }
+    .no--invert {
+      color: initial !important;
+    }
+  }
+}
+
+.editor {
+  &--wrapper {
+    padding: 1.2rem 1rem;
+  }
+
+  &--area {
+    min-height: 69vh;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 1.2rem;
+    // text-indent: 1.2rem;
+    white-space: pre-line;
+    line-height: 1.6;
+    background: #fff;
+    border-radius: 6px;
+
+    &:focus,
+    &.isEditable {
+      outline-width: thin;
+      outline-style: solid;
+      outline-width: var(--editor--outline-width);
+      outline-color: var(--light--outline_color);
+    }
+
+  }
+
+}
+
+.app__footer {
+  min-height: var(--footer-height);
+  //background-color: var(--footer-bg-color);
+  background-color: var(--editor-bg--light);
+}
+
+.command--panel {
+  &__search {
+    flex-basis: 40%;
+
+    .input_autocomplete {
+      width: 100%;
+    }
+  }
+}
+
+
+/*
+* SECTION: UI Fast command buttos 
+*/
+.interface__show-files--button {
+  position: fixed;
+  right: 8px;
+  top: 115px;
+  z-index: 10;
+  &.open {
+    top: 191px;
+  }
+  &.add {
+    top: 77px;
+  }
+  &.save {
+    top: 115px;
+  }
+  &.edit {
+    top: 153px;
+  }
+}
+
+.content__page {
+  &--container {
+    box-sizing: border-box;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    padding: 1.2rem;
+    padding-right: 4rem;
+  }
+}
+
+//SECTION: Files Card item
+.card__module {
+  .item__short_description {
+      .item__box {
+        &--title {
+          @include text-elepsis(100px);
+        }
+      }
+    }
+}

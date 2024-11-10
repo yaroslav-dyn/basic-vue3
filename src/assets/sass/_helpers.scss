@@ -1,0 +1,106 @@
+.d-flex {
+  display: flex;
+
+  &.wrapped {
+    flex-wrap: wrap;
+  }
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &.grow {
+    flex: 1;
+  }
+
+  
+
+  &.row--revers {
+    flex-direction: row-reverse;
+    .gaps {
+      margin-left: var(--default-column-gaps);
+    }
+  }
+
+  .gaps {
+    margin-left: var(--default-column-gaps);
+  }
+
+  // Add col attribute with 12 column grid;
+  @for $i from 1 through 12 {
+    $grid-item: $i / 12;
+    $flex-basis: percentage($grid-item);
+
+    [col='#{$i}'] {
+      flex-basis: $flex-basis;
+
+      &.gaps {
+        flex-basis: calc(#{$flex-basis} - var(--default-column-gaps) * 2);
+      }
+    }
+  }
+
+
+
+
+  &[align='--baseline'] {
+    align-items: baseline;
+  }
+
+  &[align='--center'] {
+    align-items: center;
+  }
+
+  &[align='--end'] {
+    align-items: end;
+  }
+
+
+  &[justify='--stretch'] {
+    justify-content: stretch;
+  }
+
+  &[justify='--space-between'] {
+    justify-content: space-between;
+  }
+
+  &[justify='--space-around'] {
+    justify-content: space-around;
+  }
+
+}
+
+[flex-grow="1"] {
+  flex-grow: 1;
+}
+
+
+.text {
+  &--left {
+    text-align: left;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--right {
+    text-align: right;
+  }
+}
+
+//sizes
+.w100 {
+  width: 100%;
+}
+
+.action__pointer {
+  cursor: pointer;
+}
+
+@mixin text-elepsis($block-width) {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: $block-width;
+}

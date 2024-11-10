@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/components/EditorView.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1670362398330,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1670362405306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,10 @@\n <template>\n   <div class=\"d-flex\" align=\"--center\" justify=\"--space-between\">\n     <div>\n+      <input type=\"text\" v-model=\"currentDocName\" disabled />\n+    </div>\n+    <div>\n       <label for=\"readMode\">{{isEditable ? 'Write' : 'Read'}}</label>\n       <input type=\"checkbox\" id=\"readMode\" :value=\"isEditable\" @change=\"changeEditorState\" />\n     </div>\n   </div>\n"
+                },
+                {
+                    "date": 1670366664854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,10 @@\n     </div>\n     <div>\n       <label for=\"readMode\">{{isEditable ? 'Write' : 'Read'}}</label>\n       <input type=\"checkbox\" id=\"readMode\" :value=\"isEditable\" @change=\"changeEditorState\" />\n+          <div class=\"switcher--element\">\n+            <el-switch inline-prompt :active-icon=\"Moon\" :inactive-icon=\"Sunny\" v-model=\"isDarkTheme\" />\n     </div>\n   </div>\n  \n   <br />\n"
+                },
+                {
+                    "date": 1670366670342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     <div>\n       <label for=\"readMode\">{{isEditable ? 'Write' : 'Read'}}</label>\n       <input type=\"checkbox\" id=\"readMode\" :value=\"isEditable\" @change=\"changeEditorState\" />\n           <div class=\"switcher--element\">\n-            <el-switch inline-prompt :active-icon=\"Moon\" :inactive-icon=\"Sunny\" v-model=\"isDarkTheme\" />\n+      <el-switch inline-prompt :active-icon=\"Moon\" :inactive-icon=\"Edit\" v-model=\"isDarkTheme\" />\n     </div>\n   </div>\n  \n   <br />\n"
+                },
+                {
+                    "date": 1670366687443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     <div>\n       <label for=\"readMode\">{{isEditable ? 'Write' : 'Read'}}</label>\n       <input type=\"checkbox\" id=\"readMode\" :value=\"isEditable\" @change=\"changeEditorState\" />\n           <div class=\"switcher--element\">\n-      <el-switch inline-prompt :active-icon=\"Moon\" :inactive-icon=\"Edit\" v-model=\"isDarkTheme\" />\n+      <el-switch inline-prompt :active-icon=\"Lock\" :inactive-icon=\"Edit\" v-model=\"isDarkTheme\" />\n     </div>\n   </div>\n  \n   <br />\n@@ -19,8 +19,9 @@\n \n <script lang=\"ts\">\n import { Options, mixins } from \"vue-class-component\";\n import General from \"@/mixins/General\";\n+import {Edit}\n \n @Options({\n   components: {},\n })\n"
+                },
+                {
+                    "date": 1670366694982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n <script lang=\"ts\">\n import { Options, mixins } from \"vue-class-component\";\n import General from \"@/mixins/General\";\n-import {Edit, Lock} from \n+import {Edit, Lock} from ''\n \n @Options({\n   components: {},\n })\n"
+                },
+                {
+                    "date": 1670532941958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     </div>\n     <div>\n       <el-switch\n         inline-prompt\n-        :active-icon=\"LockIcon\"\n+        :active-icon=\"LockIcon \"\n         :inactive-icon=\"\"\n         active-color=\"var(--el-menu-active-color)\"\n         inactive-color=\"green\"\n         @change=\"changeEditorState\"\n"
+                }
+            ],
+            "date": 1670362398330,
+            "name": "Commit-0",
+            "content": "<template>\n  <div class=\"d-flex\" align=\"--center\" justify=\"--space-between\">\n    <div>\n      <label for=\"readMode\">{{isEditable ? 'Write' : 'Read'}}</label>\n      <input type=\"checkbox\" id=\"readMode\" :value=\"isEditable\" @change=\"changeEditorState\" />\n    </div>\n  </div>\n \n  <br />\n  <div class=\"editor--area\" ref=\"mainEditor\" :contenteditable=\"isEditable\" @blur=\"updateValue($event)\">\n      {{ currentDoc }}\n  </div>\n</template>\n\n<script lang=\"ts\">\nimport { Options, mixins } from \"vue-class-component\";\nimport General from \"@/mixins/General\";\n\n@Options({\n  components: {},\n})\nexport default class Home extends mixins(General) {\n\n   #refs!: {\n     mainEditor: HTMLElement\n  }\n\n  public currentDocName = 'File_1';\n  \n  public isEditable  = false;\n  currentDoc = \"Hello!\"\n\n\n  changeEditorState() {\n    this.isEditable = !this.isEditable;\n    let areaElement = this.$refs.mainEditor as HTMLAreaElement;\n    this.$nextTick(()=> {\n      this.isEditable && areaElement.focus();\n      document.execCommand('selectAll', false, undefined);\n      document?.getSelection()?.collapseToEnd();\n    })\n  }\n\n  updateValue(contentEvent: any): void {\n    localStorage.setItem(this.currentDocName, contentEvent.srcElement!.innerText);\n  }\n\n\n  mounted(): void {\n    const currentDoc = localStorage.getItem(this.currentDocName);\n    currentDoc && (this.currentDoc = currentDoc);\n  }\n}\n</script>\n"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "sourceFile": ".eslintrc.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1670322084023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1670322090418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,8 @@\n   },\n   rules: {\n     \"no-console\": process.env.NODE_ENV === \"production\" ? \"warn\" : \"off\",\n     \"no-debugger\": process.env.NODE_ENV === \"production\" ? \"warn\" : \"off\",\n-    \"rules\": {\n       \"@typescript-eslint/ban-ts-ignore\": \"off\"\n     }\n   },\n   overrides: [\n"
+                },
+                {
+                    "date": 1670322096484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,9 @@\n   },\n   rules: {\n     \"no-console\": process.env.NODE_ENV === \"production\" ? \"warn\" : \"off\",\n     \"no-debugger\": process.env.NODE_ENV === \"production\" ? \"warn\" : \"off\",\n-      \"@typescript-eslint/ban-ts-ignore\": \"off\"\n-    }\n+    \"@typescript-eslint/ban-ts-ignore\": \"off\"\n   },\n   overrides: [\n     {\n       files: [\n"
+                },
+                {
+                    "date": 1670322214941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,12 @@\n   },\n   rules: {\n     \"no-console\": process.env.NODE_ENV === \"production\" ? \"warn\" : \"off\",\n     \"no-debugger\": process.env.NODE_ENV === \"production\" ? \"warn\" : \"off\",\n-    \"@typescript-eslint/ban-ts-ignore\": \"off\"\n+    '@typescript-eslint/ban-ts-comment': [\n+      'error',\n+      { 'ts-ignore': 'allow-with-description' },\n+    ],\n   },\n   overrides: [\n     {\n       files: [\n"
+                }
+            ],
+            "date": 1670322084023,
+            "name": "Commit-0",
+            "content": "module.exports = {\n  root: true,\n  env: {\n    node: true,\n  },\n  extends: [\n    \"plugin:vue/vue3-essential\",\n    \"eslint:recommended\",\n    \"@vue/typescript/recommended\",\n    \"@vue/prettier\",\n    \"@vue/prettier/@typescript-eslint\",\n  ],\n  parserOptions: {\n    ecmaVersion: 2020,\n  },\n  rules: {\n    \"no-console\": process.env.NODE_ENV === \"production\" ? \"warn\" : \"off\",\n    \"no-debugger\": process.env.NODE_ENV === \"production\" ? \"warn\" : \"off\",\n    \"rules\": {\n      \"@typescript-eslint/ban-ts-ignore\": \"off\"\n    }\n  },\n  overrides: [\n    {\n      files: [\n        \"**/__tests__/*.{j,t}s?(x)\",\n        \"**/tests/unit/**/*.spec.{j,t}s?(x)\",\n      ],\n      env: {\n        jest: true,\n      },\n    },\n  ],\n};\n"
+        }
+    ]
+}

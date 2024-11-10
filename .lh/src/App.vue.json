@@ -1,0 +1,66 @@
+{
+    "sourceFile": "src/App.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1670320934113,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1670332495059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n <template>\n+  <main></main>\n   <div id=\"nav\">\n     <router-link to=\"/\">Home</router-link> |\n     <router-link to=\"/about\">About</router-link>\n   </div>\n"
+                },
+                {
+                    "date": 1670332502622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,12 @@\n <template>\n-  <main></main>\n-  <div id=\"nav\">\n-    <router-link to=\"/\">Home</router-link> |\n-    <router-link to=\"/about\">About</router-link>\n-  </div>\n-  <router-view />\n+  <main>\n+    <div id=\"nav\">\n+      <router-link to=\"/\">Home</router-link> |\n+      <router-link to=\"/about\">About</router-link>\n+    </div>\n+    <router-view />\n+  </main>\n </template>\n \n <style lang=\"scss\">\n #app {\n"
+                },
+                {
+                    "date": 1670332512557,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,12 @@\n     <router-view />\n   </main>\n </template>\n \n+\n+\n+@Options\n+\n <style lang=\"scss\">\n #app {\n   font-family: Avenir, Helvetica, Arial, sans-serif;\n   -webkit-font-smoothing: antialiased;\n"
+                },
+                {
+                    "date": 1670332780541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\n   <main>\n-    <div id=\"nav\">\n+    <div id=\"nav\" class=\"\">\n       <router-link to=\"/\">Home</router-link> |\n       <router-link to=\"/about\">About</router-link>\n     </div>\n     <router-view />\n@@ -9,9 +9,9 @@\n </template>\n \n \n \n-@Options\n+@Options({})\n \n <style lang=\"scss\">\n #app {\n   font-family: Avenir, Helvetica, Arial, sans-serif;\n"
+                },
+                {
+                    "date": 1670332789810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n   <main>\n     <div id=\"nav\" class=\"\">\n       <router-link to=\"/\">Home</router-link> |\n       <router-link to=\"/about\">About</router-link>\n+      <el-switch v-model=\"value\" active-text=\"Open\" inactive-text=\"Close\"\n     </div>\n     <router-view />\n   </main>\n </template>\n"
+                },
+                {
+                    "date": 1670332796682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   <main>\n     <div id=\"nav\" class=\"\">\n       <router-link to=\"/\">Home</router-link> |\n       <router-link to=\"/about\">About</router-link>\n-      <el-switch v-model=\"value\" active-text=\"Open\" inactive-text=\"Close\"\n+      <el-switch v-model=\"value\" active-text=\"Open\" inactive-text=\"Close\" />>\n     </div>\n     <router-view />\n   </main>\n </template>\n"
+                },
+                {
+                    "date": 1670332807550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n \n \n \n @Options({})\n+export defa\n \n <style lang=\"scss\">\n #app {\n   font-family: Avenir, Helvetica, Arial, sans-serif;\n"
+                },
+                {
+                    "date": 1670332815295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n \n \n @Options({})\n-export defa\n+export default class app\n \n <style lang=\"scss\">\n #app {\n   font-family: Avenir, Helvetica, Arial, sans-serif;\n"
+                },
+                {
+                    "date": 1670332828393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,11 @@\n \n \n \n @Options({})\n-export default class app\n+export default class AppComponent extends Vue {\n+  \n+}\n \n <style lang=\"scss\">\n #app {\n   font-family: Avenir, Helvetica, Arial, sans-serif;\n"
+                },
+                {
+                    "date": 1670332868767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,12 +9,12 @@\n   </main>\n </template>\n \n \n-\n+<script lang=\"\"></script>\n @Options({})\n export default class AppComponent extends Vue {\n-  \n+\n }\n \n <style lang=\"scss\">\n #app {\n"
+                },
+                {
+                    "date": 1670332942628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   </main>\n </template>\n \n \n-<script lang=\"ts\"></script>\n+<script lang=\"ts\"><\\/script>\n @Options({})\n export default class AppComponent extends Vue {\n \n }\n"
+                },
+                {
+                    "date": 1670333563817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n })\n export default class AppComponent extends Vue {\n   \n \n-this.value = tjis.\n+this.value = tis.\n \n }\n </script>\n \n"
+                }
+            ],
+            "date": 1670320934113,
+            "name": "Commit-0",
+            "content": "<template>\n  <div id=\"nav\">\n    <router-link to=\"/\">Home</router-link> |\n    <router-link to=\"/about\">About</router-link>\n  </div>\n  <router-view />\n</template>\n\n<style lang=\"scss\">\n#app {\n  font-family: Avenir, Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #2c3e50;\n}\n\n#nav {\n  padding: 30px;\n\n  a {\n    font-weight: bold;\n    color: #2c3e50;\n\n    &.router-link-exact-active {\n      color: #42b983;\n    }\n  }\n}\n</style>\n"
+        }
+    ]
+}

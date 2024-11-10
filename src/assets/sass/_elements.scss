@@ -1,0 +1,47 @@
+//SECTION: Modals
+.action__modal {
+  .el-dialog__header {
+    margin-right: 0;
+    border-bottom: 1px solid #dedede;
+  }
+}
+
+//SECTION Drawer
+.interface__drawer {
+  .el-drawer__header {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/**SECTION modal 
+* Action modal with colors
+**/ 
+.action_modal:not(.default__bg) {
+  .el-dialog__header {
+    color: #fff;
+    margin-right: 0;
+    .el-dialog__close {
+        color: #fff;  
+    }
+  }
+}
+
+.el-dialog__header {
+  .default__bg & {
+    background-color: var(--el-color-default);
+    color: var(--el-text-color-primary);
+  }
+  .primary__bg & {
+    background-color: var(--el-color-primary);
+  }
+  .info__bg & {
+    background-color: var(--el-color-info);
+  }
+  .warning__bg & {
+    background-color: var(--el-color-warning);
+  }
+  .danger__bg & {
+    background-color: var(--el-color-danger);
+  }
+}
