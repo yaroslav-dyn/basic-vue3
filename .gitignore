@@ -24,3 +24,5 @@ pnpm-debug.log*
 *.sw?
 .lh
 
+.lh
+.vscode
